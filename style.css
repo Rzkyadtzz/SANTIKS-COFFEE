@@ -126,15 +126,23 @@ body {
 }
 
 /* Hero */
+/* Hero (optimized for PageSpeed) */
 .hero {
   padding-top: 110px;
   padding-bottom: 70px;
+
   background:
     linear-gradient(to bottom, rgba(39, 20, 97, 0.1), rgba(251, 251, 252, 1)),
     url("assets/img/bg1.webp");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+
+  /* Matikan fixed untuk performa (besar efeknya) */
+  background-attachment: scroll;
+
+  /* Render optimization (optional, tapi membantu di halaman panjang) */
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
 }
 .hero-inner {
   padding-top: 24px;
@@ -237,7 +245,7 @@ body {
 .menu-img,
 .pop-img {
   width: 100%;
-  height: 160px; /* atau pakai aspect-ratio */
+  aspect-ratio: 3 / 2;
   object-fit: cover; /* ini yang bikin tidak gepeng */
   object-position: center;
   display: block;
@@ -279,8 +287,15 @@ body {
     url("assets/img/bg.webp");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+
+  /* PERFORMANCE FIX */
+  background-attachment: scroll;
+
   padding-block: 80px;
+
+  /* Render optimization for long section */
+  content-visibility: auto;
+  contain-intrinsic-size: 1200px;
 }
 #menu .card {
   background: rgba(255, 255, 255, 0.9);
@@ -397,7 +412,7 @@ footer {
     padding: 0.35rem 0.65rem;
   }
   .menu-img {
-    height: 130px;
+    max-height: 130px;
   }
   .scroll-row {
     grid-auto-columns: minmax(220px, 1fr);
@@ -413,5 +428,10 @@ footer {
   .hero,
   #menu {
     background-attachment: scroll;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge-soft {
+    animation: none;
   }
 }
