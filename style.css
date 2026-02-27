@@ -9,7 +9,7 @@
   --text: #18212a;
   --muted: #5b6876;
   --border: rgba(24, 33, 42, 0.1);
-  --shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
+  --shadow: 0 10px 30px rgba(1, 51, 111, 0.12);
   --shadow-soft: 0 6px 16px rgba(16, 24, 40, 0.06);
   --radius: 14px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -131,7 +131,7 @@ body {
   padding-bottom: 70px;
   background:
     linear-gradient(to bottom, rgba(39, 20, 97, 0.1), rgba(251, 251, 252, 1)),
-    url("https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1920&auto=format&fit=crop");
+    url("assets/img/bg1.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -188,7 +188,7 @@ body {
   width: 64px;
   height: 64px;
   border-radius: 16px;
-  background: url("assets/img/Logo.png");
+  background: url("assets/img/Logo.webp");
   background-size: cover;
   background-position: center;
   border: 2px solid #fff;
@@ -231,14 +231,23 @@ body {
   transform: translateY(-8px);
   box-shadow: var(--shadow);
 }
-.menu-img {
-  height: 160px;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease;
+.menu-card {
+  will-change: transform;
+}
+.menu-img,
+.pop-img {
+  width: 100%;
+  height: 160px; /* atau pakai aspect-ratio */
+  object-fit: cover; /* ini yang bikin tidak gepeng */
+  object-position: center;
+  display: block;
 }
 .menu-card:hover .menu-img {
-  transform: scale(1.1);
+  transform: scale(1.06);
+}
+.menu-img,
+.pop-img {
+  transition: transform 0.4s ease;
 }
 .badge-mini {
   font-size: 0.7rem;
@@ -288,7 +297,8 @@ body {
   overflow-x: auto;
   padding: 15px 5px;
   scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 .scroll-row::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
@@ -339,6 +349,35 @@ footer {
   transform: translateY(0);
 }
 
+/* Grab */
+.btn-grab {
+  background-color: #00b14f;
+  border-color: #00b14f;
+  color: #fff;
+}
+
+.btn-shop {
+  background-color: #ee4d2d;
+  border-color: #ee4d2d;
+  color: white;
+}
+
+.btn-form {
+  background-color: #0045a7;
+  border-color: #0800ff;
+  color: white;
+}
+
+.btn-maps {
+  background-color: #da9739;
+  border-color: #ff8800;
+  color: white;
+}
+/* btn kosong */
+.badge-mini:empty {
+  display: none;
+}
+
 /* Tablet & Mobile */
 @media (max-width: 991.98px) {
   .hero {
@@ -363,5 +402,16 @@ footer {
   .scroll-row {
     grid-auto-columns: minmax(220px, 1fr);
     gap: 12px;
+  }
+}
+@media (max-width: 991.98px) {
+  #menu {
+    background-attachment: scroll;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  #menu {
+    background-attachment: scroll;
   }
 }

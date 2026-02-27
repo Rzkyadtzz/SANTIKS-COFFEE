@@ -2,18 +2,42 @@
 <html lang="id">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Santiks Coffee & Calm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary SEO -->
+    <title>Santiks Coffee & Calm — Coffee Shop Kudus</title>
     <meta
       name="description"
-      content="Menu coffee shop modern: espresso, latte, manual brew, non-coffee, snacks. Order cepat dan mudah."
+      content="Santiks Coffee & Calm di Kudus. Order cepat via Grabfood & ShopeFood."
     />
+    <link rel="canonical" href="https://santiks-coffee.vercel.app/" />
 
-    <meta name="theme-color" content="#206bab" />
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Santiks Coffee & Calm — Coffee Shop Kudus"
+    />
+    <meta
+      property="og:description"
+      content="Coffee shop modern di Mlati Norowito. Menu lengkap, harga terjangkau. Order cepat via Grab & ShopeFood."
+    />
+    <meta
+      property="og:image"
+      content="https://santiks-coffee.vercel.app/assets/img/bg.webp"
+    />
+    <meta property="og:url" content="https://santiks-coffee.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Santiks Coffee & Calm" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Theme / PWA -->
+    <meta name="theme-color" content="#01336f" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Santiks" />
 
+    <!-- Icons -->
     <link
       rel="icon"
       type="image/png"
@@ -26,8 +50,15 @@
       href="assets/favicon/logo-180.png"
     />
 
+    <!-- Manifest -->
     <link rel="manifest" href="site.webmanifest" />
 
+    <!-- Performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preload" as="image" href="assets/img/bg1.webp" />
+
+    <!-- CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -36,10 +67,28 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="style.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="preload" as="image" href="assets/img/bg.webp" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CafeOrCoffeeShop",
+        "name": "Santiks Coffee & Calm",
+        "url": "https://santiks-coffee.vercel.app/",
+        "telephone": "+6285182332802",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Mlati Norowito Gg. 2 No.81",
+          "addressCountry": "ID"
+        },
+        "sameAs": [
+          "https://www.instagram.com/santikscoffee.kds",
+          "https://www.tiktok.com/@santikscoffee"
+        ]
+      }
+    </script>
   </head>
 
   <body>
@@ -71,14 +120,15 @@
         <div id="navMain" class="collapse navbar-collapse">
           <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
             <li class="nav-item">
-              <a class="nav-link" href="#menu">Menu</a>
+              <a class="nav-link" href="#highlight">New Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#highlight">Best Seller</a>
+              <a class="nav-link" href="#menu">Menu</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#lokasi">Lokasi</a>
             </li>
+
             <li class="nav-item ms-lg-2">
               <a class="btn btn-brand btn-sm px-3" href="#lokasi">
                 <i class="bi bi-bag me-2" aria-hidden="true"></i>Order Now
@@ -165,13 +215,181 @@
       </div>
     </header>
 
+    <section id="highlight" class="py-5">
+      <div class="container">
+        <div class="d-flex align-items-end justify-content-between gap-3 mb-3">
+          <div>
+            <h2 class="section-title mb-1">Menu Baru Disk 10%</h2>
+            <p class="text-secondary mb-0">Swipe/drag untuk lihat semuanya.</p>
+          </div>
+          <a class="btn btn-outline-dark btn-sm" href="#menu">Lihat Semua</a>
+        </div>
+
+        <div class="scroll-row" data-drag-scroll>
+          <article class="card pop-card animate-item">
+            <img
+              class="pop-img"
+              src="assets/img/signature/lattee.webp"
+              alt="Matcha"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="fw-semibold">Berry Latte</div>
+                <div class="fw-bold">Rp 25k</div>
+              </div>
+              <div class="text-secondary small mt-1">
+                Cold, creamy, easy to love.
+              </div>
+            </div>
+          </article>
+
+          <article class="card pop-card animate-item">
+            <img
+              class="pop-img"
+              src="assets/img/milkbase/choco berry.webp"
+              alt="Matcha"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="fw-semibold">Choco Berry</div>
+                <div class="fw-bold">Rp 27k</div>
+              </div>
+              <div class="text-secondary small mt-1">
+                Foamy top, balanced taste.
+              </div>
+            </div>
+          </article>
+
+          <article class="card pop-card animate-item">
+            <img
+              class="pop-img"
+              src="assets/img/sparkling/blue.webp"
+              alt="Matcha"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="fw-semibold">Ocean Blue</div>
+                <div class="fw-bold">Rp 23k</div>
+              </div>
+              <div class="text-secondary small mt-1">
+                Flaky layers, baked daily.
+              </div>
+            </div>
+          </article>
+
+          <article class="card pop-card animate-item">
+            <img
+              class="pop-img"
+              src="assets/img/sparkling/pine.webp"
+              alt="Matcha"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="fw-semibold">Pineberry Fizz</div>
+                <div class="fw-bold">Rp 23k</div>
+              </div>
+              <div class="text-secondary small mt-1">
+                Creamy, not too sweet.
+              </div>
+            </div>
+          </article>
+
+          <article class="card pop-card animate-item">
+            <img
+              class="pop-img"
+              src="assets/img/snack/wings.webp"
+              alt="Matcha"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="fw-semibold">Chicken Wings</div>
+                <div class="fw-bold">Rp 27k</div>
+              </div>
+              <div class="text-secondary small mt-1">
+                Flaky layers, baked daily.
+              </div>
+            </div>
+          </article>
+
+          <article class="card pop-card animate-item">
+            <img
+              class="pop-img"
+              src="assets/img/main/katsu.webp"
+              alt="Matcha"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="fw-semibold">Chicken Curry Katsu</div>
+                <div class="fw-bold">Rp 28k</div>
+              </div>
+              <div class="text-secondary small mt-1">
+                Flaky layers, baked daily.
+              </div>
+            </div>
+          </article>
+
+          <article class="card pop-card animate-item">
+            <img
+              class="pop-img"
+              src="assets/img/main/mantah.webp"
+              alt="Matcha"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="fw-semibold">Chicken Katsu Sambal Mantah</div>
+                <div class="fw-bold">Rp 25k</div>
+              </div>
+              <div class="text-secondary small mt-1">
+                Flaky layers, baked daily.
+              </div>
+            </div>
+          </article>
+
+          <article class="card pop-card animate-item">
+            <img
+              class="pop-img"
+              src="assets/img/main/curry.webp"
+              alt="Matcha"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="fw-semibold">Beef Curry</div>
+                <div class="fw-bold">Rp 33k</div>
+              </div>
+              <div class="text-secondary small mt-1">
+                Flaky layers, baked daily.
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- menu -->
+
     <section id="menu" class="py-5">
       <div class="container">
         <div class="d-flex align-items-end justify-content-between gap-3 mb-3">
           <div>
             <h2 class="section-title mb-1">Menu</h2>
             <p class="text-secondary mb-0">
-              Pilih Kategori, Temukan Menu Favoritmu.
+              Pilih Kategori, Untuk Memfilter Menu Favoritmu.
             </p>
           </div>
         </div>
@@ -182,14 +400,14 @@
           role="group"
           aria-label="Filter menu"
         >
-          <button
+          <!-- <button
             class="btn btn-pill active"
             type="button"
             data-filter="all"
             aria-pressed="true"
           >
             All
-          </button>
+          </button> -->
           <button
             class="btn btn-pill"
             type="button"
@@ -286,12 +504,13 @@
             data-category="signature"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/signature/signature.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/signature/signature.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Espresso</h3>
@@ -312,12 +531,13 @@
             data-category="signature"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/signature/signature.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/signature/signature.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Americano</h3>
@@ -338,12 +558,13 @@
             data-category="signature"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/signature/signature.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/signature/signature.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Cappuccino</h3>
@@ -364,12 +585,13 @@
             data-category="signature"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/signature/signature.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/signature/signature.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Caffè Latte</h3>
@@ -390,12 +612,13 @@
             data-category="signature"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/signature/moccachino.png&quot;);
-                "
-              ></div>
+                src="assets/img/signature/moccachino.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Moccachino</h3>
@@ -416,12 +639,13 @@
             data-category="signature"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/signature/lattee.png&quot;);
-                "
-              ></div>
+                src="assets/img/signature/lattee.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Berry Latte</h3>
@@ -442,12 +666,13 @@
             data-category="coffeemilk"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/kopsu/butterscot.png&quot;);
-                "
-              ></div>
+                src="assets/img/kopsu/butterscot.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -456,7 +681,7 @@
                   <span class="badge badge-mini">Smooth</span>
                 </div>
                 <p class="text-secondary small mb-3">
-                  Plam sugar, Magic milk, Espresso.
+                  Palm sugar, Magic milk, Espresso.
                 </p>
                 <div class="d-flex align-items-center justify-content-between">
                   <div class="menu-price fw-bold">Rp 20k</div>
@@ -470,12 +695,13 @@
             data-category="coffeemilk"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/kopsu/butterscot.png&quot;);
-                "
-              ></div>
+                src="assets/img/kopsu/butterscot.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Caramelo</h3>
@@ -496,12 +722,13 @@
             data-category="coffeemilk"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/kopsu/butterscot.png&quot;);
-                "
-              ></div>
+                src="assets/img/kopsu/butterscot.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Butterscotch</h3>
@@ -522,12 +749,13 @@
             data-category="coffeemilk"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/kopsu/pistachio.png&quot;);
-                "
-              ></div>
+                src="assets/img/kopsu/pistachio.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Pistachio</h3>
@@ -548,12 +776,13 @@
             data-category="milkbased"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/milkbase/redvelved.png&quot;);
-                "
-              ></div>
+                src="assets/img/milkbase/redvelved.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Red Velvet</h3>
@@ -574,15 +803,16 @@
             data-category="milkbased"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/signature/choco berry.png&quot;);
-                "
-              ></div>
+                src="assets/img/milkbase/choco berry.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
-                  <h3 class="h6 fw-semibold mb-1 flex-grow-1">Choco berry</h3>
+                  <h3 class="h6 fw-semibold mb-1 flex-grow-1">Choco Berry</h3>
                   <span class="badge badge-mini badge-best">New</span>
                 </div>
                 <p class="text-secondary small mb-3">
@@ -600,12 +830,13 @@
             data-category="milkbased"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/milkbase/taro.png&quot;);
-                "
-              ></div>
+                src="assets/img/milkbase/taro.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Taro</h3>
@@ -626,12 +857,13 @@
             data-category="milkbased"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/milkbase/chocolate.png&quot;);
-                "
-              ></div>
+                src="assets/img/milkbase/chocolate.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Chocolate</h3>
@@ -652,12 +884,13 @@
             data-category="milkbased"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/milkbase/matcha.png&quot;);
-                "
-              ></div>
+                src="assets/img/milkbase/matcha.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Matcha</h3>
@@ -678,19 +911,20 @@
             data-category="mocktail"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/Mocktail/lolita.png&quot;);
-                "
-              ></div>
+                src="assets/img/mocktail/lolita.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lolita</h3>
                   <span class="badge badge-mini">Floral</span>
                 </div>
                 <p class="text-secondary small mb-3">
-                  Strawberry jam, Coconut water, Sakura, Clod Brew.
+                  Strawberry jam, Coconut water, Sakura, Cold Brew.
                 </p>
                 <div class="d-flex align-items-center justify-content-between">
                   <div class="menu-price fw-bold">Rp 20k</div>
@@ -704,19 +938,20 @@
             data-category="mocktail"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/Mocktail/cranberry.png&quot;);
-                "
-              ></div>
+                src="assets/img/mocktail/cranberry.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Cranberry</h3>
                   <span class="badge badge-mini">Floral</span>
                 </div>
                 <p class="text-secondary small mb-3">
-                  Peach, Apple, mint, Clod Brew.
+                  Peach, Apple, mint, Cold Brew.
                 </p>
                 <div class="d-flex align-items-center justify-content-between">
                   <div class="menu-price fw-bold">Rp 23k</div>
@@ -730,12 +965,13 @@
             data-category="mocktail"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/Mocktail/coco.png&quot;);
-                "
-              ></div>
+                src="assets/img/mocktail/coco.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Coco Peach</h3>
@@ -756,12 +992,13 @@
             data-category="sparkling"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/sparkling/blue.png&quot;);
-                "
-              ></div>
+                src="assets/img/sparkling/blue.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Ocean Blue</h3>
@@ -782,12 +1019,13 @@
             data-category="sparkling"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/sparkling/pine.png&quot;);
-                "
-              ></div>
+                src="assets/img/sparkling/pine.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -810,12 +1048,13 @@
             data-category="tea"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/tea/lemon.png&quot;);
-                "
-              ></div>
+                src="assets/img/tea/lemon.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lemon Tea</h3>
@@ -836,12 +1075,13 @@
             data-category="tea"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/tea/lyche.png&quot;);
-                "
-              ></div>
+                src="assets/img/tea/lyche.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lychee Tea</h3>
@@ -862,12 +1102,13 @@
             data-category="tea"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/tea/classic.png&quot;);
-                "
-              ></div>
+                src="assets/img/tea/classic.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Peach Tea</h3>
@@ -888,12 +1129,13 @@
             data-category="tea"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/tea/strawberry.png&quot;);
-                "
-              ></div>
+                src="assets/img/tea/strawberry.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -916,12 +1158,13 @@
             data-category="tea"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/tea/classic.png&quot;);
-                "
-              ></div>
+                src="assets/img/tea/classic.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Classic Tea</h3>
@@ -942,10 +1185,13 @@
             data-category="manual"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="background-image: url(&quot;assets/img/v60.png&quot;)"
-              ></div>
+                src="assets/img/v60.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">V60</h3>
@@ -966,12 +1212,13 @@
             data-category="snack"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/snack/seawed.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/snack/seawed.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -994,12 +1241,13 @@
             data-category="snack"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/snack/salto.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/snack/salto.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Tahu Salto</h3>
@@ -1020,12 +1268,13 @@
             data-category="snack"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/snack/bakso.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/snack/bakso.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Tahu Bakso</h3>
@@ -1046,12 +1295,13 @@
             data-category="snack"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/snack/kentang.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/snack/kentang.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">French Fries</h3>
@@ -1072,12 +1322,13 @@
             data-category="snack"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/snack/onion.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/snack/onion.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Onion Rings</h3>
@@ -1098,12 +1349,13 @@
             data-category="snack"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/snack/mix.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/snack/mix.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Mix Platter</h3>
@@ -1124,12 +1376,13 @@
             data-category="snack"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/snack/wings.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/snack/wings.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Chicken Wings</h3>
@@ -1150,12 +1403,13 @@
             data-category="maincourse"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/main/bali.png&quot;);
-                "
-              ></div>
+                src="assets/img/main/bali.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -1178,12 +1432,13 @@
             data-category="maincourse"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/main/black.png&quot;);
-                "
-              ></div>
+                src="assets/img/main/black.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -1206,12 +1461,13 @@
             data-category="maincourse"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/main/butter.png&quot;);
-                "
-              ></div>
+                src="assets/img/main/butter.webp"
+                alt="butter"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -1234,12 +1490,13 @@
             data-category="maincourse"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/main/katsu.png&quot;);
-                "
-              ></div>
+                src="assets/img/main/katsu.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -1248,7 +1505,7 @@
                   <span class="badge badge-mini badge-best">New</span>
                 </div>
                 <p class="text-secondary small mb-3">
-                  Crispy chicken eggwith Japanese curry.
+                  Crispy chicken egg with Japanese curry.
                 </p>
                 <div class="d-flex align-items-center justify-content-between">
                   <div class="menu-price fw-bold">Rp 28k</div>
@@ -1262,12 +1519,13 @@
             data-category="maincourse"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/main/mantah.png&quot;);
-                "
-              ></div>
+                src="assets/img/main/mantah.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -1290,12 +1548,13 @@
             data-category="maincourse"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/main/teriyaki.png&quot;);
-                "
-              ></div>
+                src="assets/img/main/teriyaki.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Beef Teriyaki</h3>
@@ -1316,12 +1575,13 @@
             data-category="maincourse"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/main/yakiniku.png&quot;);
-                "
-              ></div>
+                src="assets/img/main/yakiniku.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Beef Yakiniku</h3>
@@ -1342,12 +1602,13 @@
             data-category="maincourse"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/main/curry.png&quot;);
-                "
-              ></div>
+                src="assets/img/main/curry.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Beef Curry</h3>
@@ -1368,12 +1629,13 @@
             data-category="pastry"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/pastry/churros.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/pastry/churros.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Churros</h3>
@@ -1394,12 +1656,13 @@
             data-category="pastry"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/pastry/cheese.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/pastry/cheese.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Cheese Toast</h3>
@@ -1420,12 +1683,13 @@
             data-category="pastry"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/pastry/choklat.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/pastry/choklat.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -1448,12 +1712,13 @@
             data-category="pastry"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/pastry/telur.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/pastry/telur.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Egg Toast</h3>
@@ -1474,12 +1739,13 @@
             data-category="pasta"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/pasta/mac.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/pasta/mac.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">Mac & Cheese</h3>
@@ -1500,12 +1766,13 @@
             data-category="pasta"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/pasta/bolog.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/pasta/bolog.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -1528,12 +1795,13 @@
             data-category="pasta"
           >
             <article class="card menu-card h-100">
-              <div
+              <img
                 class="menu-img"
-                style="
-                  background-image: url(&quot;assets/img/pasta/carbo.JPG&quot;);
-                "
-              ></div>
+                src="assets/img/pasta/carbo.webp"
+                alt="Matcha"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="card-body">
                 <div class="d-flex align-items-start gap-2">
                   <h3 class="h6 fw-semibold mb-1 flex-grow-1">
@@ -1554,163 +1822,7 @@
       </div>
     </section>
 
-    <section id="highlight" class="py-5 bg-beige">
-      <div class="container">
-        <div class="d-flex align-items-end justify-content-between gap-3 mb-3">
-          <div>
-            <h2 class="section-title mb-1">Menu Baru</h2>
-            <p class="text-secondary mb-0">Swipe/drag untuk lihat semuanya.</p>
-          </div>
-          <a class="btn btn-outline-dark btn-sm" href="#menu">Lihat Semua</a>
-        </div>
-
-        <div class="scroll-row" data-drag-scroll>
-          <article class="card pop-card animate-item">
-            <div
-              class="pop-img"
-              style="
-                background-image: url(&quot;assets/img/signature/lattee.png&quot;);
-              "
-            ></div>
-            <div class="p-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="fw-semibold">Berry Latte</div>
-                <div class="fw-bold">Rp 25k</div>
-              </div>
-              <div class="text-secondary small mt-1">
-                Cold, creamy, easy to love.
-              </div>
-            </div>
-          </article>
-
-          <article class="card pop-card animate-item">
-            <div
-              class="pop-img"
-              style="
-                background-image: url(&quot;assets/img/signature/choco berry.png&quot;);
-              "
-            ></div>
-            <div class="p-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="fw-semibold">Choco Berry</div>
-                <div class="fw-bold">Rp 27k</div>
-              </div>
-              <div class="text-secondary small mt-1">
-                Foamy top, balanced taste.
-              </div>
-            </div>
-          </article>
-
-          <article class="card pop-card animate-item">
-            <div
-              class="pop-img"
-              style="
-                background-image: url(&quot;assets/img/sparkling/blue.png&quot;);
-              "
-            ></div>
-            <div class="p-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="fw-semibold">Ocean Blue</div>
-                <div class="fw-bold">Rp 23k</div>
-              </div>
-              <div class="text-secondary small mt-1">
-                Flaky layers, baked daily.
-              </div>
-            </div>
-          </article>
-
-          <article class="card pop-card animate-item">
-            <div
-              class="pop-img"
-              style="
-                background-image: url(&quot;assets/img/sparkling/pine.png&quot;);
-              "
-            ></div>
-            <div class="p-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="fw-semibold">Pineberry Fizz</div>
-                <div class="fw-bold">Rp 23k</div>
-              </div>
-              <div class="text-secondary small mt-1">
-                Creamy, not too sweet.
-              </div>
-            </div>
-          </article>
-
-          <article class="card pop-card animate-item">
-            <div
-              class="pop-img"
-              style="
-                background-image: url(&quot;assets/img/snack/wings.JPG&quot;);
-              "
-            ></div>
-            <div class="p-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="fw-semibold">Chicken Wings</div>
-                <div class="fw-bold">Rp 27k</div>
-              </div>
-              <div class="text-secondary small mt-1">
-                Flaky layers, baked daily.
-              </div>
-            </div>
-          </article>
-
-          <article class="card pop-card animate-item">
-            <div
-              class="pop-img"
-              style="
-                background-image: url(&quot;assets/img/main/katsu.png&quot;);
-              "
-            ></div>
-            <div class="p-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="fw-semibold">Chicken Curry Katsu</div>
-                <div class="fw-bold">Rp 28k</div>
-              </div>
-              <div class="text-secondary small mt-1">
-                Flaky layers, baked daily.
-              </div>
-            </div>
-          </article>
-
-          <article class="card pop-card animate-item">
-            <div
-              class="pop-img"
-              style="
-                background-image: url(&quot;assets/img/main/mantah.png&quot;);
-              "
-            ></div>
-            <div class="p-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="fw-semibold">Chicken Katsu Sambal Mantah</div>
-                <div class="fw-bold">Rp 25k</div>
-              </div>
-              <div class="text-secondary small mt-1">
-                Flaky layers, baked daily.
-              </div>
-            </div>
-          </article>
-
-          <article class="card pop-card animate-item">
-            <div
-              class="pop-img"
-              style="
-                background-image: url(&quot;assets/img/main/curry.png&quot;);
-              "
-            ></div>
-            <div class="p-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="fw-semibold">Beef Curry</div>
-                <div class="fw-bold">Rp 33k</div>
-              </div>
-              <div class="text-secondary small mt-1">
-                Flaky layers, baked daily.
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <!-- Lokasi -->
 
     <section id="lokasi" class="py-5">
       <div class="container">
@@ -1737,41 +1849,28 @@
 
               <div class="d-flex gap-2 flex-wrap">
                 <a
-                  class="btn btn-brand"
+                  class="btn btn-brand btn-shop"
                   href="#menu"
-                  style="
-                    background-color: #ee4d2d;
-                    border-color: #ee4d2d;
-                    color: white;
-                  "
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <i class="bi bi-bag me-2"></i>Shopefood
+                  <i class="bi bi-bag me-2"></i>ShopeFood
                 </a>
 
                 <a
-                  class="btn btn-brand"
+                  class="btn btn-brand btn-grab"
                   href="https://r.grab.com/g/6-20260223_084125_566faf7ec65d49bbaf9416e9d66a5488_MEXMPS-6-C7JYTZD3GECEAA"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style="
-                    background-color: #00b14f;
-                    border-color: #00b14f;
-                    color: white;
-                  "
                 >
                   <i class="bi bi-bag me-2"></i>Grabfood
                 </a>
 
                 <a
-                  class="btn btn-outline-dark"
+                  class="btn btn-outline-dark btn-form"
                   href="https://forms.gle/5fU7et84YeNvZpAR8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style="
-                    background-color: #0045a7;
-                    border-color: #0800ff;
-                    color: white;
-                  "
                 >
                   <i class="bi bi-book me-2"></i>Kritik Saran
                 </a>
@@ -1781,11 +1880,6 @@
                   href="https://maps.google.com/?cid=14137383167989907642&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style="
-                    background-color: #da9739;
-                    border-color: #ff8800;
-                    color: white;
-                  "
                 >
                   <i class="bi bi-map me-2"></i>Directions
                 </a>
@@ -1836,7 +1930,7 @@
             >
             <a
               class="footer-link"
-              href="https://wa.me/6285182332802"
+              href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order"
               target="_blank"
               rel="noopener noreferrer"
               >Contact</a
@@ -1847,23 +1941,13 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <script src="script.js" defer></script>
     <script src="app.js" defer></script>
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("./sw.js")
-            .then((reg) => console.log("Service Worker terdaftar:", reg.scope))
-            .catch((err) =>
-              console.log("Pendaftaran Service Worker gagal:", err),
-            );
-        });
-      }
-    </script>
   </body>
 </html>

@@ -2,12 +2,14 @@
   "name": "Santiks Coffee & Calm",
   "short_name": "Santiks",
   "description": "Menu coffee shop modern dan pemesanan mudah.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#01336f",
+  "orientation": "portrait",
   "icons": [
-    {
-      "src": "assets/favicon/logo-180.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
     {
       "src": "assets/favicon/logo-192.png",
       "sizes": "192x192",
@@ -23,29 +25,14 @@
     {
       "src": "assets/favicon/logo-512.png",
       "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "assets/img/bg.webp",
-      "sizes": "1280x720",
-      "type": "image/webp",
-      "form_factor": "wide",
-      "label": "Tampilan Desktop Santiks Coffee"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "assets/img/bg.webp",
-      "sizes": "720x1280",
-      "type": "image/webp",
-      "form_factor": "narrow",
-      "label": "Tampilan Mobile Santiks Coffee"
+      "src": "assets/favicon/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ],
-  "theme_color": "#206bab",
-  "background_color": "#ffffff",
-  "display": "standalone",
-  "start_url": "./index.html",
-  "id": "/index.html",
-  "orientation": "portrait"
+  ]
 }
