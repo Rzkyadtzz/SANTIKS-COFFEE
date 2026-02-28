@@ -334,5 +334,8 @@
           .catch((err) => console.error("SW gagal:", err));
       });
     }
+    window.addEventListener("orientationchange", () => {
+      setTimeout(() => window.dispatchEvent(new Event("resize")), 200);
+    });
   })();
 })();

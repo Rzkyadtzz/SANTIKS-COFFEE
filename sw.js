@@ -1,10 +1,10 @@
-// sw.js (Improved - Santiks Coffee)
-const CACHE_VERSION = "v2";
+// sw.js (FINAL - Santiks Coffee)
+const CACHE_VERSION = "v4";
 const STATIC_CACHE = `santiks-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `santiks-runtime-${CACHE_VERSION}`;
 
 const STATIC_ASSETS = [
-  "/", // home
+  "/",
   "/index.html",
   "/style.css",
   "/script.js",
@@ -13,7 +13,7 @@ const STATIC_ASSETS = [
   "/assets/favicon/logo-32.png",
   "/assets/favicon/logo-180.png",
   "/assets/favicon/logo-192.png",
-  // optional: cache hero bg untuk first load cepat offline
+  "/assets/favicon/logo-512.png",
   "/assets/img/bg.webp",
   "/assets/img/bg1.webp",
 ];
@@ -23,7 +23,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE).then((cache) => cache.addAll(STATIC_ASSETS)),
   );
-  self.skipWaiting(); // update SW lebih cepat
+  self.skipWaiting();
 });
 
 // Activate: cleanup old caches
@@ -39,13 +39,15 @@ self.addEventListener("activate", (event) => {
         ),
       ),
   );
-  self.clients.claim(); // SW langsung kontrol tab aktif
+  self.clients.claim();
 });
 
 // Fetch strategies:
 // - Only handle GET
+// - Skip cross-origin
 // - HTML: Network First
-// - Local assets (same-origin): Stale-While-Revalidate
+// - Images: Cache First (biar offline aman)
+// - Others (css/js): Stale-While-Revalidate
 self.addEventListener("fetch", (event) => {
   const req = event.request;
 
@@ -53,22 +55,62 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(req.url);
 
-  // Skip cross-origin (Bootstrap, AOS CDN, etc.)
-  if (url.origin !== self.location.origin) return;
+  // ❌ HAPUS filter origin
+  // if (url.origin !== self.location.origin) return;
 
-  // HTML (pages)
-  const isHTML =
-    req.mode === "navigate" ||
-    (req.headers.get("accept") || "").includes("text/html");
+  // ✅ IMAGE: Cache First
+  if (req.destination === "image") {
+    event.respondWith(
+      caches.match(req).then((cached) => {
+        if (cached) return cached;
 
-  if (isHTML) {
-    event.respondWith(networkFirst(req));
+        return fetch(req)
+          .then((res) => {
+            return caches.open(RUNTIME_CACHE).then((cache) => {
+              cache.put(req, res.clone());
+              return res;
+            });
+          })
+          .catch(() => {
+            // kalau offline dan tidak ada di cache
+            return caches.match("/assets/img/bg1.webp");
+          });
+      }),
+    );
     return;
   }
 
-  // Static assets (css/js/img/font) - SWR
-  event.respondWith(staleWhileRevalidate(req));
+  // ✅ HTML
+  if (req.mode === "navigate") {
+    event.respondWith(fetch(req).catch(() => caches.match("/index.html")));
+    return;
+  }
+
+  // ✅ CSS / JS
+  event.respondWith(
+    caches.match(req).then((cached) => {
+      return (
+        cached ||
+        fetch(req).then((res) => {
+          return caches.open(RUNTIME_CACHE).then((cache) => {
+            cache.put(req, res.clone());
+            return res;
+          });
+        })
+      );
+    }),
+  );
 });
+
+async function cacheFirst(request) {
+  const cache = await caches.open(RUNTIME_CACHE);
+  const cached = await cache.match(request);
+  if (cached) return cached;
+
+  const fresh = await fetch(request);
+  cache.put(request, fresh.clone());
+  return fresh;
+}
 
 async function networkFirst(request) {
   const cache = await caches.open(RUNTIME_CACHE);

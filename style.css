@@ -287,15 +287,8 @@ body {
     url("assets/img/bg.webp");
   background-size: cover;
   background-position: center;
-
-  /* PERFORMANCE FIX */
-  background-attachment: scroll;
-
+  background-attachment: fixed;
   padding-block: 80px;
-
-  /* Render optimization for long section */
-  content-visibility: auto;
-  contain-intrinsic-size: 1200px;
 }
 #menu .card {
   background: rgba(255, 255, 255, 0.9);
