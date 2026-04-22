@@ -50,7 +50,10 @@
         e.preventDefault();
         const top =
           target.getBoundingClientRect().top + window.scrollY - getOffset();
-        window.scrollTo({ top, behavior: "smooth" });
+        window.scrollTo({
+          top,
+          behavior: prefersReduced ? "auto" : "smooth",
+        });
         closeMobileNav();
 
         // Update URL hash (tanpa reload)
@@ -65,13 +68,25 @@
   (() => {
     const nav = document.querySelector(".navbar");
     if (!nav) return;
+    let isScrolled = false;
+    let ticking = false;
 
-    const toggle = () => {
-      if (window.scrollY > 10) nav.classList.add("scrolled");
-      else nav.classList.remove("scrolled");
+    const applyState = () => {
+      const nextScrolled = window.scrollY > 10;
+      if (nextScrolled !== isScrolled) {
+        nav.classList.toggle("scrolled", nextScrolled);
+        isScrolled = nextScrolled;
+      }
+      ticking = false;
     };
 
-    toggle();
+    const toggle = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(applyState);
+    };
+
+    applyState();
     window.addEventListener("scroll", toggle, { passive: true });
   })();
 
@@ -81,25 +96,7 @@
   (() => {
     const els = $$(".animate-item");
     if (!els.length) return;
-
-    if (prefersReduced) {
-      els.forEach((el) => el.classList.add("show"));
-      return;
-    }
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    els.forEach((el) => obs.observe(el));
+    els.forEach((el) => el.classList.add("show"));
   })();
 
   // -----------------------------
@@ -134,26 +131,37 @@
   // 6) Filter menu grid (fade in/out)
   // -----------------------------
   (() => {
+    const filterPills = document.getElementById("filterPills");
     const buttons = $$("#filterPills [data-filter]");
     const items = $$("#menuGrid .menu-item");
     if (!buttons.length || !items.length) return;
+    const hideTimers = new WeakMap();
 
     // Pastikan transisi opacity via CSS (lebih clean),
     // tapi ini tetap aman kalau CSS belum ada.
     const showItem = (el) => {
+      const pendingHide = hideTimers.get(el);
+      if (pendingHide) {
+        window.clearTimeout(pendingHide);
+        hideTimers.delete(el);
+      }
       el.classList.remove("d-none");
       el.style.opacity = "1";
       el.style.pointerEvents = "auto";
     };
 
     const hideItem = (el) => {
+      const pendingHide = hideTimers.get(el);
+      if (pendingHide) window.clearTimeout(pendingHide);
       el.style.opacity = "0";
       el.style.pointerEvents = "none";
-      window.setTimeout(() => {
+      const timer = window.setTimeout(() => {
         el.classList.add("d-none");
         el.style.opacity = "";
         el.style.pointerEvents = "";
+        hideTimers.delete(el);
       }, 200);
+      hideTimers.set(el, timer);
     };
 
     const applyFilter = (selectedBtn) => {
@@ -170,6 +178,17 @@
         if (match) showItem(item);
         else hideItem(item);
       });
+
+      if (filterPills && selectedBtn) {
+        const targetLeft =
+          selectedBtn.offsetLeft -
+          (filterPills.clientWidth - selectedBtn.offsetWidth) / 2;
+
+        filterPills.scrollTo({
+          left: Math.max(0, targetLeft),
+          behavior: prefersReduced ? "auto" : "smooth",
+        });
+      }
     };
 
     buttons.forEach((btn) => {
@@ -323,7 +342,12 @@
       modal.show();
     });
 
-    // Service Worker
+  })();
+
+  // -----------------------------
+  // 9) Service worker + orientation refresh
+  // -----------------------------
+  (() => {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
@@ -331,8 +355,9 @@
           .catch((err) => console.error("SW gagal:", err));
       });
     }
+
     window.addEventListener("orientationchange", () => {
-      setTimeout(() => window.dispatchEvent(new Event("resize")), 200);
+      window.setTimeout(() => window.dispatchEvent(new Event("resize")), 200);
     });
   })();
 })();

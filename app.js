@@ -6,57 +6,31 @@
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
-  // AOS (optional)
+  // AOS dimatikan untuk mengurangi jank saat scroll.
   document.addEventListener("DOMContentLoaded", () => {
+    window.requestAnimationFrame(() => {
+      document.body.classList.add("page-ready");
+    });
+
     if (window.AOS && typeof window.AOS.init === "function") {
       window.AOS.init({
-        duration: 500,
-        easing: "ease-out",
+        duration: prefersReduced ? 0 : 550,
+        easing: "ease-out-cubic",
         once: true,
-        offset: 80,
-        disable: () => prefersReduced,
+        offset: 48,
+        disable: prefersReduced,
+      });
+    } else {
+      document.querySelectorAll("[data-aos]").forEach((el) => {
+        el.removeAttribute("data-aos");
+        el.removeAttribute("data-aos-delay");
       });
     }
+
+    if (window.AOS && typeof window.AOS.refreshHard === "function") {
+      window.AOS.refreshHard();
+    }
   });
-
-  // Hero parallax (optional)
-  (function heroParallax() {
-    const hero = document.querySelector(".hero");
-    if (!hero || prefersReduced) return;
-
-    // Hindari bentrok dengan background-attachment: fixed
-    // (opsional) kamu bisa matikan fixed lewat CSS jika parallax aktif
-    // hero.style.backgroundAttachment = "scroll";
-
-    const speedBg = 0.3;
-    const speedFg = 0.12;
-    const container = hero.querySelector(".container");
-
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-
-      requestAnimationFrame(() => {
-        const rect = hero.getBoundingClientRect();
-        const vh = window.innerHeight;
-        const inView = rect.bottom > 0 && rect.top < vh;
-
-        if (inView) {
-          const scrollY = Math.min(Math.max(-rect.top, 0), rect.height);
-          hero.style.backgroundPosition = `center calc(50% + ${scrollY * speedBg}px)`;
-          if (container)
-            container.style.transform = `translateY(${scrollY * speedFg}px)`;
-        }
-
-        ticking = false;
-      });
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-  })();
 
   // Button pulse (optional)
   (function buttonPulse() {
