@@ -20,33 +20,23 @@
   })();
 
   // -----------------------------
-  // 2) Auto ALT text from H3 (menu cards)
-  //    - Set alt = title jika alt kosong / placeholder "Matcha"
-  // -----------------------------
-  (() => {
-    const cards = $$(".menu-item .menu-card");
-    if (!cards.length) return;
-
-    cards.forEach((card) => {
-      const title = $("h3", card)?.textContent?.trim();
-      const img = $("img.menu-img", card);
-
-      if (!img || !title) return;
-
-      const currentAlt = (img.getAttribute("alt") || "").trim().toLowerCase();
-      if (!currentAlt || currentAlt === "matcha") {
-        img.setAttribute("alt", title);
-      }
-    });
-  })();
-
-  // -----------------------------
-  // 3) Smooth scroll for internal anchors only
+  // 2) Smooth scroll for internal anchors only
   //    - Works with fixed navbar offset
   // -----------------------------
   (() => {
     const navbar = document.querySelector(".navbar");
+    const navMain = document.getElementById("navMain");
     const getOffset = () => (navbar ? navbar.offsetHeight : 0);
+    const closeMobileNav = () => {
+      if (!navMain || !navMain.classList.contains("show")) return;
+
+      if (window.bootstrap?.Collapse) {
+        window.bootstrap.Collapse.getOrCreateInstance(navMain).hide();
+        return;
+      }
+
+      navMain.classList.remove("show");
+    };
 
     $$('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
@@ -61,6 +51,7 @@
         const top =
           target.getBoundingClientRect().top + window.scrollY - getOffset();
         window.scrollTo({ top, behavior: "smooth" });
+        closeMobileNav();
 
         // Update URL hash (tanpa reload)
         history.pushState(null, "", href);
@@ -69,7 +60,7 @@
   })();
 
   // -----------------------------
-  // 4) Navbar scrolled state
+  // 3) Navbar scrolled state
   // -----------------------------
   (() => {
     const nav = document.querySelector(".navbar");
@@ -85,7 +76,7 @@
   })();
 
   // -----------------------------
-  // 5) Animate items on view (IntersectionObserver)
+  // 4) Animate items on view (IntersectionObserver)
   // -----------------------------
   (() => {
     const els = $$(".animate-item");
@@ -112,10 +103,10 @@
   })();
 
   // -----------------------------
-  // 6) Active nav link based on visible section
+  // 5) Active nav link based on visible section
   // -----------------------------
   (() => {
-    const sections = $$("section[id], header[id]");
+    const sections = $$("section[id], header[id], #highlight");
     const navLinks = $$(".navbar .nav-link");
     if (!sections.length || !navLinks.length) return;
 
@@ -140,7 +131,7 @@
   })();
 
   // -----------------------------
-  // 7) Filter menu grid (fade in/out)
+  // 6) Filter menu grid (fade in/out)
   // -----------------------------
   (() => {
     const buttons = $$("#filterPills [data-filter]");
@@ -165,27 +156,33 @@
       }, 200);
     };
 
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const f = btn.getAttribute("data-filter") || "all";
+    const applyFilter = (selectedBtn) => {
+      const filter = selectedBtn?.getAttribute("data-filter") || "all";
 
-        buttons.forEach((b) => {
-          const active = b === btn;
-          b.classList.toggle("active", active);
-          b.setAttribute("aria-pressed", active ? "true" : "false");
-        });
-
-        items.forEach((it) => {
-          const match = f === "all" || it.dataset.category === f;
-          if (match) showItem(it);
-          else hideItem(it);
-        });
+      buttons.forEach((btn) => {
+        const active = btn === selectedBtn;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
       });
+
+      items.forEach((item) => {
+        const match = filter === "all" || item.dataset.category === filter;
+        if (match) showItem(item);
+        else hideItem(item);
+      });
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => applyFilter(btn));
     });
+
+    applyFilter(
+      buttons.find((btn) => btn.classList.contains("active")) || buttons[0],
+    );
   })();
 
   // -----------------------------
-  // 8) Drag scroll horizontal rows
+  // 7) Drag scroll horizontal rows
   //    - Prevent click after drag
   // -----------------------------
   (() => {
@@ -238,7 +235,7 @@
   })();
 
   // -----------------------------
-  // 9) Menu Modal (click card -> open modal)
+  // 8) Menu Modal (click card -> open modal)
   //    FIX: ambil gambar dari <img src>, bukan background-image
   // -----------------------------
   (() => {

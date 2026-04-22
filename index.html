@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Primary SEO -->
-    <title>Santiks Coffee & Calm — Coffee Shop Kudus</title>
+    <title>Santiks Coffee & Calm &mdash; Coffee Shop Kudus</title>
     <meta
       name="description"
-      content="Santiks Coffee & Calm di Kudus. Order cepat via Grabfood & ShopeFood."
+      content="Santiks Coffee & Calm di Kudus. Order cepat via GrabFood & ShopeeFood."
     />
     <link rel="canonical" href="https://santiks-coffee.vercel.app/" />
 
     <!-- Open Graph -->
     <meta
       property="og:title"
-      content="Santiks Coffee & Calm — Coffee Shop Kudus"
+      content="Santiks Coffee & Calm &mdash; Coffee Shop Kudus"
     />
     <meta
       property="og:description"
-      content="Coffee shop modern di Mlati Norowito. Menu lengkap, harga terjangkau. Order cepat via Grab & ShopeFood."
+      content="Coffee shop modern di Mlati Norowito. Menu lengkap, harga terjangkau. Order cepat via GrabFood & ShopeeFood."
     />
     <meta
       property="og:image"
@@ -56,7 +56,13 @@
     <!-- Performance -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/img/bg1.webp" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS -->
     <link
@@ -121,9 +127,6 @@
           <div id="navMain" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
               <li class="nav-item">
-                <a class="nav-link" href="#highlight">New Menu</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="#menu">Menu</a>
               </li>
               <li class="nav-item">
@@ -135,6 +138,7 @@
                   class="btn btn-success btn-sm px-3"
                   href="https://wa.me/6285182332802?text=Halo,%20saya%20ingin%20order"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
                 </a>
@@ -147,9 +151,9 @@
       <header id="home" class="hero">
         <div class="container hero-inner">
           <div class="row align-items-center g-4">
-            <div class="col-lg-6">
+            <div class="col-lg-8 col-xl-7 hero-copy">
               <div
-                class="d-flex flex-wrap gap-2 mb-3"
+                class="d-flex flex-wrap gap-2 mb-3 hero-badges"
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
@@ -171,9 +175,18 @@
               >
                 Brewed fresh, served fast.
               </h1>
+              <p
+                class="hero-lead text-secondary mb-4"
+                data-aos="fade-up"
+                data-aos-delay="260"
+              >
+                Santiks menghadirkan coffee shop modern di Kudus dengan rasa
+                yang konsisten, visual yang rapi, dan pengalaman order yang
+                cepat untuk nongkrong santai, pickup, atau delivery.
+              </p>
 
               <div
-                class="d-flex gap-2 flex-wrap"
+                class="d-flex gap-2 flex-wrap hero-actions"
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
@@ -181,6 +194,7 @@
                   class="btn btn-success btn-lg"
                   href="https://wa.me/6285182332802"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
                 </a>
@@ -188,31 +202,19 @@
                   <i class="bi bi-list me-2" aria-hidden="true"></i>Lihat Menu
                 </a>
               </div>
-            </div>
 
-            <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="400">
-              <div class="hero-card animate-item">
-                <div class="hero-card-top">
-                  <div
-                    class="hero-thumb"
-                    role="img"
-                    aria-label="Coffee cup image"
-                  ></div>
-                  <div>
-                    <div class="fw-semibold">Santiks Coffee</div>
-                    <div class="text-secondary small">
-                      Mlati Norowito Gg. 2 No.81
-                    </div>
-                  </div>
+              <div class="hero-meta" data-aos="fade-up" data-aos-delay="360">
+                <div class="hero-meta-item">
+                  <span class="hero-meta-label">Lokasi</span>
+                  <strong>Mlati Norowito Gg. 2 No.81</strong>
                 </div>
-                <div class="hero-card-bottom">
-                  <div class="pill">
-                    <i class="bi bi-clock me-1"></i>Opening Hours
-                    <b>09:00 - 23:30 WIB</b>
-                  </div>
-                  <div class="pill">
-                    <i class="bi bi-shield-check me-1"></i>Quality beans
-                  </div>
+                <div class="hero-meta-item">
+                  <span class="hero-meta-label">Jam Buka</span>
+                  <strong>09:00 - 23:30 WIB</strong>
+                </div>
+                <div class="hero-meta-item">
+                  <span class="hero-meta-label">Order</span>
+                  <strong>GrabFood, ShopeeFood</strong>
                 </div>
               </div>
             </div>
@@ -227,10 +229,12 @@
           <div
             class="d-flex align-items-end justify-content-between gap-3 mb-3"
           >
-            <div>
+            <div id="highlight">
+              <span class="section-kicker">Curated Menu</span>
               <h2 class="section-title mb-1">Menu</h2>
               <p class="text-secondary mb-0">
-                Pilih Kategori, Untuk Memfilter Menu Favoritmu.
+                Pilih kategori untuk menemukan signature coffee, comfort food,
+                dan menu favorit yang paling cocok dengan mood kamu.
               </p>
             </div>
           </div>
@@ -241,14 +245,14 @@
             role="group"
             aria-label="Filter menu"
           >
-            <!-- <button
-            class="btn btn-pill active"
-            type="button"
-            data-filter="all"
-            aria-pressed="true"
-          >
-            All
-          </button> -->
+            <button
+              class="btn btn-pill active"
+              type="button"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              All
+            </button>
             <button
               class="btn btn-pill"
               type="button"
@@ -348,7 +352,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/signature/signature.webp"
-                  alt="Matcha"
+                  alt="Espresso"
                   loading="lazy"
                   decoding="async"
                 />
@@ -358,7 +362,7 @@
                     <span class="badge badge-mini">Classic</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Bold, rich, intense flavor. No sugar needed.
+                    A bold shot with deep aroma and a clean, intense finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -377,7 +381,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/signature/signature.webp"
-                  alt="Matcha"
+                  alt="Americano"
                   loading="lazy"
                   decoding="async"
                 />
@@ -387,7 +391,7 @@
                     <span class="badge badge-mini">Light</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Smooth black coffee with a clean finish.
+                    Espresso extended with hot water for a lighter, easy-drinking cup.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -406,7 +410,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/signature/signature.webp"
-                  alt="Matcha"
+                  alt="Cappuccino"
                   loading="lazy"
                   decoding="async"
                 />
@@ -416,7 +420,7 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Espresso with steamed milk & thick foam.
+                    Balanced espresso, steamed milk, and soft foam in one classic cup.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -435,7 +439,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/signature/signature.webp"
-                  alt="Matcha"
+                  alt="Caffè Latte"
                   loading="lazy"
                   decoding="async"
                 />
@@ -445,7 +449,7 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Silky steamed milk with espresso.
+                    Espresso layered with silky milk for a mellow and creamy profile.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -464,7 +468,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/signature/moccachino.webp"
-                  alt="Matcha"
+                  alt="Moccachino"
                   loading="lazy"
                   decoding="async"
                 />
@@ -474,7 +478,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Espresso, chocolate, and milk.
+                    Espresso meets chocolate and milk in a rich, comforting blend.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -493,7 +497,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/signature/lattee.webp"
-                  alt="Matcha"
+                  alt="Berry Latte"
                   loading="lazy"
                   decoding="async"
                 />
@@ -503,7 +507,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sweet berry notes with creamy milk & espresso.
+                    Creamy latte with bright berry notes and a smooth espresso finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -522,7 +526,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/kopsu/butterscot.webp"
-                  alt="Matcha"
+                  alt="Palm Sugar (Aren)"
                   loading="lazy"
                   decoding="async"
                 />
@@ -534,7 +538,7 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Palm sugar, Magic milk, Espresso.
+                    Espresso, milk, and palm sugar for a familiar sweet local favorite.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -553,7 +557,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/kopsu/butterscot.webp"
-                  alt="Matcha"
+                  alt="Caramelo"
                   loading="lazy"
                   decoding="async"
                 />
@@ -563,7 +567,7 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Caramel, Magic milk, Espresso.
+                    Creamy coffee milk with caramel sweetness and a smooth finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -582,7 +586,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/kopsu/butterscot.webp"
-                  alt="Matcha"
+                  alt="Butterscotch"
                   loading="lazy"
                   decoding="async"
                 />
@@ -594,7 +598,7 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Butterscotch, Magic milk, Espresso.
+                    Espresso and milk lifted with warm butterscotch notes.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -613,7 +617,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/kopsu/pistachio.webp"
-                  alt="Matcha"
+                  alt="Pistachio"
                   loading="lazy"
                   decoding="async"
                 />
@@ -623,7 +627,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Pistachio, Magic milk, Espresso.
+                    Nutty pistachio flavor layered into creamy coffee milk.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -642,7 +646,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/milkbase/redvelved.webp"
-                  alt="Matcha"
+                  alt="Red Velvet"
                   loading="lazy"
                   decoding="async"
                 />
@@ -652,7 +656,7 @@
                     <span class="badge badge-mini">Kids</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sweet red velvet flavor with creamy milk.
+                    Smooth milk-based drink with soft red velvet sweetness.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -671,7 +675,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/milkbase/choco berry.webp"
-                  alt="Matcha"
+                  alt="Choco Berry"
                   loading="lazy"
                   decoding="async"
                 />
@@ -681,7 +685,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Chocolatey with a fresh berry twist.
+                    Chocolate richness balanced with a bright berry finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -700,7 +704,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/milkbase/taro.webp"
-                  alt="Matcha"
+                  alt="Taro"
                   loading="lazy"
                   decoding="async"
                 />
@@ -710,7 +714,7 @@
                     <span class="badge badge-mini">Kids</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sweet taro flavor, smooth and creamy.
+                    Creamy taro drink with a soft sweetness and velvety texture.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -729,7 +733,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/milkbase/chocolate.webp"
-                  alt="Matcha"
+                  alt="Chocolate"
                   loading="lazy"
                   decoding="async"
                 />
@@ -739,7 +743,7 @@
                     <span class="badge badge-mini">Kids</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Rich cocoa, creamy and comforting.
+                    Rich cocoa and milk for a comforting chocolate classic.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -768,7 +772,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Earthy matcha with smooth creamy milk.
+                    Earthy matcha blended with creamy milk for a smooth finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -787,7 +791,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/mocktail/lolita.webp"
-                  alt="Matcha"
+                  alt="Lolita"
                   loading="lazy"
                   decoding="async"
                 />
@@ -797,7 +801,7 @@
                     <span class="badge badge-mini">Floral</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Strawberry jam, Coconut water, Sakura, Cold Brew.
+                    A floral mocktail with strawberry, sakura, coconut water, and cold brew.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -816,7 +820,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/mocktail/cranberry.webp"
-                  alt="Matcha"
+                  alt="Cranberry"
                   loading="lazy"
                   decoding="async"
                 />
@@ -826,7 +830,7 @@
                     <span class="badge badge-mini">Floral</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Peach, Apple, mint, Cold Brew.
+                    A refreshing mix of fruit sweetness, mint, and cold brew.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -845,7 +849,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/mocktail/coco.webp"
-                  alt="Matcha"
+                  alt="Coco Peach"
                   loading="lazy"
                   decoding="async"
                 />
@@ -855,7 +859,7 @@
                     <span class="badge badge-mini">Floral</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Peach, Lemon, Coconut water, Espresso.
+                    Peach and lemon refreshed with coconut water and a touch of espresso.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -874,7 +878,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/sparkling/blue.webp"
-                  alt="Matcha"
+                  alt="Ocean Blue"
                   loading="lazy"
                   decoding="async"
                 />
@@ -884,7 +888,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Fresh citrus soda with bright, refreshing taste.
+                    Sparkling citrus soda with a bright, cooling finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -903,7 +907,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/sparkling/pine.webp"
-                  alt="Matcha"
+                  alt="Pineberry Fizz"
                   loading="lazy"
                   decoding="async"
                 />
@@ -915,7 +919,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sparkling strawberry-pineapple sensation.
+                    Fizzy strawberry-pineapple blend with a playful tropical lift.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -934,17 +938,16 @@
                 <img
                   class="menu-img"
                   src="assets/img/tea/lemon.webp"
-                  alt="Matcha"
+                  alt="Lemon Tea"
                   loading="lazy"
                   decoding="async"
                 />
                 <div class="card-body">
                   <div class="d-flex align-items-start gap-2">
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lemon Tea</h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Bright and refreshing citrus tea.
+                    Fresh tea with lively lemon notes and a clean finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -963,17 +966,16 @@
                 <img
                   class="menu-img"
                   src="assets/img/tea/lyche.webp"
-                  alt="Matcha"
+                  alt="Lychee Tea"
                   loading="lazy"
                   decoding="async"
                 />
                 <div class="card-body">
                   <div class="d-flex align-items-start gap-2">
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lychee Tea</h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sweet lychee aroma, light and fresh.
+                    Light tea with sweet lychee aroma and a refreshing sip.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -992,17 +994,16 @@
                 <img
                   class="menu-img"
                   src="assets/img/tea/classic.webp"
-                  alt="Matcha"
+                  alt="Peach Tea"
                   loading="lazy"
                   decoding="async"
                 />
                 <div class="card-body">
                   <div class="d-flex align-items-start gap-2">
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Peach Tea</h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Smooth peach flavor, easy to drink.
+                    Smooth tea infused with soft peach flavor and easy sweetness.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1021,7 +1022,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/tea/strawberry.webp"
-                  alt="Matcha"
+                  alt="Strawberry Tea"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1030,10 +1031,9 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">
                       Strawberry Tea
                     </h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sweet strawberry infusion.
+                    Tea with a bright strawberry twist and easy fruitiness.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1052,17 +1052,16 @@
                 <img
                   class="menu-img"
                   src="assets/img/tea/classic.webp"
-                  alt="Matcha"
+                  alt="Classic Tea"
                   loading="lazy"
                   decoding="async"
                 />
                 <div class="card-body">
                   <div class="d-flex align-items-start gap-2">
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Classic Tea</h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Simple, fragrant premium tea.
+                    A simple brewed tea with a fragrant aroma and clean taste.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1081,7 +1080,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/v60.webp"
-                  alt="Matcha"
+                  alt="V60"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1091,7 +1090,7 @@
                     <span class="badge badge-mini">Floral</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Clean body, bright aroma, single origin coffee.
+                    Hand-brewed coffee with a clean body and bright floral notes.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1110,7 +1109,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/snack/seawed.webp"
-                  alt="Matcha"
+                  alt="Chicken Seaweed Roll"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1122,7 +1121,8 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy, savory, perfect for sharing.
+                    Crunchy chicken roll wrapped in seaweed, savory in every
+                    bite.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1141,17 +1141,16 @@
                 <img
                   class="menu-img"
                   src="assets/img/snack/salto.webp"
-                  alt="Matcha"
+                  alt="Tahu Salto"
                   loading="lazy"
                   decoding="async"
                 />
                 <div class="card-body">
                   <div class="d-flex align-items-start gap-2">
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Tahu Salto</h3>
-                    <span class="badge badge-mini badge-best"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy, savory, perfect for sharing.
+                    Golden fried tofu with a light, crispy bite.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1170,17 +1169,17 @@
                 <img
                   class="menu-img"
                   src="assets/img/snack/bakso.webp"
-                  alt="Matcha"
+                  alt="Tahu Bakso"
                   loading="lazy"
                   decoding="async"
                 />
                 <div class="card-body">
                   <div class="d-flex align-items-start gap-2">
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Tahu Bakso</h3>
-                    <span class="badge badge-mini badge-best"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy, savory, perfect for sharing.
+                    Tofu stuffed with a savory meatball filling, satisfying and
+                    easy to enjoy.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1199,7 +1198,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/snack/kentang.webp"
-                  alt="Matcha"
+                  alt="French Fries"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1208,10 +1207,9 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">
                       French Fries
                     </h3>
-                    <span class="badge badge-mini badge-best"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy, savory, perfect for sharing.
+                    Crispy-cut fries, lightly seasoned and easy to share.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1230,17 +1228,16 @@
                 <img
                   class="menu-img"
                   src="assets/img/snack/onion.webp"
-                  alt="Matcha"
+                  alt="Onion Rings"
                   loading="lazy"
                   decoding="async"
                 />
                 <div class="card-body">
                   <div class="d-flex align-items-start gap-2">
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Onion Rings</h3>
-                    <span class="badge badge-mini badge-best"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy, savory, perfect for sharing.
+                    Sweet onion rings in a crisp golden coating.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1259,7 +1256,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/snack/mix.webp"
-                  alt="Matcha"
+                  alt="Mix Platter"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1269,7 +1266,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy, savory, perfect for sharing.
+                    A crowd-pleasing combo of Santiks' favorite fried bites.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1288,7 +1285,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/snack/wings.webp"
-                  alt="Matcha"
+                  alt="Chicken Wings"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1300,7 +1297,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy, savory, perfect for sharing.
+                    Juicy chicken wings with a crisp finish and bold seasoning.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1319,7 +1316,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/main/bali.webp"
-                  alt="Matcha"
+                  alt="Balinese Chicken Spicy"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1331,7 +1328,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Spicy Balinese seasoning, bold and flavorful.
+                    Chicken served with bold Balinese spices and a warm savory kick.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1350,7 +1347,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/main/black.webp"
-                  alt="Matcha"
+                  alt="Chicken Black Pepper"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1359,10 +1356,9 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">
                       Chicken Black Pepper
                     </h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Savory black pepper sauce.
+                    Tender chicken coated in a savory black pepper sauce.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1381,7 +1377,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/main/butter.webp"
-                  alt="butter"
+                  alt="Chicken Butter Sauce"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1390,10 +1386,9 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">
                       Chicken Butter Sauce
                     </h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Creamy butter sauce, rich and tasty.
+                    Chicken with a creamy butter sauce that is rich and comforting.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1412,7 +1407,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/main/katsu.webp"
-                  alt="Matcha"
+                  alt="Chicken Curry Katsu"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1424,7 +1419,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy chicken egg with Japanese curry.
+                    Crispy chicken katsu paired with rich Japanese curry sauce.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1443,19 +1438,19 @@
                 <img
                   class="menu-img"
                   src="assets/img/main/mantah.webp"
-                  alt="Matcha"
+                  alt="Chicken Katsu Sambal Matah"
                   loading="lazy"
                   decoding="async"
                 />
                 <div class="card-body">
                   <div class="d-flex align-items-start gap-2">
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chicken Katsu Sambal Mantah
+                      Chicken Katsu Sambal Matah
                     </h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy chicken with fresh Balinese sambal matah.
+                    Crispy chicken katsu topped with fresh and fragrant sambal matah.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1474,7 +1469,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/main/teriyaki.webp"
-                  alt="Matcha"
+                  alt="Beef Teriyaki"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1483,10 +1478,9 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">
                       Beef Teriyaki
                     </h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sweet savory Japanese teriyaki sauce.
+                    Beef glazed in sweet-savory teriyaki sauce with a Japanese touch.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1505,7 +1499,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/main/yakiniku.webp"
-                  alt="Matcha"
+                  alt="Beef Yakiniku"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1514,10 +1508,9 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">
                       Beef Yakiniku
                     </h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Savory grilled beef with yakiniku sauce.
+                    Savory beef with yakiniku sauce and a gently smoky finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1536,7 +1529,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/main/curry.webp"
-                  alt="Matcha"
+                  alt="Beef Curry"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1546,7 +1539,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Rich and aromatic curry sauce.
+                    Beef in a rich curry sauce with deep aroma and comforting spice.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1565,7 +1558,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/pastry/churros.webp"
-                  alt="Matcha"
+                  alt="Churros"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1575,7 +1568,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Delicious, satisfying, and comforting.
+                    Golden churros with a crisp outside and a soft center.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1594,7 +1587,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/pastry/cheese.webp"
-                  alt="Matcha"
+                  alt="Cheese Toast"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1606,7 +1599,7 @@
                     <span class="badge badge-mini">Sweet</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Delicious, satisfying, and comforting.
+                    Buttery toast topped with melted cheese and a savory finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1625,7 +1618,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/pastry/choklat.webp"
-                  alt="Matcha"
+                  alt="Chocolate Toast"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1637,7 +1630,7 @@
                     <span class="badge badge-mini">Sweet</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Delicious, satisfying, and comforting.
+                    Warm toast with rich chocolate for an easy sweet fix.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1656,7 +1649,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/pastry/telur.webp"
-                  alt="Matcha"
+                  alt="Egg Toast"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1666,7 +1659,7 @@
                     <span class="badge badge-mini">Sweet</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Delicious, satisfying, and comforting.
+                    Soft toast with egg topping, simple and comforting.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1685,7 +1678,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/pasta/mac.webp"
-                  alt="Matcha"
+                  alt="Mac & Cheese"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1697,7 +1690,7 @@
                     <span class="badge badge-mini">Sweet</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Delicious, satisfying, and comforting.
+                    Creamy macaroni with rich cheese sauce in every spoonful.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1716,7 +1709,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/pasta/bolog.webp"
-                  alt="Matcha"
+                  alt="Spaghetti Bolognese"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1725,10 +1718,9 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">
                       Spaghetti Bolognese
                     </h3>
-                    <span class="badge badge-mini"></span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Delicious, satisfying, and comforting.
+                    Classic meat sauce with a balanced savory tomato finish.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1747,7 +1739,7 @@
                 <img
                   class="menu-img"
                   src="assets/img/pasta/carbo.webp"
-                  alt="Matcha"
+                  alt="Spaghetti Carbonara"
                   loading="lazy"
                   decoding="async"
                 />
@@ -1759,7 +1751,7 @@
                     <span class="badge badge-mini">Sweet</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Delicious, satisfying, and comforting.
+                    Creamy carbonara with a silky sauce and savory depth.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1779,10 +1771,12 @@
         <div class="container">
           <div class="row g-4 align-items-stretch">
             <div class="col-lg-6" data-aos="fade-right">
-              <div class="card p-3 h-100">
+              <div class="card location-card p-3 h-100">
+                <span class="section-kicker">Visit Santiks</span>
                 <h2 class="section-title mb-1">Lokasi & Jam Buka</h2>
                 <p class="text-secondary mb-3">
-                  Datang langsung atau pesan untuk pickup.
+                  Datang langsung, takeaway, atau pesan untuk pickup dan
+                  delivery dengan lebih praktis.
                 </p>
 
                 <div class="d-flex gap-2 align-items-start mb-2">
@@ -1795,17 +1789,19 @@
 
                 <div class="d-flex gap-2 align-items-start mb-3">
                   <i class="bi bi-clock-fill mt-1" aria-hidden="true"></i>
-                  <div class="text-secondary">Senin–Minggu: 09:00–23:30</div>
+                  <div class="text-secondary">
+                    Senin&ndash;Minggu: 09:00&ndash;23:30
+                  </div>
                 </div>
 
-                <div class="d-flex gap-2 flex-wrap">
+                <div class="d-flex gap-2 flex-wrap action-grid">
                   <a
                     class="btn btn-brand btn-shop"
                     href="https://r.grab.com/g/6-20260223_084125_566faf7ec65d49bbaf9416e9d66a5488_MEXMPS-6-C7JYTZD3GECEAA"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i class="bi bi-bag me-2"></i>ShopeFood
+                    <i class="bi bi-bag me-2"></i>ShopeeFood
                   </a>
 
                   <a
@@ -1814,7 +1810,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i class="bi bi-bag me-2"></i>Grabfood
+                    <i class="bi bi-bag me-2"></i>GrabFood
                   </a>
 
                   <a
@@ -1827,22 +1823,19 @@
                   </a>
 
                   <a
-                    class="btn btn-outline-dark"
+                    class="btn btn-outline-dark btn-maps"
                     href="https://maps.google.com/?cid=14137383167989907642&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i class="bi bi-map me-2"></i>Directions
+                    <i class="bi bi-map me-2"></i>Maps
                   </a>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-6" data-aos="fade-left">
-              <div
-                class="map-placeholder card h-100"
-                style="overflow: hidden; border: none"
-              >
+              <div class="map-placeholder card h-100 location-map">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.690567662788!2d110.8537725185459!3d-6.807443754402991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c500007da32f%3A0xc432131695a000ba!2sSantiks%20Coffee%20%26%20Calm!5e0!3m2!1sid!2sid!4v1766931647778!5m2!1sid!2sid"
                   width="100%"
@@ -1888,7 +1881,7 @@
               >Contact</a
             >
           </div>
-          <div class="small">© <span id="y"></span> Santiks Coffee.</div>
+          <div class="small">&copy; <span id="y"></span> Santiks Coffee.</div>
         </div>
       </div>
     </footer>
