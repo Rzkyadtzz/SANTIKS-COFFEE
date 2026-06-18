@@ -1,5 +1,5 @@
 // sw.js (FINAL - Santiks Coffee)
-const CACHE_VERSION = "v5";
+const CACHE_VERSION = "v6";
 const STATIC_CACHE = `santiks-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `santiks-runtime-${CACHE_VERSION}`;
 
@@ -17,7 +17,6 @@ const STATIC_ASSETS = [
   "/assets/favicon/logo-180.png",
   "/assets/favicon/logo-192.png",
   "/assets/favicon/logo-512.png",
-  "/assets/img/bg.webp",
   "/assets/img/bg1.webp",
 ];
 

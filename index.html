@@ -19,11 +19,11 @@
     />
     <meta
       property="og:description"
-      content="Coffee shop modern di Mlati Norowito. Menu lengkap, harga terjangkau. Order cepat via GrabFood & ShopeeFood."
+      content="Kedai kopi modern di Mlati Norowito. Menu lengkap, harga terjangkau. Order cepat via GrabFood & ShopeeFood."
     />
     <meta
       property="og:image"
-      content="https://santiks-coffee.vercel.app/assets/img/bg.webp"
+      content="https://santiks-coffee.vercel.app/assets/img/bg1.webp"
     />
     <meta property="og:url" content="https://santiks-coffee.vercel.app/" />
     <meta property="og:type" content="website" />
@@ -31,7 +31,7 @@
     <meta property="og:locale" content="id_ID" />
 
     <!-- Theme / PWA -->
-    <meta name="theme-color" content="#01336f" />
+    <meta name="theme-color" content="#003370" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -130,12 +130,12 @@
                 <a class="nav-link" href="#menu">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#lokasi">Lokasi</a>
+                <a class="nav-link d-lg-none" href="#lokasi">Lokasi</a>
               </li>
 
               <li class="nav-item ms-lg-2">
                 <a
-                  class="btn btn-success btn-sm px-3"
+                  class="btn btn-success btn-sm px-3 d-none d-lg-inline-flex"
                   href="https://wa.me/6285182332802?text=Halo,%20saya%20ingin%20order"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -233,7 +233,52 @@
       <!-- menu -->
 
       <section id="menu" class="py-5">
+        <div class="mobile-menu-topbar" aria-label="Santiks mobile menu bar">
+          <a class="mobile-menu-icon" href="#home" aria-label="Kembali ke atas">
+            <i class="bi bi-chevron-left" aria-hidden="true"></i>
+          </a>
+          <div class="mobile-menu-store">
+            <span>Pick up di store</span>
+            <strong>Santiks Coffee & Calm</strong>
+            <small>Mlati Norowito Gg. 2</small>
+          </div>
+          <button
+            id="menuSearchToggle"
+            class="mobile-menu-icon"
+            type="button"
+            aria-label="Cari menu"
+            aria-controls="menuSearchBar"
+            aria-expanded="false"
+          >
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </button>
+        </div>
+
         <div class="container">
+          <form
+            id="menuSearchBar"
+            class="mobile-menu-search"
+            role="search"
+            aria-label="Pencarian menu"
+          >
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input
+              id="menuSearchInput"
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              placeholder="Cari menu Santiks..."
+              aria-label="Cari menu Santiks"
+            />
+            <button
+              id="menuSearchClear"
+              type="button"
+              aria-label="Bersihkan pencarian"
+            >
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </form>
+
           <div
             class="d-flex align-items-end justify-content-between gap-3 mb-3"
           >
@@ -241,119 +286,122 @@
               <span class="section-kicker">Curated Menu</span>
               <h2 class="section-title mb-1">Menu</h2>
               <p class="text-secondary mb-0">
-                Pilih kategori untuk menemukan signature coffee, comfort food,
-                dan menu favorit yang paling cocok dengan mood kamu.
+                Pilih kategori untuk menemukan menu favorit yang paling cocok
+                dengan mood kamu.
               </p>
             </div>
           </div>
 
-          <div
-            id="filterPills"
-            class="d-flex flex-wrap gap-2 mb-4"
-            role="group"
-            aria-label="Filter menu"
-          >
-            <button
-              class="btn btn-pill active"
-              type="button"
-              data-filter="all"
-              aria-pressed="true"
+          <div class="filter-pills-wrapper mb-4">
+            <div
+              id="filterPills"
+              class="d-flex flex-wrap gap-2"
+              role="group"
+              aria-label="Filter menu"
+              data-drag-scroll
             >
-              All
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="signature"
-              aria-pressed="false"
-            >
-              Signature Coffee
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="coffeemilk"
-              aria-pressed="false"
-            >
-              Coffee Milk
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="milkbased"
-              aria-pressed="false"
-            >
-              Milkbased
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="mocktail"
-              aria-pressed="false"
-            >
-              Mocktail
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="tea"
-              aria-pressed="false"
-            >
-              Tea Series
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="sparkling"
-              aria-pressed="false"
-            >
-              Sparkling Series
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="manual"
-              aria-pressed="false"
-            >
-              Manual Brew
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="snack"
-              aria-pressed="false"
-            >
-              Snacks
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="maincourse"
-              aria-pressed="false"
-            >
-              Main Course
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="pastry"
-              aria-pressed="false"
-            >
-              Pastry
-            </button>
-            <button
-              class="btn btn-pill"
-              type="button"
-              data-filter="pasta"
-              aria-pressed="false"
-            >
-              Pasta
-            </button>
+              <button
+                class="btn btn-pill active"
+                type="button"
+                data-filter="signature"
+                aria-pressed="true"
+              >
+                Signature Coffee
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="coffeemilk"
+                aria-pressed="false"
+              >
+                Coffee Milk
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="milkbased"
+                aria-pressed="false"
+              >
+                Milkbased
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="mocktail"
+                aria-pressed="false"
+              >
+                Mocktail
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="tea"
+                aria-pressed="false"
+              >
+                Tea Series
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="sparkling"
+                aria-pressed="false"
+              >
+                Sparkling Series
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="other"
+                aria-pressed="false"
+              >
+                Other
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="manual"
+                aria-pressed="false"
+              >
+                Manual Brew
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="snack"
+                aria-pressed="false"
+              >
+                Snacks
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="maincourse"
+                aria-pressed="false"
+              >
+                Main Course
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="pastry"
+                aria-pressed="false"
+              >
+                Pastry
+              </button>
+              <button
+                class="btn btn-pill"
+                type="button"
+                data-filter="pasta"
+                aria-pressed="false"
+              >
+                Pasta
+              </button>
+            </div>
           </div>
 
           <div id="menuGrid" class="row g-3 g-lg-4">
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="signature"
             >
               <article class="card menu-card h-100">
@@ -370,7 +418,8 @@
                     <span class="badge badge-mini">Classic</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    A bold shot with deep aroma and a clean, intense finish.
+                    Shot kopi kuat dengan aroma dalam dan akhir rasa yang
+                    bersih.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -382,7 +431,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="signature"
             >
               <article class="card menu-card h-100">
@@ -399,7 +448,8 @@
                     <span class="badge badge-mini">Light</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Espresso extended with hot water for a lighter, easy-drinking cup.
+                    Espresso dengan tambahan air panas, ringan dan mudah
+                    dinikmati.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -411,7 +461,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="signature"
             >
               <article class="card menu-card h-100">
@@ -428,7 +478,8 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Balanced espresso, steamed milk, and soft foam in one classic cup.
+                    Perpaduan espresso, susu hangat, dan busa lembut yang
+                    seimbang.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -440,7 +491,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="signature"
             >
               <article class="card menu-card h-100">
@@ -457,7 +508,7 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Espresso layered with silky milk for a mellow and creamy profile.
+                    Espresso dan susu lembut dengan rasa ringan dan halus.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -469,7 +520,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="signature"
             >
               <article class="card menu-card h-100">
@@ -486,7 +537,8 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Espresso meets chocolate and milk in a rich, comforting blend.
+                    Espresso, cokelat, dan susu dalam racikan yang pekat dan
+                    nyaman.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -498,7 +550,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="signature"
             >
               <article class="card menu-card h-100">
@@ -515,7 +567,8 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Creamy latte with bright berry notes and a smooth espresso finish.
+                    Latte lembut dengan sentuhan berry segar dan akhir rasa
+                    espresso halus.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -527,7 +580,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="coffeemilk"
             >
               <article class="card menu-card h-100">
@@ -546,7 +599,8 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Espresso, milk, and palm sugar for a familiar sweet local favorite.
+                    Espresso, susu, dan gula aren dengan manis khas favorit
+                    lokal.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -558,7 +612,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="coffeemilk"
             >
               <article class="card menu-card h-100">
@@ -575,7 +629,8 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Creamy coffee milk with caramel sweetness and a smooth finish.
+                    Kopi susu lembut dengan manis karamel dan akhir rasa yang
+                    halus.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -587,7 +642,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="coffeemilk"
             >
               <article class="card menu-card h-100">
@@ -606,7 +661,7 @@
                     <span class="badge badge-mini">Smooth</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Espresso and milk lifted with warm butterscotch notes.
+                    Espresso dan susu dengan aroma butterscotch yang hangat.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -618,7 +673,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="coffeemilk"
             >
               <article class="card menu-card h-100">
@@ -635,7 +690,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Nutty pistachio flavor layered into creamy coffee milk.
+                    Kopi susu lembut dengan rasa pistachio yang gurih.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -647,7 +702,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="milkbased"
             >
               <article class="card menu-card h-100">
@@ -664,7 +719,8 @@
                     <span class="badge badge-mini">Creamy</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Smooth milk-based drink with soft red velvet sweetness.
+                    Minuman berbasis susu yang lembut dengan manis khas red
+                    velvet.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -676,7 +732,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="milkbased"
             >
               <article class="card menu-card h-100">
@@ -693,7 +749,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Chocolate richness balanced with a bright berry finish.
+                    Cokelat pekat dengan sentuhan berry yang cerah.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -705,7 +761,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="milkbased"
             >
               <article class="card menu-card h-100">
@@ -722,7 +778,7 @@
                     <span class="badge badge-mini">Sweet</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Creamy taro drink with a soft sweetness and velvety texture.
+                    Taro lembut dengan manis ringan dan tekstur halus.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -734,7 +790,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="milkbased"
             >
               <article class="card menu-card h-100">
@@ -751,7 +807,7 @@
                     <span class="badge badge-mini">Rich</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Rich cocoa and milk for a comforting chocolate classic.
+                    Kakao dan susu yang pekat untuk rasa cokelat klasik.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -763,7 +819,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="milkbased"
             >
               <article class="card menu-card h-100">
@@ -780,7 +836,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Earthy matcha blended with creamy milk for a smooth finish.
+                    Matcha khas dengan susu lembut untuk akhir rasa yang halus.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -792,7 +848,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="mocktail"
             >
               <article class="card menu-card h-100">
@@ -809,7 +865,8 @@
                     <span class="badge badge-mini">Floral</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    A floral mocktail with strawberry, sakura, coconut water, and cold brew.
+                    Minuman segar beraroma bunga dengan strawberry, sakura, air
+                    kelapa, dan cold brew.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -821,7 +878,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="mocktail"
             >
               <article class="card menu-card h-100">
@@ -838,7 +895,7 @@
                     <span class="badge badge-mini">Fruity</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    A refreshing mix of fruit sweetness, mint, and cold brew.
+                    Campuran segar rasa buah, mint, dan cold brew.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -850,7 +907,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="mocktail"
             >
               <article class="card menu-card h-100">
@@ -867,7 +924,8 @@
                     <span class="badge badge-mini">Tropical</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Peach and lemon refreshed with coconut water and a touch of espresso.
+                    Peach dan lemon segar dengan air kelapa dan sentuhan
+                    espresso.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -879,7 +937,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="sparkling"
             >
               <article class="card menu-card h-100">
@@ -896,7 +954,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sparkling citrus soda with a bright, cooling finish.
+                    Soda citrus berkarbonasi dengan sensasi segar dan dingin.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -908,7 +966,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="sparkling"
             >
               <article class="card menu-card h-100">
@@ -927,7 +985,8 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Fizzy strawberry-pineapple blend with a playful tropical lift.
+                    Soda strawberry dan pineapple dengan rasa tropis yang ringan
+                    dan menyenangkan.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -939,7 +998,39 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
+              data-category="other"
+            >
+              <article class="card menu-card h-100">
+                <img
+                  class="menu-img"
+                  src="assets/img/cleo.webp"
+                  alt="Mineral Water"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="card-body">
+                  <div class="d-flex align-items-start gap-2">
+                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
+                      Mineral Water
+                    </h3>
+                    <span class="badge badge-mini">Fresh</span>
+                  </div>
+                  <p class="text-secondary small mb-3">
+                    Air mineral praktis untuk menemani kopi, makanan, atau
+                    takeaway.
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <div class="menu-price fw-bold">5k</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="tea"
             >
               <article class="card menu-card h-100">
@@ -955,7 +1046,8 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lemon Tea</h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Fresh tea with lively lemon notes and a clean finish.
+                    Teh segar dengan sentuhan lemon yang cerah dan akhir rasa
+                    bersih.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -967,7 +1059,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="tea"
             >
               <article class="card menu-card h-100">
@@ -983,7 +1075,7 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lychee Tea</h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Light tea with sweet lychee aroma and a refreshing sip.
+                    Teh ringan dengan aroma leci manis dan rasa menyegarkan.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -995,7 +1087,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="tea"
             >
               <article class="card menu-card h-100">
@@ -1011,7 +1103,7 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Peach Tea</h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Smooth tea infused with soft peach flavor and easy sweetness.
+                    Teh lembut dengan rasa peach halus dan manis ringan.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1023,7 +1115,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="tea"
             >
               <article class="card menu-card h-100">
@@ -1041,7 +1133,8 @@
                     </h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Tea with a bright strawberry twist and easy fruitiness.
+                    Teh dengan sentuhan strawberry cerah dan rasa buah yang
+                    ringan.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1053,7 +1146,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="tea"
             >
               <article class="card menu-card h-100">
@@ -1069,7 +1162,7 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Classic Tea</h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    A simple brewed tea with a fragrant aroma and clean taste.
+                    Teh seduh sederhana dengan aroma harum dan rasa bersih.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1081,7 +1174,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="manual"
             >
               <article class="card menu-card h-100">
@@ -1098,7 +1191,8 @@
                     <span class="badge badge-mini">Floral</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Hand-brewed coffee with a clean body and bright floral notes.
+                    Kopi seduh manual dengan karakter bersih dan aroma bunga
+                    yang cerah.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1110,7 +1204,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="snack"
             >
               <article class="card menu-card h-100">
@@ -1129,8 +1223,8 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crunchy chicken roll wrapped in seaweed, savory in every
-                    bite.
+                    Gulungan ayam renyah berbalut rumput laut, gurih di setiap
+                    gigitan.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1142,7 +1236,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="snack"
             >
               <article class="card menu-card h-100">
@@ -1158,7 +1252,7 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Tahu Salto</h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Golden fried tofu with a light, crispy bite.
+                    Tahu goreng keemasan dengan tekstur ringan dan renyah.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1170,7 +1264,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="snack"
             >
               <article class="card menu-card h-100">
@@ -1186,8 +1280,7 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Tahu Bakso</h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Tofu stuffed with a savory meatball filling, satisfying and
-                    easy to enjoy.
+                    Tahu isi bakso gurih, mengenyangkan dan mudah dinikmati.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1199,7 +1292,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="snack"
             >
               <article class="card menu-card h-100">
@@ -1217,7 +1310,8 @@
                     </h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy-cut fries, lightly seasoned and easy to share.
+                    Kentang goreng renyah dengan bumbu ringan, cocok untuk
+                    dinikmati bersama.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1229,7 +1323,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="snack"
             >
               <article class="card menu-card h-100">
@@ -1245,7 +1339,7 @@
                     <h3 class="h6 fw-semibold mb-1 flex-grow-1">Onion Rings</h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Sweet onion rings in a crisp golden coating.
+                    Onion ring manis dengan balutan renyah keemasan.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1257,7 +1351,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="snack"
             >
               <article class="card menu-card h-100">
@@ -1274,7 +1368,8 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    A crowd-pleasing combo of Santiks' favorite fried bites.
+                    Paket camilan goreng favorit Santiks untuk dinikmati
+                    bersama.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1286,7 +1381,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="snack"
             >
               <article class="card menu-card h-100">
@@ -1305,7 +1400,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Juicy chicken wings with a crisp finish and bold seasoning.
+                    Sayap ayam juicy dengan bagian luar renyah dan bumbu kuat.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1317,13 +1412,13 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="maincourse"
             >
               <article class="card menu-card h-100">
                 <img
                   class="menu-img"
-                  src="assets/img/main/bali.webp"
+                  src="assets/img/course/bali.webp"
                   alt="Balinese Chicken Spicy"
                   loading="lazy"
                   decoding="async"
@@ -1336,7 +1431,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Chicken served with bold Balinese spices and a warm savory kick.
+                    Ayam dengan bumbu Bali yang kuat, hangat, dan gurih.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1348,13 +1443,13 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="maincourse"
             >
               <article class="card menu-card h-100">
                 <img
                   class="menu-img"
-                  src="assets/img/main/black.webp"
+                  src="assets/img/course/black.webp"
                   alt="Chicken Black Pepper"
                   loading="lazy"
                   decoding="async"
@@ -1366,7 +1461,7 @@
                     </h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Tender chicken coated in a savory black pepper sauce.
+                    Ayam lembut dengan saus lada hitam yang gurih.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1378,13 +1473,13 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="maincourse"
             >
               <article class="card menu-card h-100">
                 <img
                   class="menu-img"
-                  src="assets/img/main/butter.webp"
+                  src="assets/img/course/butter.webp"
                   alt="Chicken Butter Sauce"
                   loading="lazy"
                   decoding="async"
@@ -1396,7 +1491,7 @@
                     </h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Chicken with a creamy butter sauce that is rich and comforting.
+                    Ayam dengan saus mentega lembut yang pekat dan hangat.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1408,13 +1503,13 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="maincourse"
             >
               <article class="card menu-card h-100">
                 <img
                   class="menu-img"
-                  src="assets/img/main/katsu.webp"
+                  src="assets/img/course/curry katsu.webp"
                   alt="Chicken Curry Katsu"
                   loading="lazy"
                   decoding="async"
@@ -1427,7 +1522,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy chicken katsu paired with rich Japanese curry sauce.
+                    Chicken katsu renyah dengan saus kari Jepang yang pekat.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1439,13 +1534,13 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="maincourse"
             >
               <article class="card menu-card h-100">
                 <img
                   class="menu-img"
-                  src="assets/img/main/mantah.webp"
+                  src="assets/img/course/matah.webp"
                   alt="Chicken Katsu Sambal Matah"
                   loading="lazy"
                   decoding="async"
@@ -1458,7 +1553,7 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Crispy chicken katsu topped with fresh and fragrant sambal matah.
+                    Chicken katsu renyah dengan sambal matah segar dan wangi.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1470,13 +1565,13 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="maincourse"
             >
               <article class="card menu-card h-100">
                 <img
                   class="menu-img"
-                  src="assets/img/main/teriyaki.webp"
+                  src="assets/img/course/teriyaki.webp"
                   alt="Beef Teriyaki"
                   loading="lazy"
                   decoding="async"
@@ -1488,7 +1583,7 @@
                     </h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Beef glazed in sweet-savory teriyaki sauce with a Japanese touch.
+                    Daging sapi dengan saus teriyaki manis-gurih khas Jepang.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1500,13 +1595,13 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="maincourse"
             >
               <article class="card menu-card h-100">
                 <img
                   class="menu-img"
-                  src="assets/img/main/yakiniku.webp"
+                  src="assets/img/course/yakiniku.webp"
                   alt="Beef Yakiniku"
                   loading="lazy"
                   decoding="async"
@@ -1518,7 +1613,8 @@
                     </h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Savory beef with yakiniku sauce and a gently smoky finish.
+                    Daging sapi gurih dengan saus yakiniku dan aroma panggang
+                    lembut.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1530,13 +1626,13 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="maincourse"
             >
               <article class="card menu-card h-100">
                 <img
                   class="menu-img"
-                  src="assets/img/main/curry.webp"
+                  src="assets/img/course/beef curry.webp"
                   alt="Beef Curry"
                   loading="lazy"
                   decoding="async"
@@ -1547,7 +1643,8 @@
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Beef in a rich curry sauce with deep aroma and comforting spice.
+                    Daging sapi dengan saus kari pekat, aroma dalam, dan rempah
+                    yang hangat.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1559,7 +1656,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="pastry"
             >
               <article class="card menu-card h-100">
@@ -1576,7 +1673,7 @@
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Golden churros with a crisp outside and a soft center.
+                    Churros keemasan dengan luar renyah dan bagian dalam lembut.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1588,7 +1685,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="pastry"
             >
               <article class="card menu-card h-100">
@@ -1607,7 +1704,7 @@
                     <span class="badge badge-mini">Savory</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Buttery toast topped with melted cheese and a savory finish.
+                    Roti panggang gurih mentega dengan lelehan keju.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1619,7 +1716,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="pastry"
             >
               <article class="card menu-card h-100">
@@ -1638,7 +1735,8 @@
                     <span class="badge badge-mini">Sweet</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Warm toast with rich chocolate for an easy sweet fix.
+                    Roti panggang hangat dengan cokelat pekat untuk pilihan
+                    manis.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1650,7 +1748,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="pastry"
             >
               <article class="card menu-card h-100">
@@ -1667,7 +1765,8 @@
                     <span class="badge badge-mini">Savory</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Soft toast with egg topping, simple and comforting.
+                    Roti panggang lembut dengan topping telur, simpel dan
+                    hangat.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1679,7 +1778,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="pasta"
             >
               <article class="card menu-card h-100">
@@ -1698,7 +1797,7 @@
                     <span class="badge badge-mini">Creamy</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Creamy macaroni with rich cheese sauce in every spoonful.
+                    Makaroni lembut dengan saus keju pekat di setiap suapan.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1710,7 +1809,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="pasta"
             >
               <article class="card menu-card h-100">
@@ -1728,7 +1827,7 @@
                     </h3>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Classic meat sauce with a balanced savory tomato finish.
+                    Saus daging klasik dengan rasa tomat gurih yang seimbang.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1740,7 +1839,7 @@
             </div>
 
             <div
-              class="col-6 col-md-4 col-lg-3 menu-item animate-item"
+              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
               data-category="pasta"
             >
               <article class="card menu-card h-100">
@@ -1759,7 +1858,8 @@
                     <span class="badge badge-mini">Creamy</span>
                   </div>
                   <p class="text-secondary small mb-3">
-                    Creamy carbonara with a silky sauce and savory depth.
+                    Carbonara lembut dengan saus halus dan rasa gurih yang
+                    dalam.
                   </p>
                   <div
                     class="d-flex align-items-center justify-content-between"
@@ -1770,6 +1870,9 @@
               </article>
             </div>
           </div>
+          <p id="menuSearchEmpty" class="menu-search-empty" hidden>
+            Menu tidak ditemukan. Coba kata kunci lain.
+          </p>
         </div>
       </section>
 
@@ -1845,7 +1948,7 @@
             <div class="col-lg-6 location-map-col">
               <div class="map-placeholder card h-100 location-map">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.690567662788!2d110.8537725185459!3d-6.807443754402991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c500007da32f%3A0xc432131695a000ba!2sSantiks%20Coffee%20%26%20Calm!5e0!3m2!1sid!2sid!4v1766931647778!5m2!1sid!2sid"
+                  src="https://maps.google.com/maps?ll=-6.807443754402991,110.8537725185459&q=Santiks%20Coffee%20%26%20Calm&t=k&z=18&output=embed"
                   width="100%"
                   height="100%"
                   style="border: 0; min-height: 400px; display: block"
@@ -1869,14 +1972,14 @@
           <div class="d-flex gap-3 small">
             <a
               class="footer-link"
-              href="https://www.instagram.com/santikscoffee.kds?igsh=MW1xYmE1cWNweGVtdw=="
+              href="https://www.instagram.com/santikscoffeekds"
               target="_blank"
               rel="noopener noreferrer"
               >Instagram</a
             >
             <a
               class="footer-link"
-              href="https://www.tiktok.com/@santikscoffee?_r=1&_t=ZS-93oVs3AOdKS"
+              href="https://www.tiktok.com/@santikscoffeekds"
               target="_blank"
               rel="noopener noreferrer"
               >TikTok</a
@@ -1902,5 +2005,17 @@
 
     <script src="script.js" defer></script>
     <script src="app.js" defer></script>
+
+    <!-- Floating WhatsApp CTA — Mobile only -->
+    <a
+      id="floatingCta"
+      class="floating-cta d-lg-none"
+      href="https://wa.me/6285182332802?text=Halo%20Santiks%20Coffee%2C%20saya%20mau%20order"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="bi bi-whatsapp"></i>
+      WhatsApp
+    </a>
   </body>
 </html>

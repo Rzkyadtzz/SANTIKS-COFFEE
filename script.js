@@ -128,76 +128,429 @@
   })();
 
   // -----------------------------
-  // 6) Filter menu grid (fade in/out)
+  // 6) Filter menu grid (sliding pill and staggered entrance)
   // -----------------------------
   (() => {
+    const menuGrid = document.getElementById("menuGrid");
+    const menuSection = document.getElementById("menu");
     const filterPills = document.getElementById("filterPills");
     const buttons = $$("#filterPills [data-filter]");
     const items = $$("#menuGrid .menu-item");
     if (!buttons.length || !items.length) return;
-    const hideTimers = new WeakMap();
 
-    // Pastikan transisi opacity via CSS (lebih clean),
-    // tapi ini tetap aman kalau CSS belum ada.
-    const showItem = (el) => {
+    const searchToggle = document.getElementById("menuSearchToggle");
+    const searchBar = document.getElementById("menuSearchBar");
+    const searchInput = document.getElementById("menuSearchInput");
+    const searchClear = document.getElementById("menuSearchClear");
+    const searchEmpty = document.getElementById("menuSearchEmpty");
+    const mobileMenuQuery = window.matchMedia("(max-width: 767.98px)");
+    const hideTimers = new WeakMap();
+    const normalizeText = (value) => value.toLowerCase().trim();
+    let searchQuery = "";
+    let scrollTicking = false;
+
+    const categoryOrder = new Map(
+      buttons.map((btn, index) => [btn.getAttribute("data-filter"), index]),
+    );
+
+    items.forEach((item, index) => {
+      item.dataset.originalOrder = String(index);
+    });
+
+    const sortMenuItemsByCategory = () => {
+      if (!menuGrid) return;
+
+      items.sort((a, b) => {
+        const orderA = categoryOrder.get(a.dataset.category) ?? Number.MAX_SAFE_INTEGER;
+        const orderB = categoryOrder.get(b.dataset.category) ?? Number.MAX_SAFE_INTEGER;
+
+        if (orderA !== orderB) return orderA - orderB;
+
+        return Number(a.dataset.originalOrder) - Number(b.dataset.originalOrder);
+      });
+
+      items.forEach((item) => menuGrid.appendChild(item));
+    };
+
+    const buildCategoryHeadings = () => {
+      if (!menuGrid) return;
+
+      buttons.forEach((btn) => {
+        const category = btn.getAttribute("data-filter");
+        if (!category || category === "all") return;
+
+        const categoryItems = items.filter(
+          (item) => item.dataset.category === category,
+        );
+        const firstItem = categoryItems[0];
+        if (!firstItem) return;
+
+        let heading = $(`[data-category-heading="${category}"]`, menuGrid);
+        if (!heading) {
+          heading = document.createElement("div");
+          heading.className = "menu-category-heading col-12";
+          heading.dataset.categoryHeading = category;
+          firstItem.before(heading);
+        }
+
+        const title = btn.textContent.trim();
+        heading.dataset.categoryTitle = title;
+        heading.dataset.categoryCount = String(categoryItems.length);
+        heading.innerHTML = `
+          <h3>${title}</h3>
+          <span data-category-count>${categoryItems.length} item</span>
+        `;
+      });
+
+      items.forEach((item) => {
+        const category = item.dataset.category || "";
+        const label =
+          buttons
+            .find((btn) => btn.getAttribute("data-filter") === category)
+            ?.textContent.trim() || "";
+
+        item.dataset.searchText = normalizeText(`${item.textContent} ${label}`);
+      });
+    };
+
+    const showItem = (el, delay) => {
       const pendingHide = hideTimers.get(el);
       if (pendingHide) {
         window.clearTimeout(pendingHide);
         hideTimers.delete(el);
       }
+
+      // Ensure layout contains the element
       el.classList.remove("d-none");
-      el.style.opacity = "1";
-      el.style.pointerEvents = "auto";
+
+      // Stagger animation
+      const timer = window.setTimeout(() => {
+        void el.offsetWidth; // force layout recalculation
+        el.classList.add("filtered-show");
+        el.style.pointerEvents = "auto";
+        hideTimers.delete(el);
+      }, delay);
+      hideTimers.set(el, timer);
     };
 
     const hideItem = (el) => {
       const pendingHide = hideTimers.get(el);
-      if (pendingHide) window.clearTimeout(pendingHide);
-      el.style.opacity = "0";
+      if (pendingHide) {
+        window.clearTimeout(pendingHide);
+        hideTimers.delete(el);
+      }
+
+      el.classList.remove("filtered-show");
       el.style.pointerEvents = "none";
+
       const timer = window.setTimeout(() => {
         el.classList.add("d-none");
-        el.style.opacity = "";
-        el.style.pointerEvents = "";
         hideTimers.delete(el);
-      }, 200);
+      }, 400); // Match CSS transition duration
       hideTimers.set(el, timer);
     };
 
-    const applyFilter = (selectedBtn) => {
-      const filter = selectedBtn?.getAttribute("data-filter") || "all";
+    const centerActiveButton = (selectedBtn) => {
+      if (!filterPills || !selectedBtn) return;
 
+      const targetLeft =
+        selectedBtn.offsetLeft -
+        (filterPills.clientWidth - selectedBtn.offsetWidth) / 2;
+
+      filterPills.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: prefersReduced ? "auto" : "smooth",
+      });
+    };
+
+    const setActiveButton = (selectedBtn) => {
       buttons.forEach((btn) => {
         const active = btn === selectedBtn;
         btn.classList.toggle("active", active);
         btn.setAttribute("aria-pressed", active ? "true" : "false");
       });
+    };
 
+    const showAllItems = () => {
       items.forEach((item) => {
-        const match = filter === "all" || item.dataset.category === filter;
-        if (match) showItem(item);
-        else hideItem(item);
+        const pendingHide = hideTimers.get(item);
+        if (pendingHide) {
+          window.clearTimeout(pendingHide);
+          hideTimers.delete(item);
+        }
+
+        item.classList.remove("d-none");
+        item.classList.add("filtered-show");
+        item.style.pointerEvents = "auto";
+      });
+    };
+
+    const setCategoryHeadingCount = (heading, count) => {
+      const countEl = $("[data-category-count]", heading);
+      if (!countEl) return;
+
+      countEl.textContent = `${count} item`;
+    };
+
+    const resetCategoryHeadings = () => {
+      $$("[data-category-heading]", menuGrid).forEach((heading) => {
+        heading.classList.remove("d-none");
+        setCategoryHeadingCount(
+          heading,
+          Number(heading.dataset.categoryCount || 0),
+        );
+      });
+    };
+
+    const updateCategoryHeadingsForSearch = (matchCounts) => {
+      $$("[data-category-heading]", menuGrid).forEach((heading) => {
+        const category = heading.dataset.categoryHeading;
+        const count = matchCounts.get(category) || 0;
+
+        heading.classList.toggle("d-none", count === 0);
+        setCategoryHeadingCount(heading, count);
+      });
+    };
+
+    const getMobileStickyOffset = () => {
+      const topbar = $(".mobile-menu-topbar");
+      const pillsWrapper = $(".filter-pills-wrapper");
+      const activeSearchBar = searchBar?.classList.contains("is-open")
+        ? searchBar
+        : null;
+      const topbarHeight = topbar?.offsetParent ? topbar.offsetHeight : 0;
+      const pillsHeight = pillsWrapper?.offsetParent ? pillsWrapper.offsetHeight : 0;
+      const searchHeight = activeSearchBar?.offsetParent
+        ? activeSearchBar.offsetHeight + 10
+        : 0;
+
+      return topbarHeight + searchHeight + pillsHeight + 18;
+    };
+
+    const scrollToCategory = (category) => {
+      const heading = $(`[data-category-heading="${category}"]`);
+      const target = heading || items.find((item) => item.dataset.category === category);
+      if (!target) return;
+
+      const targetTop =
+        target.getBoundingClientRect().top + window.scrollY - getMobileStickyOffset();
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: prefersReduced ? "auto" : "smooth",
+      });
+    };
+
+    const updateActiveCategoryFromScroll = () => {
+      if (!mobileMenuQuery.matches || searchQuery) return;
+
+      const offset = getMobileStickyOffset();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const headings = $$("[data-category-heading]", menuGrid);
+      let activeCategory = "";
+      let activeItem = null;
+
+      headings.forEach((heading) => {
+        const rect = heading.getBoundingClientRect();
+
+        if (rect.top <= offset + 28) {
+          activeCategory = heading.dataset.categoryHeading;
+        } else if (!activeCategory && rect.top < viewportHeight * 0.45) {
+          activeCategory = heading.dataset.categoryHeading;
+        }
       });
 
-      if (filterPills && selectedBtn) {
-        const targetLeft =
-          selectedBtn.offsetLeft -
-          (filterPills.clientWidth - selectedBtn.offsetWidth) / 2;
+      for (const item of items) {
+        const rect = item.getBoundingClientRect();
 
-        filterPills.scrollTo({
-          left: Math.max(0, targetLeft),
-          behavior: prefersReduced ? "auto" : "smooth",
-        });
+        if (rect.bottom > offset + 8 && rect.top < viewportHeight * 0.62) {
+          activeItem = item;
+          break;
+        }
+      }
+
+      if (!activeItem) {
+        activeItem = items.find((item) => item.getBoundingClientRect().top > offset);
+      }
+
+      activeCategory = activeCategory || activeItem?.dataset.category;
+      const activeBtn = buttons.find(
+        (btn) => btn.getAttribute("data-filter") === activeCategory,
+      );
+
+      if (activeBtn && !activeBtn.classList.contains("active")) {
+        setActiveButton(activeBtn);
+        centerActiveButton(activeBtn);
       }
     };
 
+    const requestMobileActiveUpdate = () => {
+      if (!mobileMenuQuery.matches || searchQuery || scrollTicking) return;
+
+      scrollTicking = true;
+      window.requestAnimationFrame(() => {
+        updateActiveCategoryFromScroll();
+        scrollTicking = false;
+      });
+    };
+
+    const applyFilter = (selectedBtn) => {
+      const filter = selectedBtn?.getAttribute("data-filter") || "all";
+
+      setActiveButton(selectedBtn);
+      resetCategoryHeadings();
+
+      let delay = 0;
+      items.forEach((item) => {
+        const match = filter === "all" || item.dataset.category === filter;
+        if (match) {
+          showItem(item, delay);
+          delay += 40; // 40ms stagger increment
+        } else {
+          hideItem(item);
+        }
+      });
+
+      centerActiveButton(selectedBtn);
+    };
+
+    const applySearch = (value) => {
+      searchQuery = normalizeText(value);
+      const hasQuery = searchQuery.length > 0;
+      const matchCounts = new Map();
+      let delay = 0;
+      let visibleCount = 0;
+
+      menuSection?.classList.toggle("is-searching", hasQuery);
+
+      if (!hasQuery) {
+        searchEmpty.hidden = true;
+        resetCategoryHeadings();
+        syncMenuMode();
+        return;
+      }
+
+      items.forEach((item) => {
+        const text = item.dataset.searchText || normalizeText(item.textContent);
+        const match = text.includes(searchQuery);
+
+        if (match) {
+          const category = item.dataset.category || "";
+          matchCounts.set(category, (matchCounts.get(category) || 0) + 1);
+          showItem(item, delay);
+          delay += 32;
+          visibleCount += 1;
+        } else {
+          hideItem(item);
+        }
+      });
+
+      updateCategoryHeadingsForSearch(matchCounts);
+      searchEmpty.hidden = visibleCount > 0;
+    };
+
+    const clearSearch = ({ keepOpen = true } = {}) => {
+      if (searchInput) searchInput.value = "";
+      searchQuery = "";
+      menuSection?.classList.remove("is-searching");
+      searchEmpty.hidden = true;
+      resetCategoryHeadings();
+
+      if (!keepOpen) {
+        searchBar?.classList.remove("is-open");
+        searchToggle?.classList.remove("is-active");
+        searchToggle?.setAttribute("aria-expanded", "false");
+      }
+
+      syncMenuMode();
+    };
+
+    const syncMenuMode = () => {
+      const activeBtn = buttons.find((btn) => btn.classList.contains("active")) || buttons[0];
+
+      if (searchQuery) {
+        applySearch(searchInput?.value || searchQuery);
+        return;
+      }
+
+      if (mobileMenuQuery.matches) {
+        showAllItems();
+        resetCategoryHeadings();
+        updateActiveCategoryFromScroll();
+        return;
+      }
+
+      applyFilter(activeBtn);
+    };
+
     buttons.forEach((btn) => {
-      btn.addEventListener("click", () => applyFilter(btn));
+      btn.addEventListener("click", () => {
+        if (mobileMenuQuery.matches) {
+          if (searchQuery) {
+            clearSearch({ keepOpen: false });
+          }
+
+          setActiveButton(btn);
+          centerActiveButton(btn);
+          scrollToCategory(btn.getAttribute("data-filter"));
+          return;
+        }
+
+        applyFilter(btn);
+      });
     });
 
-    applyFilter(
-      buttons.find((btn) => btn.classList.contains("active")) || buttons[0],
-    );
+    searchBar?.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const firstVisible = items.find((item) => !item.classList.contains("d-none"));
+      if (!firstVisible) return;
+
+      const targetTop =
+        firstVisible.getBoundingClientRect().top +
+        window.scrollY -
+        getMobileStickyOffset();
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: prefersReduced ? "auto" : "smooth",
+      });
+    });
+
+    searchToggle?.addEventListener("click", () => {
+      const isOpen = searchBar?.classList.toggle("is-open");
+
+      searchToggle.classList.toggle("is-active", Boolean(isOpen));
+      searchToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+      if (isOpen) {
+        window.setTimeout(() => searchInput?.focus(), 80);
+        return;
+      }
+
+      clearSearch({ keepOpen: false });
+    });
+
+    searchInput?.addEventListener("input", () => {
+      applySearch(searchInput.value);
+    });
+
+    searchClear?.addEventListener("click", () => {
+      clearSearch();
+      searchInput?.focus();
+    });
+
+    sortMenuItemsByCategory();
+    buildCategoryHeadings();
+
+    window.addEventListener("scroll", requestMobileActiveUpdate, { passive: true });
+    window.addEventListener("resize", syncMenuMode);
+
+    if (mobileMenuQuery.addEventListener) {
+      mobileMenuQuery.addEventListener("change", syncMenuMode);
+    }
+
+    syncMenuMode();
   })();
 
   // -----------------------------
@@ -214,32 +567,39 @@
       let scrollLeft = 0;
       let moved = false;
 
-      scroller.addEventListener("pointerdown", (e) => {
+      const onPointerDown = (e) => {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
         isDown = true;
         moved = false;
-        scroller.setPointerCapture(e.pointerId);
         startX = e.clientX;
         scrollLeft = scroller.scrollLeft;
         scroller.classList.add("dragging");
-      });
 
-      scroller.addEventListener("pointermove", (e) => {
-        if (!isDown) return;
-        const dx = e.clientX - startX;
-        if (Math.abs(dx) > 6) moved = true;
-        scroller.scrollLeft = scrollLeft - dx;
-      });
-
-      const end = () => {
-        isDown = false;
-        scroller.classList.remove("dragging");
+        document.addEventListener("pointermove", onPointerMove);
+        document.addEventListener("pointerup", onPointerUp);
+        document.addEventListener("pointercancel", onPointerUp);
       };
 
-      scroller.addEventListener("pointerup", end);
-      scroller.addEventListener("pointercancel", end);
-      scroller.addEventListener("mouseleave", end);
+      const onPointerMove = (e) => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 8) {
+          moved = true;
+        }
+        scroller.scrollLeft = scrollLeft - dx;
+      };
 
-      // Kalau habis drag, cegah click agar tidak "kepencet"
+      const onPointerUp = () => {
+        isDown = false;
+        scroller.classList.remove("dragging");
+        document.removeEventListener("pointermove", onPointerMove);
+        document.removeEventListener("pointerup", onPointerUp);
+        document.removeEventListener("pointercancel", onPointerUp);
+      };
+
+      scroller.addEventListener("pointerdown", onPointerDown);
+
+      // Prevent click after dragging, but allow regular clicking
       scroller.addEventListener(
         "click",
         (e) => {
@@ -345,7 +705,57 @@
   })();
 
   // -----------------------------
-  // 9) Service worker + orientation refresh
+  // 9) Floating WhatsApp CTA visibility
+  // -----------------------------
+  (() => {
+    const floatingCta = document.getElementById("floatingCta");
+    const heroSection = document.querySelector(".hero");
+    const lokasiSection = document.getElementById("lokasi");
+    if (!floatingCta) return;
+
+    let ticking = false;
+
+    const isElementInViewport = (el) => {
+      if (!el) return false;
+
+      const rect = el.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      return rect.top < viewportHeight * 0.85 && rect.bottom > viewportHeight * 0.15;
+    };
+
+    const applyState = () => {
+      const triggerPoint = heroSection ? heroSection.offsetHeight * 0.75 : 520;
+      const shouldShowByScroll = window.scrollY > triggerPoint;
+      const isInLokasi = isElementInViewport(lokasiSection);
+      const isModalOpen = document.body.classList.contains("modal-open");
+
+      floatingCta.classList.toggle(
+        "is-visible",
+        shouldShowByScroll && !isInLokasi && !isModalOpen,
+      );
+      ticking = false;
+    };
+
+    const updateFloatingCta = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(applyState);
+    };
+
+    applyState();
+    window.addEventListener("scroll", updateFloatingCta, { passive: true });
+    window.addEventListener("load", applyState);
+    window.addEventListener("resize", updateFloatingCta);
+    document.addEventListener("shown.bs.modal", () => {
+      floatingCta.classList.remove("is-visible");
+    });
+    document.addEventListener("hidden.bs.modal", updateFloatingCta);
+  })();
+
+  // -----------------------------
+  // 10) Service worker + orientation refresh
   // -----------------------------
   (() => {
     if ("serviceWorker" in navigator) {
