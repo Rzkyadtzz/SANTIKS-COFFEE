@@ -152,10 +152,78 @@
     const categoryOrder = new Map(
       buttons.map((btn, index) => [btn.getAttribute("data-filter"), index]),
     );
+    const highlightBadges = new Map([
+      ["Butterscotch", {
+        icon: "bi-award-fill",
+        label: "Best Seller",
+        type: "best-seller",
+      }],
+      ["Mix Platter", {
+        icon: "bi-hand-thumbs-up-fill",
+        label: "Top Ordered",
+        type: "top-ordered",
+      }],
+      ["Caramelo", {
+        icon: "bi-star-fill",
+        label: "Most Popular",
+        type: "most-popular",
+      }],
+      ["Red Velvet", {
+        icon: "bi-star-fill",
+        label: "Most Popular",
+        type: "most-popular",
+      }],
+      ["Chicken Katsu Sambal Matah", {
+        icon: "bi-star-fill",
+        label: "Most Popular",
+        type: "most-popular",
+      }],
+      ["Matcha", {
+        icon: "bi-star-fill",
+        label: "Most Popular",
+        type: "most-popular",
+      }],
+      ["Palm Sugar (Aren)", {
+        icon: "bi-star-fill",
+        label: "Most Popular",
+        type: "most-popular",
+      }],
+      ["Americano", {
+        icon: "bi-star-fill",
+        label: "Most Popular",
+        type: "most-popular",
+      }],
+    ]);
 
     items.forEach((item, index) => {
       item.dataset.originalOrder = String(index);
     });
+
+    const decorateHighlightBadges = () => {
+      items.forEach((item) => {
+        if (item.dataset.category === "musttry") return;
+
+        const title = $("h3", item)?.textContent.replace(/\s+/g, " ").trim();
+        const badge = title ? highlightBadges.get(title) : null;
+        if (!badge || $(".scroll-menu-badge", item)) return;
+
+        const titleRow = $(".card-body .d-flex.align-items-start", item);
+        if (!titleRow) return;
+
+        const badgeEl = document.createElement("span");
+        badgeEl.className = `scroll-menu-badge scroll-menu-badge-${badge.type}`;
+
+        const iconEl = document.createElement("i");
+        iconEl.className = `bi ${badge.icon}`;
+        iconEl.setAttribute("aria-hidden", "true");
+
+        const textEl = document.createElement("span");
+        textEl.textContent = badge.label;
+
+        badgeEl.append(iconEl, textEl);
+        titleRow.before(badgeEl);
+      });
+    };
 
     const sortMenuItemsByCategory = () => {
       if (!menuGrid) return;
@@ -193,7 +261,7 @@
           firstItem.before(heading);
         }
 
-        const title = btn.textContent.trim();
+        const title = btn.getAttribute("aria-label") || btn.textContent.trim();
         heading.dataset.categoryTitle = title;
         heading.dataset.categoryCount = String(categoryItems.length);
         heading.innerHTML = `
@@ -207,7 +275,11 @@
         const label =
           buttons
             .find((btn) => btn.getAttribute("data-filter") === category)
-            ?.textContent.trim() || "";
+            ?.getAttribute("aria-label") ||
+          buttons
+            .find((btn) => btn.getAttribute("data-filter") === category)
+            ?.textContent.trim() ||
+          "";
 
         item.dataset.searchText = normalizeText(`${item.textContent} ${label}`);
       });
@@ -540,6 +612,7 @@
       searchInput?.focus();
     });
 
+    decorateHighlightBadges();
     sortMenuItemsByCategory();
     buildCategoryHeadings();
 
@@ -614,148 +687,7 @@
   })();
 
   // -----------------------------
-  // 8) Menu Modal (click card -> open modal)
-  //    FIX: ambil gambar dari <img src>, bukan background-image
-  // -----------------------------
-  (() => {
-    const menuGrid = document.getElementById("menuGrid");
-    if (!menuGrid) return;
-
-    // Pastikan Bootstrap Modal tersedia
-    if (typeof window.bootstrap === "undefined" || !window.bootstrap.Modal) {
-      console.warn(
-        "Bootstrap Modal tidak ditemukan. Pastikan bootstrap.bundle.min.js ter-load.",
-      );
-      return;
-    }
-
-    // Buat modal sekali saja
-    if (!document.getElementById("menuModal")) {
-      const modalHTML = `
-        <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
-              <div id="modalImg" style="height: 250px; background-size: cover; background-position: center;"></div>
-              <div class="modal-body p-4">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                  <h4 id="modalTitle" class="fw-bold mb-0"></h4>
-                  <span id="modalPrice" class="badge bg-primary fs-6"></span>
-                </div>
-                <p id="modalDesc" class="text-secondary mb-4"></p>
-                <div class="d-grid">
-                  <button type="button" class="btn btn-brand py-2" data-bs-dismiss="modal">Tutup</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      document.body.insertAdjacentHTML("beforeend", modalHTML);
-    }
-
-    const modalNode = document.getElementById("menuModal");
-    const modal = new window.bootstrap.Modal(modalNode);
-
-    const mImg = document.getElementById("modalImg");
-    const mTitle = document.getElementById("modalTitle");
-    const mPrice = document.getElementById("modalPrice");
-    const mDesc = document.getElementById("modalDesc");
-
-    const extractCardData = (card) => {
-      const title = $("h3", card)?.textContent?.trim() || "";
-      const price = $(".menu-price", card)?.textContent?.trim() || "";
-      const desc = $("p", card)?.textContent?.trim() || "";
-
-      // Ambil dari <img src> jika ada
-      const imgEl = $("img.menu-img", card);
-      let imgUrl = imgEl?.getAttribute("src") || "";
-
-      // Fallback jika masih ada versi background-image
-      if (!imgUrl) {
-        const bgEl = $(".menu-img", card);
-        const bg = bgEl?.style?.backgroundImage || "";
-        const m = bg.match(/url\(["']?(.*?)["']?\)/i);
-        if (m && m[1]) imgUrl = m[1];
-      }
-
-      return { title, price, desc, imgUrl };
-    };
-
-    menuGrid.addEventListener("click", (e) => {
-      const card = e.target.closest(".menu-card");
-      if (!card) return;
-
-      const { title, price, desc, imgUrl } = extractCardData(card);
-
-      // isi modal
-      mTitle.textContent = title;
-      mPrice.textContent = price;
-      mDesc.textContent = desc;
-
-      if (imgUrl) {
-        mImg.style.backgroundImage = `url('${imgUrl}')`;
-      } else {
-        // fallback UI kalau gambar tidak ketemu
-        mImg.style.backgroundImage = "none";
-      }
-
-      modal.show();
-    });
-
-  })();
-
-  // -----------------------------
-  // 9) Floating WhatsApp CTA visibility
-  // -----------------------------
-  (() => {
-    const floatingCta = document.getElementById("floatingCta");
-    const heroSection = document.querySelector(".hero");
-    const lokasiSection = document.getElementById("lokasi");
-    if (!floatingCta) return;
-
-    let ticking = false;
-
-    const isElementInViewport = (el) => {
-      if (!el) return false;
-
-      const rect = el.getBoundingClientRect();
-      const viewportHeight =
-        window.innerHeight || document.documentElement.clientHeight;
-
-      return rect.top < viewportHeight * 0.85 && rect.bottom > viewportHeight * 0.15;
-    };
-
-    const applyState = () => {
-      const triggerPoint = heroSection ? heroSection.offsetHeight * 0.75 : 520;
-      const shouldShowByScroll = window.scrollY > triggerPoint;
-      const isInLokasi = isElementInViewport(lokasiSection);
-      const isModalOpen = document.body.classList.contains("modal-open");
-
-      floatingCta.classList.toggle(
-        "is-visible",
-        shouldShowByScroll && !isInLokasi && !isModalOpen,
-      );
-      ticking = false;
-    };
-
-    const updateFloatingCta = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(applyState);
-    };
-
-    applyState();
-    window.addEventListener("scroll", updateFloatingCta, { passive: true });
-    window.addEventListener("load", applyState);
-    window.addEventListener("resize", updateFloatingCta);
-    document.addEventListener("shown.bs.modal", () => {
-      floatingCta.classList.remove("is-visible");
-    });
-    document.addEventListener("hidden.bs.modal", updateFloatingCta);
-  })();
-
-  // -----------------------------
-  // 10) Service worker + orientation refresh
+  // 8) Service worker + orientation refresh
   // -----------------------------
   (() => {
     if ("serviceWorker" in navigator) {
