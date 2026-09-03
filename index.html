@@ -8,7 +8,7 @@
     <title>Santiks Coffee & Calm &mdash; Coffee Shop Kudus</title>
     <meta
       name="description"
-      content="Santiks Coffee & Calm di Kudus. Order cepat via GrabFood & ShopeeFood."
+      content="Santiks Coffee & Calm di Kudus. Order cepat via WhatsApp, GrabFood & ShopeeFood. Tempat seduh & cerita."
     />
     <link rel="canonical" href="https://santiks-coffee.vercel.app/" />
 
@@ -53,14 +53,14 @@
     <!-- Manifest -->
     <link rel="manifest" href="site.webmanifest" />
 
-    <!-- Performance -->
+    <!-- Performance & Fonts -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://unpkg.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/img/bg1.webp" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -87,6 +87,7 @@
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Mlati Norowito Gg. 2 No.81",
+          "addressLocality": "Kudus",
           "addressCountry": "ID"
         },
         "sameAs": [
@@ -98,2023 +99,1693 @@
   </head>
 
   <body>
-    <main>
-      <nav
-        class="navbar navbar-expand-lg navbar-light fixed-top nav-glass"
-        aria-label="Primary navigation"
-      >
+    <!-- DESKTOP NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top desktop-navbar" aria-label="Primary navigation">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#home" aria-label="Santiks Coffee & Calm">
+          <span class="brand-badge-icon"><i class="bi bi-cup-hot-fill"></i></span>
+          <span class="brand-text">Santiks <small>Coffee & Calm</small></span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMain"
+          aria-controls="navMain"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navMain" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto gap-lg-1 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#order">Order Online</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-lg-none" href="#lokasi">Lokasi</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <a
+                class="btn btn-brand-primary btn-sm px-3"
+                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20ingin%20order%20menu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="bi bi-whatsapp me-1.5" aria-hidden="true"></i> Order WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE APP HEADER BAR -->
+    <header class="mobile-app-header d-lg-none" aria-label="Santiks Mobile Header">
+      <div class="mobile-store-info">
+        <div class="mobile-store-avatar">
+          <i class="bi bi-cup-hot-fill"></i>
+        </div>
+        <div class="mobile-store-text">
+          <div class="d-flex align-items-center gap-1.5">
+            <h1 class="store-name">Santiks Coffee</h1>
+            <span class="status-dot-open" title="Buka"></span>
+          </div>
+          <p class="store-location"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Mlati Norowito, Kudus</p>
+        </div>
+      </div>
+      <div class="mobile-header-actions">
+        <button
+          id="menuSearchToggle"
+          class="icon-btn-header"
+          type="button"
+          aria-label="Cari menu"
+          aria-controls="menuSearchBar"
+          aria-expanded="false"
+        >
+          <i class="bi bi-search" aria-hidden="true"></i>
+        </button>
+        <a
+          class="icon-btn-header icon-btn-success"
+          href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Pesan via WhatsApp"
+        >
+          <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        </a>
+      </div>
+    </header>
+
+    <main id="mainContent">
+      <!-- HERO / PROMO BANNER SECTION -->
+      <section id="home" class="hero-section">
         <div class="container">
-          <a
-            class="navbar-brand fw-bold"
-            href="#home"
-            aria-label="Santiks Coffee & Calm"
-          >
-            Santiks Coffee & Calm
-          </a>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navMain"
-            aria-controls="navMain"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div id="navMain" class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
-              <li class="nav-item">
-                <a class="nav-link" href="#menu">Menu</a>
-              </li>
-
-              <li class="nav-item ms-lg-2">
+          <div class="hero-card">
+            <div class="hero-bg-media">
+              <img src="assets/img/bg1.webp" alt="Santiks Coffee Atmosphere" decoding="async" />
+              <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+              <span class="hero-kicker">
+                <i class="bi bi-stars me-1 text-warning"></i> Speciality Coffee & Artisan Meals
+              </span>
+              <h2 class="hero-title">Santiks Coffee & Calm</h2>
+              <p class="hero-subtitle">
+                Tempat seduh & cerita di Kudus. Nikmati sajian espresso khas, mocktail segar, dan hidangan favorit.
+              </p>
+              <div class="hero-ctas">
+                <a href="#menu" class="btn btn-brand-primary">
+                  <i class="bi bi-book-half me-2"></i>Lihat Menu
+                </a>
                 <a
-                  class="btn btn-success btn-sm px-3 d-none d-lg-inline-flex"
-                  href="https://wa.me/6285182332802?text=Halo,%20saya%20ingin%20order"
+                  href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order"
                   target="_blank"
                   rel="noopener noreferrer"
+                  class="btn btn-brand-outline-light"
                 >
-                  <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
+                  <i class="bi bi-whatsapp me-2 text-success"></i>Pesan WhatsApp
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
+      </section>
 
-      <!-- menu -->
-
-      <section id="menu" class="py-5">
-        <div class="mobile-menu-topbar" aria-label="Santiks mobile menu bar">
-          <a class="mobile-menu-icon" href="#home" aria-label="Kembali ke atas">
-            <i class="bi bi-chevron-left" aria-hidden="true"></i>
-          </a>
-          <div class="mobile-menu-store">
-            <span>Pick up di store</span>
-            <strong>Santiks Coffee & Calm</strong>
-            <small>Mlati Norowito Gg. 2</small>
-          </div>
-          <button
-            id="menuSearchToggle"
-            class="mobile-menu-icon"
-            type="button"
-            aria-label="Cari menu"
-            aria-controls="menuSearchBar"
-            aria-expanded="false"
-          >
-            <i class="bi bi-search" aria-hidden="true"></i>
-          </button>
-        </div>
-
+      <!-- MENU SECTION -->
+      <section id="menu" class="menu-section py-4 py-lg-5">
         <div class="container">
+          <!-- SEARCH BAR -->
           <form
             id="menuSearchBar"
-            class="mobile-menu-search"
+            class="app-search-bar mb-3 mb-lg-4"
             role="search"
-            aria-label="Pencarian menu"
+            aria-label="Pencarian menu Santiks"
           >
-            <i class="bi bi-search" aria-hidden="true"></i>
+            <i class="bi bi-search search-icon" aria-hidden="true"></i>
             <input
               id="menuSearchInput"
               type="search"
               inputmode="search"
               autocomplete="off"
-              placeholder="Cari menu Santiks..."
+              placeholder="Cari kopi, snack, atau main course..."
               aria-label="Cari menu Santiks"
             />
             <button
               id="menuSearchClear"
               type="button"
               aria-label="Bersihkan pencarian"
+              title="Clear"
             >
-              <i class="bi bi-x-lg" aria-hidden="true"></i>
+              <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
             </button>
           </form>
 
-          <div
-            class="d-flex align-items-end justify-content-between gap-3 mb-3"
-          >
-            <div id="highlight">
-              <span class="section-kicker">Curated Menu</span>
-              <h2 class="section-title mb-1">Menu</h2>
-              <p class="text-secondary mb-0">
-                Pilih kategori untuk menemukan menu favorit yang paling cocok
-                dengan mood kamu.
-              </p>
-            </div>
-          </div>
-
-          <div class="filter-pills-wrapper mb-4">
+          <!-- CATEGORY FILTER CHIPS -->
+          <div class="category-scroll-container mb-4">
             <div
               id="filterPills"
-              class="d-flex flex-wrap gap-2"
+              class="category-pills-row"
               role="group"
-              aria-label="Filter menu"
+              aria-label="Filter kategori menu"
               data-drag-scroll
             >
               <button
-                class="btn btn-pill active"
+                class="category-chip active"
                 type="button"
                 data-filter="musttry"
                 aria-pressed="true"
                 aria-label="Must Try"
               >
-                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-fire chip-icon text-danger" aria-hidden="true"></i>
+                <span>Must Try</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="signature"
                 aria-pressed="false"
               >
-                Signature Coffee
+                <i class="bi bi-cup-hot chip-icon text-warning" aria-hidden="true"></i>
+                <span>Signature Coffee</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="coffeemilk"
                 aria-pressed="false"
               >
-                Coffee Milk
+                <i class="bi bi-cup-straw chip-icon" aria-hidden="true"></i>
+                <span>Coffee Milk</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="milkbased"
                 aria-pressed="false"
               >
-                Milkbased
+                <i class="bi bi-droplet-fill chip-icon text-info" aria-hidden="true"></i>
+                <span>Milkbased</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="mocktail"
                 aria-pressed="false"
               >
-                Mocktail
+                <i class="bi bi-glass-citrus chip-icon text-success" aria-hidden="true"></i>
+                <span>Mocktail</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="tea"
                 aria-pressed="false"
               >
-                Tea Series
+                <i class="bi bi-flower1 chip-icon text-warning" aria-hidden="true"></i>
+                <span>Tea Series</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="sparkling"
                 aria-pressed="false"
               >
-                Sparkling Series
+                <i class="bi bi-brightness-high chip-icon text-primary" aria-hidden="true"></i>
+                <span>Sparkling Series</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="other"
                 aria-pressed="false"
               >
-                Other
+                <i class="bi bi-grid-fill chip-icon" aria-hidden="true"></i>
+                <span>Other</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="manual"
                 aria-pressed="false"
               >
-                Manual Brew
+                <i class="bi bi-funnel-fill chip-icon" aria-hidden="true"></i>
+                <span>Manual Brew</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="snack"
                 aria-pressed="false"
               >
-                Snacks
+                <i class="bi bi-egg-fried chip-icon text-warning" aria-hidden="true"></i>
+                <span>Snacks</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="maincourse"
                 aria-pressed="false"
               >
-                Main Course
+                <i class="bi bi-shop-window chip-icon text-danger" aria-hidden="true"></i>
+                <span>Main Course</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="pastry"
                 aria-pressed="false"
               >
-                Pastry
+                <i class="bi bi-pie-chart-fill chip-icon text-warning" aria-hidden="true"></i>
+                <span>Pastry</span>
               </button>
               <button
-                class="btn btn-pill"
+                class="category-chip"
                 type="button"
                 data-filter="pasta"
                 aria-pressed="false"
               >
-                Pasta
+                <i class="bi bi-basket2-fill chip-icon text-danger" aria-hidden="true"></i>
+                <span>Pasta</span>
               </button>
             </div>
           </div>
 
+          <!-- SECTION TITLE -->
+          <div id="highlight" class="d-flex align-items-center justify-content-between mb-3">
+            <div>
+              <span class="section-kicker-badge">Menu Catalogue</span>
+              <h2 class="section-heading mb-0">Daftar Menu</h2>
+            </div>
+          </div>
+
+          <!-- MENU GRID -->
           <div id="menuGrid" class="row g-3 g-lg-4">
+            <!-- MUST TRY ITEMS -->
             <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
+              class="col-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
               data-category="musttry"
               data-sales="390"
             >
-              <article class="card menu-card must-card h-100">
-                <span class="must-badge badge-best-seller">
-                  <i class="bi bi-award-fill" aria-hidden="true"></i>
-                  Best Seller
-                </span>
-                <img
-                  class="menu-img"
-                  src="assets/img/kopsu/butterscot.webp"
-                  alt="Butterscotch"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Butterscotch
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Espresso dan susu dengan aroma butterscotch yang hangat.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+              <article class="card food-card must-card h-100">
+                <div class="food-card-media">
+                  <span class="must-badge badge-best-seller">
+                    <i class="bi bi-award-fill" aria-hidden="true"></i> Best Seller
+                  </span>
+                  <img
+                    class="menu-img"
+                    src="assets/img/kopsu/butterscot.webp"
+                    alt="Butterscotch"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Butterscotch</h3>
+                  <p class="food-desc">Espresso dan susu dengan aroma butterscotch yang hangat.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a
+                      href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Butterscotch"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-order-icon"
+                      aria-label="Order Butterscotch"
+                    >
+                      <i class="bi bi-plus-lg"></i>
+                    </a>
                   </div>
                 </div>
               </article>
             </div>
 
             <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
+              class="col-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
               data-category="musttry"
               data-sales="248"
             >
-              <article class="card menu-card must-card h-100">
-                <span class="must-badge badge-top-ordered">
-                  <i class="bi bi-hand-thumbs-up-fill" aria-hidden="true"></i>
-                  Top Ordered
-                </span>
-                <img
-                  class="menu-img"
-                  src="assets/img/snack/mix.webp"
-                  alt="Mix Platter"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Mix Platter</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Paket camilan goreng favorit Santiks untuk dinikmati
-                    bersama.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+              <article class="card food-card must-card h-100">
+                <div class="food-card-media">
+                  <span class="must-badge badge-top-ordered">
+                    <i class="bi bi-hand-thumbs-up-fill" aria-hidden="true"></i> Top Ordered
+                  </span>
+                  <img
+                    class="menu-img"
+                    src="assets/img/snack/mix.webp"
+                    alt="Mix Platter"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Mix Platter</h3>
+                  <p class="food-desc">Paket camilan goreng favorit Santiks untuk dinikmati bersama.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a
+                      href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Mix%20Platter"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-order-icon"
+                      aria-label="Order Mix Platter"
+                    >
+                      <i class="bi bi-plus-lg"></i>
+                    </a>
                   </div>
                 </div>
               </article>
             </div>
 
             <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
+              class="col-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
               data-category="musttry"
               data-sales="196"
             >
-              <article class="card menu-card must-card h-100">
-                <span class="must-badge badge-most-popular">
-                  <i class="bi bi-star-fill" aria-hidden="true"></i>
-                  Most Popular
-                </span>
-                <img
-                  class="menu-img"
-                  src="assets/img/kopsu/butterscot.webp"
-                  alt="Caramelo"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Caramelo</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Kopi susu lembut dengan manis karamel dan akhir rasa yang
-                    halus.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+              <article class="card food-card must-card h-100">
+                <div class="food-card-media">
+                  <span class="must-badge badge-most-popular">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i> Most Popular
+                  </span>
+                  <img
+                    class="menu-img"
+                    src="assets/img/kopsu/butterscot.webp"
+                    alt="Caramelo"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Caramelo</h3>
+                  <p class="food-desc">Kopi susu lembut dengan manis karamel dan akhir rasa yang halus.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a
+                      href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Caramelo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-order-icon"
+                      aria-label="Order Caramelo"
+                    >
+                      <i class="bi bi-plus-lg"></i>
+                    </a>
                   </div>
                 </div>
               </article>
             </div>
 
             <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
+              class="col-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
               data-category="musttry"
               data-sales="194"
             >
-              <article class="card menu-card must-card h-100">
-                <span class="must-badge badge-most-popular">
-                  <i class="bi bi-star-fill" aria-hidden="true"></i>
-                  Most Popular
-                </span>
-                <img
-                  class="menu-img"
-                  src="assets/img/milkbase/redvelved.webp"
-                  alt="Red Velvet"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Red Velvet</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Minuman berbasis susu yang lembut dengan manis khas red
-                    velvet.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+              <article class="card food-card must-card h-100">
+                <div class="food-card-media">
+                  <span class="must-badge badge-most-popular">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i> Most Popular
+                  </span>
+                  <img
+                    class="menu-img"
+                    src="assets/img/milkbase/redvelved.webp"
+                    alt="Red Velvet"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Red Velvet</h3>
+                  <p class="food-desc">Minuman berbasis susu yang lembut dengan manis khas red velvet.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a
+                      href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Red%20Velvet"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-order-icon"
+                      aria-label="Order Red Velvet"
+                    >
+                      <i class="bi bi-plus-lg"></i>
+                    </a>
                   </div>
                 </div>
               </article>
             </div>
 
             <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
+              class="col-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
               data-category="musttry"
               data-sales="173"
             >
-              <article class="card menu-card must-card h-100">
-                <span class="must-badge badge-most-popular">
-                  <i class="bi bi-star-fill" aria-hidden="true"></i>
-                  Most Popular
-                </span>
-                <img
-                  class="menu-img"
-                  src="assets/img/course/matah.webp"
-                  alt="Chicken Katsu Sambal Matah"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chicken Katsu Sambal Matah
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Chicken katsu renyah dengan sambal matah segar dan wangi.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+              <article class="card food-card must-card h-100">
+                <div class="food-card-media">
+                  <span class="must-badge badge-most-popular">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i> Most Popular
+                  </span>
+                  <img
+                    class="menu-img"
+                    src="assets/img/course/matah.webp"
+                    alt="Chicken Katsu Sambal Matah"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Chicken Katsu Sambal Matah</h3>
+                  <p class="food-desc">Chicken katsu renyah dengan sambal matah segar dan wangi.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a
+                      href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Katsu%20Sambal%20Matah"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-order-icon"
+                      aria-label="Order Chicken Katsu Sambal Matah"
+                    >
+                      <i class="bi bi-plus-lg"></i>
+                    </a>
                   </div>
                 </div>
               </article>
             </div>
 
             <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
+              class="col-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
               data-category="musttry"
               data-sales="169"
             >
-              <article class="card menu-card must-card h-100">
-                <span class="must-badge badge-most-popular">
-                  <i class="bi bi-star-fill" aria-hidden="true"></i>
-                  Most Popular
-                </span>
-                <img
-                  class="menu-img"
-                  src="assets/img/milkbase/matcha.webp"
-                  alt="Matcha"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Matcha</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Matcha khas dengan susu lembut untuk akhir rasa yang halus.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+              <article class="card food-card must-card h-100">
+                <div class="food-card-media">
+                  <span class="must-badge badge-most-popular">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i> Most Popular
+                  </span>
+                  <img
+                    class="menu-img"
+                    src="assets/img/milkbase/matcha.webp"
+                    alt="Matcha"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Matcha</h3>
+                  <p class="food-desc">Matcha khas dengan susu lembut untuk akhir rasa yang halus.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a
+                      href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Matcha"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-order-icon"
+                      aria-label="Order Matcha"
+                    >
+                      <i class="bi bi-plus-lg"></i>
+                    </a>
                   </div>
                 </div>
               </article>
             </div>
 
             <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
+              class="col-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
               data-category="musttry"
               data-sales="137"
             >
-              <article class="card menu-card must-card h-100">
-                <span class="must-badge badge-most-popular">
-                  <i class="bi bi-star-fill" aria-hidden="true"></i>
-                  Most Popular
-                </span>
-                <img
-                  class="menu-img"
-                  src="assets/img/kopsu/butterscot.webp"
-                  alt="Palm Sugar (Aren)"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Palm Sugar (Aren)
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Espresso, susu, dan gula aren dengan manis khas favorit
-                    lokal.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+              <article class="card food-card must-card h-100">
+                <div class="food-card-media">
+                  <span class="must-badge badge-most-popular">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i> Most Popular
+                  </span>
+                  <img
+                    class="menu-img"
+                    src="assets/img/kopsu/butterscot.webp"
+                    alt="Palm Sugar (Aren)"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Palm Sugar (Aren)</h3>
+                  <p class="food-desc">Espresso, susu, dan gula aren dengan manis khas favorit lokal.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a
+                      href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Palm%20Sugar%20Aren"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-order-icon"
+                      aria-label="Order Palm Sugar (Aren)"
+                    >
+                      <i class="bi bi-plus-lg"></i>
+                    </a>
                   </div>
                 </div>
               </article>
             </div>
 
             <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
+              class="col-6 col-md-4 col-lg-3 menu-item animate-item must-try-item"
               data-category="musttry"
               data-sales="130"
             >
-              <article class="card menu-card must-card h-100">
-                <span class="must-badge badge-most-popular">
-                  <i class="bi bi-star-fill" aria-hidden="true"></i>
-                  Most Popular
-                </span>
-                <img
-                  class="menu-img"
-                  src="assets/img/signature/signature.webp"
-                  alt="Americano"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Americano</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Espresso dengan tambahan air panas, ringan dan mudah
-                    dinikmati.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+              <article class="card food-card must-card h-100">
+                <div class="food-card-media">
+                  <span class="must-badge badge-most-popular">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i> Most Popular
+                  </span>
+                  <img
+                    class="menu-img"
+                    src="assets/img/signature/signature.webp"
+                    alt="Americano"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Americano</h3>
+                  <p class="food-desc">Espresso dengan tambahan air panas, ringan dan mudah dinikmati.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a
+                      href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Americano"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-order-icon"
+                      aria-label="Order Americano"
+                    >
+                      <i class="bi bi-plus-lg"></i>
+                    </a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="signature"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/signature/signature.webp"
-                  alt="Espresso"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Espresso</h3>
+            <!-- SIGNATURE CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/signature/signature.webp" alt="Espresso" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Espresso</h3>
                     <span class="badge badge-mini">Classic</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Shot kopi kuat dengan aroma dalam dan akhir rasa yang
-                    bersih.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 18k</div>
+                  <p class="food-desc">Shot kopi kuat dengan aroma dalam dan akhir rasa yang bersih.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 18k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Espresso" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Espresso"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="signature"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/signature/signature.webp"
-                  alt="Americano"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Americano</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/signature/signature.webp" alt="Americano" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Americano</h3>
                     <span class="badge badge-mini">Light</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Espresso dengan tambahan air panas, ringan dan mudah
-                    dinikmati.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Espresso dengan tambahan air panas, ringan dan mudah dinikmati.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Americano" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Americano"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="signature"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/signature/signature.webp"
-                  alt="Cappuccino"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Cappuccino</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/signature/signature.webp" alt="Cappuccino" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Cappuccino</h3>
                     <span class="badge badge-mini">Smooth</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Perpaduan espresso, susu hangat, dan busa lembut yang
-                    seimbang.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+                  <p class="food-desc">Perpaduan espresso, susu hangat, dan busa lembut yang seimbang.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Cappuccino" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Cappuccino"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="signature"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/signature/signature.webp"
-                  alt="Caffè Latte"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Caffè Latte</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/signature/signature.webp" alt="Caffè Latte" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Caffè Latte</h3>
                     <span class="badge badge-mini">Smooth</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Espresso dan susu lembut dengan rasa ringan dan halus.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+                  <p class="food-desc">Espresso dan susu lembut dengan rasa ringan dan halus.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Caffe%20Latte" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Caffè Latte"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="signature"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/signature/moccachino.webp"
-                  alt="Moccachino"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Moccachino</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/signature/moccachino.webp" alt="Moccachino" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Moccachino</h3>
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Espresso, cokelat, dan susu dalam racikan yang pekat dan
-                    nyaman.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+                  <p class="food-desc">Espresso, cokelat, dan susu dalam racikan yang pekat dan nyaman.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Moccachino" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Moccachino"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="signature"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/signature/lattee.webp"
-                  alt="Berry Latte"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Berry Latte</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/signature/lattee.webp" alt="Berry Latte" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Berry Latte</h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Latte lembut dengan sentuhan berry segar dan akhir rasa
-                    espresso halus.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+                  <p class="food-desc">Latte lembut dengan sentuhan berry segar dan akhir rasa espresso halus.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Berry%20Latte" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Berry Latte"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="coffeemilk"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/kopsu/butterscot.webp"
-                  alt="Palm Sugar (Aren)"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Palm Sugar (Aren)
-                    </h3>
+            <!-- COFFEE MILK CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="coffeemilk">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/kopsu/butterscot.webp" alt="Palm Sugar (Aren)" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Palm Sugar (Aren)</h3>
                     <span class="badge badge-mini">Smooth</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Espresso, susu, dan gula aren dengan manis khas favorit
-                    lokal.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Espresso, susu, dan gula aren dengan manis khas favorit lokal.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Palm%20Sugar%20Aren" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Palm Sugar (Aren)"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="coffeemilk"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/kopsu/butterscot.webp"
-                  alt="Caramelo"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Caramelo</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="coffeemilk">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/kopsu/butterscot.webp" alt="Caramelo" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Caramelo</h3>
                     <span class="badge badge-mini">Smooth</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Kopi susu lembut dengan manis karamel dan akhir rasa yang
-                    halus.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Kopi susu lembut dengan manis karamel dan akhir rasa yang halus.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Caramelo" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Caramelo"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="coffeemilk"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/kopsu/butterscot.webp"
-                  alt="Butterscotch"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Butterscotch
-                    </h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="coffeemilk">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/kopsu/butterscot.webp" alt="Butterscotch" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Butterscotch</h3>
                     <span class="badge badge-mini">Smooth</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Espresso dan susu dengan aroma butterscotch yang hangat.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Espresso dan susu dengan aroma butterscotch yang hangat.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Butterscotch" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Butterscotch"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="coffeemilk"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/kopsu/pistachio.webp"
-                  alt="Pistachio"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Pistachio</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="coffeemilk">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/kopsu/pistachio.webp" alt="Pistachio" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Pistachio</h3>
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Kopi susu lembut dengan rasa pistachio yang gurih.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+                  <p class="food-desc">Kopi susu lembut dengan rasa pistachio yang gurih.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Pistachio" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Pistachio"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="milkbased"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/milkbase/redvelved.webp"
-                  alt="Red Velvet"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Red Velvet</h3>
+            <!-- MILKBASED CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/milkbase/redvelved.webp" alt="Red Velvet" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Red Velvet</h3>
                     <span class="badge badge-mini">Creamy</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Minuman berbasis susu yang lembut dengan manis khas red
-                    velvet.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Minuman berbasis susu yang lembut dengan manis khas red velvet.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Red%20Velvet" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Red Velvet"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="milkbased"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/milkbase/choco berry.webp"
-                  alt="Choco Berry"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Choco Berry</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/milkbase/choco berry.webp" alt="Choco Berry" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Choco Berry</h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Cokelat pekat dengan sentuhan berry yang cerah.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 27k</div>
+                  <p class="food-desc">Cokelat pekat dengan sentuhan berry yang cerah.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 27k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Choco%20Berry" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Choco Berry"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="milkbased"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/milkbase/taro.webp"
-                  alt="Taro"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Taro</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/milkbase/taro.webp" alt="Taro" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Taro</h3>
                     <span class="badge badge-mini">Sweet</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Taro lembut dengan manis ringan dan tekstur halus.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Taro lembut dengan manis ringan dan tekstur halus.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Taro" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Taro"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="milkbased"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/milkbase/chocolate.webp"
-                  alt="Chocolate"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Chocolate</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/milkbase/chocolate.webp" alt="Chocolate" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Chocolate</h3>
                     <span class="badge badge-mini">Rich</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Kakao dan susu yang pekat untuk rasa cokelat klasik.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Kakao dan susu yang pekat untuk rasa cokelat klasik.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chocolate" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Chocolate"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="milkbased"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/milkbase/matcha.webp"
-                  alt="Matcha"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Matcha</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/milkbase/matcha.webp" alt="Matcha" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Matcha</h3>
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Matcha khas dengan susu lembut untuk akhir rasa yang halus.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Matcha khas dengan susu lembut untuk akhir rasa yang halus.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Matcha" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Matcha"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="mocktail"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/mocktail/coco.webp"
-                  alt="Lolita"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lolita</h3>
+            <!-- MOCKTAIL CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="mocktail">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/mocktail/coco.webp" alt="Lolita" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Lolita</h3>
                     <span class="badge badge-mini">Floral</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Minuman segar beraroma bunga dengan strawberry, sakura, air
-                    kelapa, dan cold brew.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 20k</div>
+                  <p class="food-desc">Minuman segar beraroma bunga dengan strawberry, sakura, air kelapa, dan cold brew.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 20k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Lolita" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Lolita"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="mocktail"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/mocktail/cranberry.webp"
-                  alt="Cranberry"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Cranberry</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="mocktail">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/mocktail/cranberry.webp" alt="Cranberry" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Cranberry</h3>
                     <span class="badge badge-mini">Fruity</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Campuran segar rasa buah, mint, dan cold brew.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+                  <p class="food-desc">Campuran segar rasa buah, mint, dan cold brew.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Cranberry" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Cranberry"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="mocktail"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/mocktail/lolita.webp"
-                  alt="Coco Peach"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Coco Peach</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="mocktail">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/mocktail/lolita.webp" alt="Coco Peach" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Coco Peach</h3>
                     <span class="badge badge-mini">Tropical</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Peach dan lemon segar dengan air kelapa dan sentuhan
-                    espresso.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+                  <p class="food-desc">Peach dan lemon segar dengan air kelapa dan sentuhan espresso.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Coco%20Peach" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Coco Peach"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="sparkling"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/sparkling/blue.webp"
-                  alt="Ocean Blue"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Ocean Blue</h3>
+            <!-- SPARKLING CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="sparkling">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/sparkling/blue.webp" alt="Ocean Blue" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Ocean Blue</h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Soda citrus berkarbonasi dengan sensasi segar dan dingin.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+                  <p class="food-desc">Soda citrus berkarbonasi dengan sensasi segar dan dingin.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Ocean%20Blue" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Ocean Blue"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="sparkling"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/sparkling/pine.webp"
-                  alt="Pineberry Fizz"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Pineberry Fizz
-                    </h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="sparkling">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/sparkling/pine.webp" alt="Pineberry Fizz" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Pineberry Fizz</h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Soda strawberry dan pineapple dengan rasa tropis yang ringan
-                    dan menyenangkan.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+                  <p class="food-desc">Soda strawberry dan pineapple dengan rasa tropis yang ringan dan menyenangkan.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Pineberry%20Fizz" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Pineberry Fizz"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="other"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/cleo.webp"
-                  alt="Mineral Water"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Mineral Water
-                    </h3>
+            <!-- OTHER CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="other">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/cleo.webp" alt="Mineral Water" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Mineral Water</h3>
                     <span class="badge badge-mini">Fresh</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Air mineral praktis untuk menemani kopi, makanan, atau
-                    takeaway.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">5k</div>
+                  <p class="food-desc">Air mineral praktis untuk menemani kopi, makanan, atau takeaway.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">5k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Mineral%20Water" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Mineral Water"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="tea"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/tea/lemon.webp"
-                  alt="Lemon Tea"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lemon Tea</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Teh segar dengan sentuhan lemon yang cerah dan akhir rasa
-                    bersih.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 18k</div>
+            <!-- TEA CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/tea/lemon.webp" alt="Lemon Tea" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Lemon Tea</h3>
+                  <p class="food-desc">Teh segar dengan sentuhan lemon yang cerah dan akhir rasa bersih.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 18k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Lemon%20Tea" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Lemon Tea"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="tea"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/tea/lyche.webp"
-                  alt="Lychee Tea"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Lychee Tea</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Teh ringan dengan aroma leci manis dan rasa menyegarkan.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 18k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/tea/lyche.webp" alt="Lychee Tea" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Lychee Tea</h3>
+                  <p class="food-desc">Teh ringan dengan aroma leci manis dan rasa menyegarkan.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 18k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Lychee%20Tea" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Lychee Tea"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="tea"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/tea/classic.webp"
-                  alt="Peach Tea"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Peach Tea</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Teh lembut dengan rasa peach halus dan manis ringan.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 18k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/tea/classic.webp" alt="Peach Tea" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Peach Tea</h3>
+                  <p class="food-desc">Teh lembut dengan rasa peach halus dan manis ringan.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 18k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Peach%20Tea" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Peach Tea"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="tea"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/tea/strawberry.webp"
-                  alt="Strawberry Tea"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Strawberry Tea
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Teh dengan sentuhan strawberry cerah dan rasa buah yang
-                    ringan.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 18k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/tea/strawberry.webp" alt="Strawberry Tea" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Strawberry Tea</h3>
+                  <p class="food-desc">Teh dengan sentuhan strawberry cerah dan rasa buah yang ringan.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 18k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Strawberry%20Tea" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Strawberry Tea"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="tea"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/tea/classic.webp"
-                  alt="Classic Tea"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Classic Tea</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Teh seduh sederhana dengan aroma harum dan rasa bersih.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 15k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/tea/classic.webp" alt="Classic Tea" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Classic Tea</h3>
+                  <p class="food-desc">Teh seduh sederhana dengan aroma harum dan rasa bersih.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 15k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Classic%20Tea" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Classic Tea"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="manual"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/v60.webp"
-                  alt="V60"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">V60</h3>
+            <!-- MANUAL BREW CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="manual">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/v60.webp" alt="V60" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">V60</h3>
                     <span class="badge badge-mini">Floral</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Kopi seduh manual dengan karakter bersih dan aroma bunga
-                    yang cerah.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Tanya Kasir</div>
+                  <p class="food-desc">Kopi seduh manual dengan karakter bersih dan aroma bunga yang cerah.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Tanya Kasir</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20tanya%20beans%20V60" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Tanya V60"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="snack"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/snack/seawed.webp"
-                  alt="Chicken Seaweed Roll"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chicken Seaweed Roll
-                    </h3>
+            <!-- SNACKS CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/snack/seawed.webp" alt="Chicken Seaweed Roll" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Chicken Seaweed Roll</h3>
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Gulungan ayam renyah berbalut rumput laut, gurih di setiap
-                    gigitan.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 17k</div>
+                  <p class="food-desc">Gulungan ayam renyah berbalut rumput laut, gurih di setiap gigitan.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 17k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Seaweed%20Roll" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Chicken Seaweed Roll"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="snack"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/snack/salto.webp"
-                  alt="Tahu Salto"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Tahu Salto</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Tahu goreng keemasan dengan tekstur ringan dan renyah.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 15k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/snack/salto.webp" alt="Tahu Salto" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Tahu Salto</h3>
+                  <p class="food-desc">Tahu goreng keemasan dengan tekstur ringan dan renyah.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 15k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Tahu%20Salto" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Tahu Salto"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="snack"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/snack/bakso.webp"
-                  alt="Tahu Bakso"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Tahu Bakso</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Tahu isi bakso gurih, mengenyangkan dan mudah dinikmati.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 15k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/snack/bakso.webp" alt="Tahu Bakso" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Tahu Bakso</h3>
+                  <p class="food-desc">Tahu isi bakso gurih, mengenyangkan dan mudah dinikmati.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 15k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Tahu%20Bakso" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Tahu Bakso"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="snack"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/snack/kentang.webp"
-                  alt="French Fries"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      French Fries
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Kentang goreng renyah dengan bumbu ringan, cocok untuk
-                    dinikmati bersama.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 15k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/snack/kentang.webp" alt="French Fries" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">French Fries</h3>
+                  <p class="food-desc">Kentang goreng renyah dengan bumbu ringan, cocok untuk dinikmati bersama.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 15k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20French%20Fries" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order French Fries"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="snack"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/snack/onion.webp"
-                  alt="Onion Rings"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Onion Rings</h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Onion ring manis dengan balutan renyah keemasan.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 15k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/snack/onion.webp" alt="Onion Rings" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Onion Rings</h3>
+                  <p class="food-desc">Onion ring manis dengan balutan renyah keemasan.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 15k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Onion%20Rings" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Onion Rings"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="snack"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/snack/mix.webp"
-                  alt="Mix Platter"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Mix Platter</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/snack/mix.webp" alt="Mix Platter" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Mix Platter</h3>
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Paket camilan goreng favorit Santiks untuk dinikmati
-                    bersama.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+                  <p class="food-desc">Paket camilan goreng favorit Santiks untuk dinikmati bersama.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Mix%20Platter" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Mix Platter"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="snack"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/snack/wings.webp"
-                  alt="Chicken Wings"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chicken Wings
-                    </h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/snack/wings.webp" alt="Chicken Wings" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Chicken Wings</h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Sayap ayam juicy dengan bagian luar renyah dan bumbu kuat.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 27k</div>
+                  <p class="food-desc">Sayap ayam juicy dengan bagian luar renyah dan bumbu kuat.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 27k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Wings" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Chicken Wings"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="maincourse"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/course/bali.webp"
-                  alt="Balinese Chicken Spicy"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Balinese Chicken Spicy
-                    </h3>
+            <!-- MAIN COURSE CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/course/bali.webp" alt="Balinese Chicken Spicy" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Balinese Chicken Spicy</h3>
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Ayam dengan bumbu Bali yang kuat, hangat, dan gurih.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 28k</div>
+                  <p class="food-desc">Ayam dengan bumbu Bali yang kuat, hangat, dan gurih.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 28k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Balinese%20Chicken%20Spicy" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Balinese Chicken Spicy"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="maincourse"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/course/black.webp"
-                  alt="Chicken Black Pepper"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chicken Black Pepper
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Ayam lembut dengan saus lada hitam yang gurih.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/course/black.webp" alt="Chicken Black Pepper" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Chicken Black Pepper</h3>
+                  <p class="food-desc">Ayam lembut dengan saus lada hitam yang gurih.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Black%20Pepper" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Chicken Black Pepper"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="maincourse"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/course/butter.webp"
-                  alt="Chicken Butter Sauce"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chicken Butter Sauce
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Ayam dengan saus mentega lembut yang pekat dan hangat.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/course/butter.webp" alt="Chicken Butter Sauce" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Chicken Butter Sauce</h3>
+                  <p class="food-desc">Ayam dengan saus mentega lembut yang pekat dan hangat.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Butter%20Sauce" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Chicken Butter Sauce"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="maincourse"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/course/curry katsu.webp"
-                  alt="Chicken Curry Katsu"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chicken Curry Katsu
-                    </h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/course/curry katsu.webp" alt="Chicken Curry Katsu" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Chicken Curry Katsu</h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Chicken katsu renyah dengan saus kari Jepang yang pekat.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 28k</div>
+                  <p class="food-desc">Chicken katsu renyah dengan saus kari Jepang yang pekat.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 28k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Curry%20Katsu" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Chicken Curry Katsu"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="maincourse"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/course/matah.webp"
-                  alt="Chicken Katsu Sambal Matah"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chicken Katsu Sambal Matah
-                    </h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/course/matah.webp" alt="Chicken Katsu Sambal Matah" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Chicken Katsu Sambal Matah</h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Chicken katsu renyah dengan sambal matah segar dan wangi.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 25k</div>
+                  <p class="food-desc">Chicken katsu renyah dengan sambal matah segar dan wangi.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 25k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Katsu%20Sambal%20Matah" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Chicken Katsu Sambal Matah"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="maincourse"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/course/teriyaki.webp"
-                  alt="Beef Teriyaki"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Beef Teriyaki
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Daging sapi dengan saus teriyaki manis-gurih khas Jepang.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 30k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/course/teriyaki.webp" alt="Beef Teriyaki" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Beef Teriyaki</h3>
+                  <p class="food-desc">Daging sapi dengan saus teriyaki manis-gurih khas Jepang.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 30k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Beef%20Teriyaki" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Beef Teriyaki"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="maincourse"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/course/yakiniku.webp"
-                  alt="Beef Yakiniku"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Beef Yakiniku
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Daging sapi gurih dengan saus yakiniku dan aroma panggang
-                    lembut.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 30k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/course/yakiniku.webp" alt="Beef Yakiniku" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Beef Yakiniku</h3>
+                  <p class="food-desc">Daging sapi gurih dengan saus yakiniku dan aroma panggang lembut.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 30k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Beef%20Yakiniku" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Beef Yakiniku"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="maincourse"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/course/beef curry.webp"
-                  alt="Beef Curry"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Beef Curry</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/course/beef curry.webp" alt="Beef Curry" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Beef Curry</h3>
                     <span class="badge badge-mini badge-best">New</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Daging sapi dengan saus kari pekat, aroma dalam, dan rempah
-                    yang hangat.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 33k</div>
+                  <p class="food-desc">Daging sapi dengan saus kari pekat, aroma dalam, dan rempah yang hangat.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 33k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Beef%20Curry" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Beef Curry"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="pastry"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/pastry/churros.webp"
-                  alt="Churros"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Churros</h3>
+            <!-- PASTRY CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pastry">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/pastry/churros.webp" alt="Churros" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Churros</h3>
                     <span class="badge badge-mini badge-best">Best</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Churros keemasan dengan luar renyah dan bagian dalam lembut.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 22k</div>
+                  <p class="food-desc">Churros keemasan dengan luar renyah dan bagian dalam lembut.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 22k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Churros" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Churros"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="pastry"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/pastry/cheese.webp"
-                  alt="Cheese Toast"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Cheese Toast
-                    </h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pastry">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/pastry/cheese.webp" alt="Cheese Toast" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Cheese Toast</h3>
                     <span class="badge badge-mini">Savory</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Roti panggang gurih mentega dengan lelehan keju.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 15k</div>
+                  <p class="food-desc">Roti panggang gurih mentega dengan lelehan keju.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 15k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Cheese%20Toast" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Cheese Toast"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="pastry"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/pastry/choklat.webp"
-                  alt="Chocolate Toast"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Chocolate Toast
-                    </h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pastry">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/pastry/choklat.webp" alt="Chocolate Toast" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Chocolate Toast</h3>
                     <span class="badge badge-mini">Sweet</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Roti panggang hangat dengan cokelat pekat untuk pilihan
-                    manis.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 15k</div>
+                  <p class="food-desc">Roti panggang hangat dengan cokelat pekat untuk pilihan manis.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 15k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chocolate%20Toast" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Chocolate Toast"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="pastry"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/pastry/telur.webp"
-                  alt="Egg Toast"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">Egg Toast</h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pastry">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/pastry/telur.webp" alt="Egg Toast" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Egg Toast</h3>
                     <span class="badge badge-mini">Savory</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Roti panggang lembut dengan topping telur, simpel dan
-                    hangat.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 15k</div>
+                  <p class="food-desc">Roti panggang lembut dengan topping telur, simpel dan hangat.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 15k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Egg%20Toast" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Egg Toast"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="pasta"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/pasta/mac.webp"
-                  alt="Mac & Cheese"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Mac & Cheese
-                    </h3>
+            <!-- PASTA CATEGORY -->
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pasta">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/pasta/mac.webp" alt="Mac & Cheese" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Mac & Cheese</h3>
                     <span class="badge badge-mini">Creamy</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Makaroni lembut dengan saus keju pekat di setiap suapan.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+                  <p class="food-desc">Makaroni lembut dengan saus keju pekat di setiap suapan.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Mac%20and%20Cheese" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Mac & Cheese"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="pasta"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/pasta/bolog.webp"
-                  alt="Spaghetti Bolognese"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Spaghetti Bolognese
-                    </h3>
-                  </div>
-                  <p class="text-secondary small mb-3">
-                    Saus daging klasik dengan rasa tomat gurih yang seimbang.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pasta">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/pasta/bolog.webp" alt="Spaghetti Bolognese" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <h3 class="food-title">Spaghetti Bolognese</h3>
+                  <p class="food-desc">Saus daging klasik dengan rasa tomat gurih yang seimbang.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Spaghetti%20Bolognese" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Spaghetti Bolognese"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
 
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3 menu-item animate-item"
-              data-category="pasta"
-            >
-              <article class="card menu-card h-100">
-                <img
-                  class="menu-img"
-                  src="assets/img/pasta/carbo.webp"
-                  alt="Spaghetti Carbonara"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="card-body">
-                  <div class="d-flex align-items-start gap-2">
-                    <h3 class="h6 fw-semibold mb-1 flex-grow-1">
-                      Spaghetti Carbonara
-                    </h3>
+            <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pasta">
+              <article class="card food-card h-100">
+                <div class="food-card-media">
+                  <img class="menu-img" src="assets/img/pasta/carbo.webp" alt="Spaghetti Carbonara" loading="lazy" decoding="async" />
+                </div>
+                <div class="food-card-body">
+                  <div class="d-flex align-items-start gap-1">
+                    <h3 class="food-title flex-grow-1">Spaghetti Carbonara</h3>
                     <span class="badge badge-mini">Creamy</span>
                   </div>
-                  <p class="text-secondary small mb-3">
-                    Carbonara lembut dengan saus halus dan rasa gurih yang
-                    dalam.
-                  </p>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <div class="menu-price fw-bold">Rp 23k</div>
+                  <p class="food-desc">Carbonara lembut dengan saus halus dan rasa gurih yang dalam.</p>
+                  <div class="food-card-footer">
+                    <span class="menu-price">Rp 23k</span>
+                    <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Spaghetti%20Carbonara" target="_blank" rel="noopener noreferrer" class="btn-order-icon" aria-label="Order Spaghetti Carbonara"><i class="bi bi-plus-lg"></i></a>
                   </div>
                 </div>
               </article>
             </div>
           </div>
-          <p id="menuSearchEmpty" class="menu-search-empty" hidden>
-            Menu tidak ditemukan. Coba kata kunci lain.
+
+          <p id="menuSearchEmpty" class="menu-search-empty text-center py-5" hidden>
+            <i class="bi bi-search display-6 text-muted d-block mb-2"></i>
+            Menu tidak ditemukan. Coba kata kunci pencarian lain.
           </p>
+        </div>
+      </section>
+
+      <!-- ORDER ONLINE SECTION (EXTERNAL CHANNELS) -->
+      <section id="order" class="order-channels-section py-4 py-lg-5 bg-surface-subtle">
+        <div class="container">
+          <div class="text-center max-w-2xl mx-auto mb-4">
+            <span class="section-kicker-badge">Order Online</span>
+            <h2 class="section-heading">Pilih Platform Pesanan</h2>
+            <p class="text-muted small mb-0">Pesanan kamu siap dikirim atau diambil langsung di kedai Santiks Kudus.</p>
+          </div>
+
+          <div class="row g-3 justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4">
+              <a
+                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card channel-card h-100 text-decoration-none"
+              >
+                <div class="channel-card-body d-flex align-items-center gap-3">
+                  <div class="channel-icon bg-success-subtle text-success">
+                    <i class="bi bi-whatsapp"></i>
+                  </div>
+                  <div>
+                    <h3 class="channel-title">WhatsApp Order</h3>
+                    <p class="channel-desc mb-0">Pesan cepat langsung ke kasir kedai</p>
+                  </div>
+                  <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <a
+                href="https://shopee.co.id/universal-link/now-food/shop/21175659"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card channel-card h-100 text-decoration-none"
+              >
+                <div class="channel-card-body d-flex align-items-center gap-3">
+                  <div class="channel-icon bg-warning-subtle text-warning">
+                    <i class="bi bi-bag-fill"></i>
+                  </div>
+                  <div>
+                    <h3 class="channel-title">ShopeeFood</h3>
+                    <p class="channel-desc mb-0">Pesan via aplikasi ShopeeFood</p>
+                  </div>
+                  <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <a
+                href="https://r.grab.com/g/6-20240903_120000_santiks"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card channel-card h-100 text-decoration-none"
+              >
+                <div class="channel-card-body d-flex align-items-center gap-3">
+                  <div class="channel-icon bg-success-subtle text-success">
+                    <i class="bi bi-scooter"></i>
+                  </div>
+                  <div>
+                    <h3 class="channel-title">GrabFood</h3>
+                    <p class="channel-desc mb-0">Pengiriman cepat via GrabFood</p>
+                  </div>
+                  <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STORE LOCATION & INFO SECTION -->
+      <section id="lokasi" class="location-section py-4 py-lg-5">
+        <div class="container">
+          <div class="card location-card overflow-hidden">
+            <div class="row g-0 align-items-center">
+              <div class="col-12 col-lg-6 p-4 p-lg-5">
+                <span class="section-kicker-badge">Store Location</span>
+                <h2 class="section-heading mb-3">Santiks Coffee & Calm Kudus</h2>
+                <div class="location-details d-flex flex-column gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <div class="loc-icon"><i class="bi bi-geo-alt-fill text-danger"></i></div>
+                    <div>
+                      <h3 class="h6 fw-semibold mb-1">Alamat</h3>
+                      <p class="text-secondary small mb-0">Mlati Norowito Gg. 2 No.81, Kota Kudus, Jawa Tengah</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-start gap-3">
+                    <div class="loc-icon"><i class="bi bi-clock-fill text-primary"></i></div>
+                    <div>
+                      <h3 class="h6 fw-semibold mb-1">Jam Operasional</h3>
+                      <p class="text-secondary small mb-0">Setiap Hari: 10.00 &ndash; 22.00 WIB</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-start gap-3">
+                    <div class="loc-icon"><i class="bi bi-instagram text-danger"></i></div>
+                    <div>
+                      <h3 class="h6 fw-semibold mb-1">Social Media</h3>
+                      <p class="text-secondary small mb-0">Instagram: @santikscoffee.kds &bull; TikTok: @santikscoffee</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <a
+                    href="https://maps.google.com/?q=Santiks+Coffee+Kudus"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-brand-primary"
+                  >
+                    <i class="bi bi-map-fill me-2"></i> Buka Google Maps
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <div class="location-map-media">
+                  <img src="assets/img/bg1.webp" alt="Peta Lokasi Santiks" decoding="async" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <!-- MOBILE BOTTOM APP NAVIGATION -->
+    <nav class="mobile-bottom-nav d-lg-none" aria-label="Mobile Navigation Bar">
+      <a href="#home" class="bottom-nav-item active">
+        <i class="bi bi-house-door-fill"></i>
+        <span>Home</span>
+      </a>
+      <a href="#menu" class="bottom-nav-item">
+        <i class="bi bi-grid-fill"></i>
+        <span>Menu</span>
+      </a>
+      <a href="#order" class="bottom-nav-item">
+        <i class="bi bi-bag-check-fill"></i>
+        <span>Order</span>
+      </a>
+      <a href="#lokasi" class="bottom-nav-item">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span>Lokasi</span>
+      </a>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="app-footer py-4">
       <div class="container">
-        <div
-          class="d-flex flex-column flex-md-row justify-content-between gap-2"
-        >
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+          <div class="brand-footer d-flex align-items-center gap-2">
+            <span class="brand-badge-icon small"><i class="bi bi-cup-hot-fill"></i></span>
+            <span class="fw-bold text-dark">Santiks Coffee & Calm</span>
+          </div>
+
           <div class="d-flex gap-3 small">
             <a
               class="footer-link"
               href="https://www.instagram.com/santikscoffeekds"
               target="_blank"
               rel="noopener noreferrer"
-              >Instagram</a
-            >
+            >Instagram</a>
             <a
               class="footer-link"
               href="https://www.tiktok.com/@santikscoffeekds"
               target="_blank"
               rel="noopener noreferrer"
-              >TikTok</a
-            >
+            >TikTok</a>
             <a
               class="footer-link"
-              href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order"
+              href="https://wa.me/6285182332802?text=Halo%20Santiks"
               target="_blank"
               rel="noopener noreferrer"
-              >Contact</a
-            >
+            >WhatsApp</a>
           </div>
-          <div class="small">&copy; <span id="y"></span> Santiks Coffee.</div>
+
+          <div class="small text-muted">&copy; <span id="y"></span> Santiks Coffee. All rights reserved.</div>
         </div>
       </div>
     </footer>
 
+    <!-- SCRIPTS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       defer
     ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-
     <script src="script.js" defer></script>
     <script src="app.js" defer></script>
   </body>

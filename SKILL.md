@@ -1,75 +1,61 @@
 ---
-name: design-system-iphone-17-pro-dan-iphone-17-pro-max
-description: Creates implementation-ready design-system guidance with tokens, component behavior, and accessibility standards. Use when creating or updating UI rules, component specifications, or design-system documentation.
+name: santiks-ui-redesign-guidelines
+description: Implementation rules, DOM contracts, and architectural guardrails for Santiks Coffee & Calm digital menu project.
 ---
 
-<!-- TYPEUI_SH_MANAGED_START -->
+# Santiks Coffee & Calm &mdash; Developer & AI Agent Skill & Guardrails
 
-# iPhone 17 Pro dan iPhone 17 Pro Max
+Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contract antara HTML dan JavaScript** untuk pengembang atau AI Agent yang bekerja pada project ini di masa mendatang.
 
-## Mission
-Deliver implementation-ready design-system guidance for iPhone 17 Pro dan iPhone 17 Pro Max that can be applied consistently across e-commerce storefront interfaces.
+---
 
-## Brand
-- Product/brand: iPhone 17 Pro dan iPhone 17 Pro Max
-- URL: https://www.apple.com/id/iphone-17-pro/
-- Audience: online shoppers and consumers
-- Product surface: e-commerce storefront
+## 🎯 Prinsip Utama Project
 
-## Style Foundations
-- Visual style: structured, accessible, implementation-first
-- Main font style: `font.family.primary=SF Pro Text`, `font.family.stack=SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif`, `font.size.base=17px`, `font.weight.base=600`, `font.lineHeight.base=25px`
-- Typography scale: `font.size.xs=12px`, `font.size.sm=13.6px`, `font.size.md=14px`, `font.size.lg=17px`, `font.size.xl=19px`, `font.size.2xl=19.89px`, `font.size.3xl=21px`, `font.size.4xl=24px`
-- Color palette: `color.text.primary=#f5f5f7`, `color.text.secondary=#86868b`, `color.text.tertiary=#1d1d1f`, `color.surface.base=#000000`, `color.surface.raised=#0071e3`, `color.surface.strong=#0066cc`
-- Spacing scale: `space.1=6px`, `space.2=7px`, `space.3=8px`, `space.4=10px`, `space.5=11px`, `space.6=12px`, `space.7=13.6px`, `space.8=14px`
-- Radius/shadow/motion tokens: `radius.xs=10px`, `radius.sm=20px`, `radius.md=28px`, `radius.lg=32px`, `radius.xl=120px`, `radius.2xl=170px`, `radius.step7=980px` | `motion.duration.instant=250ms`, `motion.duration.fast=320ms`
+1. **Preserve Santiks Brand Identity**: Brand color utama adalah `#003370` (Navy Blue).
+2. **Mobile-First & App-Like**: Desain diutamakan untuk kenyamanan browsing menu di ponsel.
+3. **Preserve Business Logic & Data**: Nama produk, harga, deskripsi, link WhatsApp, ShopeeFood, GrabFood, dan Google Maps adalah data asli yang tidak boleh diubah sembarangan.
+4. **Zero-Build Architecture**: Tetap pertahankan arsitektur web statis tanpa bundler (React/Vue/Tailwind build).
+5. **No Fake Functionality**: Jangan menambahkan tombol cart / favorite fiktif yang tidak didukung backend.
 
-## Accessibility
-- Target: WCAG 2.2 AA
-- Keyboard-first interactions required.
-- Focus-visible rules required.
-- Contrast constraints required.
+---
 
-## Writing Tone
-concise, confident, implementation-focused
+## 📜 JavaScript DOM Contract (Wajib Dipelihara)
 
-## Rules: Do
-- Use semantic tokens, not raw hex values in component guidance.
-- Every component must define required states: default, hover, focus-visible, active, disabled, loading, error.
-- Responsive behavior and edge-case handling should be specified for every component family.
-- Accessibility acceptance criteria must be testable in implementation.
+Setiap perubahan markup HTML **WAJIB mempertahankan ID, Data Attributes, dan Selector berikut** agar logika JavaScript (`script.js` & `app.js`) tetap berfungsi normal:
 
-## Rules: Don't
-- Do not allow low-contrast text or hidden focus indicators.
-- Do not introduce one-off spacing or typography exceptions.
-- Do not use ambiguous labels or non-descriptive actions.
+### Selector & Element Contract:
 
-## Guideline Authoring Workflow
-1. Restate design intent in one sentence.
-2. Define foundations and tokens.
-3. Define component anatomy, variants, and interactions.
-4. Add accessibility acceptance criteria.
-5. Add anti-patterns and migration notes.
-6. End with QA checklist.
+| Element / Action | Required Selector / ID | Fungsi di JS |
+| :--- | :--- | :--- |
+| **Footer Year** | `#y` | Auto update tahun hak cipta |
+| **Desktop Navbar** | `.desktop-navbar` atau `.navbar` | Track scroll state (`scrolled` class) |
+| **Navbar Collapse** | `#navMain` | Collapse menu saat link diklik |
+| **Menu Grid Container** | `#menuGrid` | Container item card & category headings |
+| **Menu Item** | `#menuGrid .menu-item` | Selector filter & search menu |
+| **Item Category Tag** | `data-category="..."` | Data filter kategori pada item card |
+| **Filter Pills Container**| `#filterPills` | Group button filter kategori |
+| **Filter Button** | `#filterPills [data-filter]` | Trigger filter kategori menu |
+| **Search Toggle** | `#menuSearchToggle` | Quick scroll/focus ke search bar |
+| **Search Form** | `#menuSearchBar` | Element form pencarian |
+| **Search Input** | `#menuSearchInput` | Input pencarian menu real-time |
+| **Search Clear Button** | `#menuSearchClear` | Tombol reset input pencarian |
+| **Search Empty Text** | `#menuSearchEmpty` | Pesan jika menu tidak ditemukan |
+| **Category Headings** | `[data-category-heading="..."]` | Dynamic category headings oleh JS |
+| **Drag Scroll Row** | `[data-drag-scroll]` | Inisialisasi drag scroll mouse/touch |
+| **Mobile Bottom Nav** | `.bottom-nav-item` | Tracking scroll indikator tab aktif |
 
-## Required Output Structure
-- Context and goals
-- Design tokens and foundations
-- Component-level rules (anatomy, variants, states, responsive behavior)
-- Accessibility requirements and testable acceptance criteria
-- Content and tone standards with examples
-- Anti-patterns and prohibited implementations
-- QA checklist
+---
 
-## Component Rule Expectations
-- Include keyboard, pointer, and touch behavior.
-- Include spacing and typography token requirements.
-- Include long-content, overflow, and empty-state handling.
+## 🚫 Rules: DO & DON'T
 
-## Quality Gates
-- Every non-negotiable rule must use "must".
-- Every recommendation should use "should".
-- Every accessibility rule must be testable in implementation.
-- Prefer system consistency over local visual exceptions.
+### DO:
+- Gunakan CSS Custom Properties (`var(--color-primary)`, `--radius-lg`, dll) dari `:root`.
+- Pastikan gambar menggunakan atribut `loading="lazy"` dan `decoding="async"`.
+- Setiap penambahan asset CSS/JS kritis harus diiringi dengan **update `CACHE_VERSION` di `sw.js`** (misal `v7`, `v8`).
+- Pengujian tampilan wajib dilakukan pada viewport: `360px`, `390px`, `430px`, `768px`, `1024px`, `1440px`.
 
-<!-- TYPEUI_SH_MANAGED_END -->
+### DON'T:
+- Jangan menambahkan framework SPA (React, Next.js, Vue, Svelte) atau build tool (Vite, Webpack).
+- Jangan menghapus atribut `aria-*`, `role="search"`, atau tag aksesibilitas tanpa alasan teknis.
+- Jangan mengubah hex color secara ad-hoc tanpa mendaftarkannya sebagai token di `:root`.
+- Jangan merusak struktur manifest PWA (`site.webmanifest`) atau Service Worker (`sw.js`).

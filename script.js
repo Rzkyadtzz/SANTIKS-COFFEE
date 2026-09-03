@@ -1,9 +1,9 @@
-// script.js (FINAL)
+// script.js (FINAL - Redesigned UI Engine)
 (() => {
   "use strict";
 
   // -----------------------------
-  // 0) Helper
+  // 0) Helpers & Motion Check
   // -----------------------------
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -12,7 +12,7 @@
   ).matches;
 
   // -----------------------------
-  // 1) Footer year
+  // 1) Footer year auto update
   // -----------------------------
   (() => {
     const yearEl = document.getElementById("y");
@@ -20,21 +20,18 @@
   })();
 
   // -----------------------------
-  // 2) Smooth scroll for internal anchors only
-  //    - Works with fixed navbar offset
+  // 2) Smooth scroll for internal anchors
   // -----------------------------
   (() => {
-    const navbar = document.querySelector(".navbar");
+    const navbar = document.querySelector(".desktop-navbar") || document.querySelector(".navbar");
     const navMain = document.getElementById("navMain");
     const getOffset = () => (navbar ? navbar.offsetHeight : 0);
     const closeMobileNav = () => {
       if (!navMain || !navMain.classList.contains("show")) return;
-
       if (window.bootstrap?.Collapse) {
         window.bootstrap.Collapse.getOrCreateInstance(navMain).hide();
         return;
       }
-
       navMain.classList.remove("show");
     };
 
@@ -43,7 +40,6 @@
         const href = a.getAttribute("href");
         if (!href || href === "#") return;
 
-        // Jangan handle kalau ini modal trigger / atau anchor yang tidak ada
         const target = document.querySelector(href);
         if (!target) return;
 
@@ -51,28 +47,26 @@
         const top =
           target.getBoundingClientRect().top + window.scrollY - getOffset();
         window.scrollTo({
-          top,
+          top: Math.max(0, top),
           behavior: prefersReduced ? "auto" : "smooth",
         });
         closeMobileNav();
-
-        // Update URL hash (tanpa reload)
         history.pushState(null, "", href);
       });
     });
   })();
 
   // -----------------------------
-  // 3) Navbar scrolled state
+  // 3) Desktop Navbar scrolled state
   // -----------------------------
   (() => {
-    const nav = document.querySelector(".navbar");
+    const nav = document.querySelector(".desktop-navbar") || document.querySelector(".navbar");
     if (!nav) return;
     let isScrolled = false;
     let ticking = false;
 
     const applyState = () => {
-      const nextScrolled = window.scrollY > 10;
+      const nextScrolled = window.scrollY > 15;
       if (nextScrolled !== isScrolled) {
         nav.classList.toggle("scrolled", nextScrolled);
         isScrolled = nextScrolled;
@@ -91,44 +85,45 @@
   })();
 
   // -----------------------------
-  // 4) Animate items on view (IntersectionObserver)
+  // 4) IntersectionObserver for animations & Bottom Nav Active State
   // -----------------------------
   (() => {
     const els = $$(".animate-item");
-    if (!els.length) return;
-    els.forEach((el) => el.classList.add("show"));
+    if (els.length) {
+      els.forEach((el) => el.classList.add("filtered-show"));
+    }
+
+    // Mobile Bottom Nav Active Link Observer
+    const sections = $$("section[id]");
+    const bottomNavLinks = $$(".bottom-nav-item");
+    const desktopNavLinks = $$(".desktop-navbar .nav-link");
+
+    if (sections.length && (bottomNavLinks.length || desktopNavLinks.length)) {
+      const obs = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (!visible) return;
+          const id = `#${visible.target.id}`;
+
+          bottomNavLinks.forEach((l) =>
+            l.classList.toggle("active", l.getAttribute("href") === id)
+          );
+          desktopNavLinks.forEach((l) =>
+            l.classList.toggle("active", l.getAttribute("href") === id)
+          );
+        },
+        { rootMargin: "-25% 0px -45% 0px", threshold: [0.1, 0.25, 0.5] }
+      );
+
+      sections.forEach((s) => obs.observe(s));
+    }
   })();
 
   // -----------------------------
-  // 5) Active nav link based on visible section
-  // -----------------------------
-  (() => {
-    const sections = $$("section[id], header[id], #highlight");
-    const navLinks = $$(".navbar .nav-link");
-    if (!sections.length || !navLinks.length) return;
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        // Cari entry yang paling "masuk" viewport
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (!visible) return;
-
-        const id = `#${visible.target.id}`;
-        navLinks.forEach((l) =>
-          l.classList.toggle("active", l.getAttribute("href") === id),
-        );
-      },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5, 1] },
-    );
-
-    sections.forEach((s) => obs.observe(s));
-  })();
-
-  // -----------------------------
-  // 6) Filter menu grid (sliding pill and staggered entrance)
+  // 5) Filter menu grid & live search engine
   // -----------------------------
   (() => {
     const menuGrid = document.getElementById("menuGrid");
@@ -143,7 +138,7 @@
     const searchInput = document.getElementById("menuSearchInput");
     const searchClear = document.getElementById("menuSearchClear");
     const searchEmpty = document.getElementById("menuSearchEmpty");
-    const mobileMenuQuery = window.matchMedia("(max-width: 767.98px)");
+    const mobileMenuQuery = window.matchMedia("(max-width: 991.98px)");
     const hideTimers = new WeakMap();
     const normalizeText = (value) => value.toLowerCase().trim();
     let searchQuery = "";
@@ -152,47 +147,16 @@
     const categoryOrder = new Map(
       buttons.map((btn, index) => [btn.getAttribute("data-filter"), index]),
     );
+
     const highlightBadges = new Map([
-      ["Butterscotch", {
-        icon: "bi-award-fill",
-        label: "Best Seller",
-        type: "best-seller",
-      }],
-      ["Mix Platter", {
-        icon: "bi-hand-thumbs-up-fill",
-        label: "Top Ordered",
-        type: "top-ordered",
-      }],
-      ["Caramelo", {
-        icon: "bi-star-fill",
-        label: "Most Popular",
-        type: "most-popular",
-      }],
-      ["Red Velvet", {
-        icon: "bi-star-fill",
-        label: "Most Popular",
-        type: "most-popular",
-      }],
-      ["Chicken Katsu Sambal Matah", {
-        icon: "bi-star-fill",
-        label: "Most Popular",
-        type: "most-popular",
-      }],
-      ["Matcha", {
-        icon: "bi-star-fill",
-        label: "Most Popular",
-        type: "most-popular",
-      }],
-      ["Palm Sugar (Aren)", {
-        icon: "bi-star-fill",
-        label: "Most Popular",
-        type: "most-popular",
-      }],
-      ["Americano", {
-        icon: "bi-star-fill",
-        label: "Most Popular",
-        type: "most-popular",
-      }],
+      ["Butterscotch", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Mix Platter", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      ["Caramelo", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      ["Red Velvet", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      ["Chicken Katsu Sambal Matah", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      ["Matcha", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      ["Palm Sugar (Aren)", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      ["Americano", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
     ]);
 
     items.forEach((item, index) => {
@@ -207,8 +171,8 @@
         const badge = title ? highlightBadges.get(title) : null;
         if (!badge || $(".scroll-menu-badge", item)) return;
 
-        const titleRow = $(".card-body .d-flex.align-items-start", item);
-        if (!titleRow) return;
+        const mediaCol = $(".food-card-media", item);
+        if (!mediaCol) return;
 
         const badgeEl = document.createElement("span");
         badgeEl.className = `scroll-menu-badge scroll-menu-badge-${badge.type}`;
@@ -221,35 +185,28 @@
         textEl.textContent = badge.label;
 
         badgeEl.append(iconEl, textEl);
-        titleRow.before(badgeEl);
+        mediaCol.appendChild(badgeEl);
       });
     };
 
     const sortMenuItemsByCategory = () => {
       if (!menuGrid) return;
-
       items.sort((a, b) => {
         const orderA = categoryOrder.get(a.dataset.category) ?? Number.MAX_SAFE_INTEGER;
         const orderB = categoryOrder.get(b.dataset.category) ?? Number.MAX_SAFE_INTEGER;
-
         if (orderA !== orderB) return orderA - orderB;
-
         return Number(a.dataset.originalOrder) - Number(b.dataset.originalOrder);
       });
-
       items.forEach((item) => menuGrid.appendChild(item));
     };
 
     const buildCategoryHeadings = () => {
       if (!menuGrid) return;
-
       buttons.forEach((btn) => {
         const category = btn.getAttribute("data-filter");
         if (!category || category === "all") return;
 
-        const categoryItems = items.filter(
-          (item) => item.dataset.category === category,
-        );
+        const categoryItems = items.filter((item) => item.dataset.category === category);
         const firstItem = categoryItems[0];
         if (!firstItem) return;
 
@@ -291,13 +248,9 @@
         window.clearTimeout(pendingHide);
         hideTimers.delete(el);
       }
-
-      // Ensure layout contains the element
       el.classList.remove("d-none");
-
-      // Stagger animation
       const timer = window.setTimeout(() => {
-        void el.offsetWidth; // force layout recalculation
+        void el.offsetWidth;
         el.classList.add("filtered-show");
         el.style.pointerEvents = "auto";
         hideTimers.delete(el);
@@ -311,24 +264,20 @@
         window.clearTimeout(pendingHide);
         hideTimers.delete(el);
       }
-
       el.classList.remove("filtered-show");
       el.style.pointerEvents = "none";
-
       const timer = window.setTimeout(() => {
         el.classList.add("d-none");
         hideTimers.delete(el);
-      }, 400); // Match CSS transition duration
+      }, 350);
       hideTimers.set(el, timer);
     };
 
     const centerActiveButton = (selectedBtn) => {
       if (!filterPills || !selectedBtn) return;
-
       const targetLeft =
         selectedBtn.offsetLeft -
         (filterPills.clientWidth - selectedBtn.offsetWidth) / 2;
-
       filterPills.scrollTo({
         left: Math.max(0, targetLeft),
         behavior: prefersReduced ? "auto" : "smooth",
@@ -350,7 +299,6 @@
           window.clearTimeout(pendingHide);
           hideTimers.delete(item);
         }
-
         item.classList.remove("d-none");
         item.classList.add("filtered-show");
         item.style.pointerEvents = "auto";
@@ -360,7 +308,6 @@
     const setCategoryHeadingCount = (heading, count) => {
       const countEl = $("[data-category-count]", heading);
       if (!countEl) return;
-
       countEl.textContent = `${count} item`;
     };
 
@@ -378,25 +325,17 @@
       $$("[data-category-heading]", menuGrid).forEach((heading) => {
         const category = heading.dataset.categoryHeading;
         const count = matchCounts.get(category) || 0;
-
         heading.classList.toggle("d-none", count === 0);
         setCategoryHeadingCount(heading, count);
       });
     };
 
     const getMobileStickyOffset = () => {
-      const topbar = $(".mobile-menu-topbar");
-      const pillsWrapper = $(".filter-pills-wrapper");
-      const activeSearchBar = searchBar?.classList.contains("is-open")
-        ? searchBar
-        : null;
+      const topbar = $(".mobile-app-header") || $(".mobile-menu-topbar");
+      const pillsWrapper = $(".category-scroll-container") || $(".filter-pills-wrapper");
       const topbarHeight = topbar?.offsetParent ? topbar.offsetHeight : 0;
       const pillsHeight = pillsWrapper?.offsetParent ? pillsWrapper.offsetHeight : 0;
-      const searchHeight = activeSearchBar?.offsetParent
-        ? activeSearchBar.offsetHeight + 10
-        : 0;
-
-      return topbarHeight + searchHeight + pillsHeight + 18;
+      return topbarHeight + pillsHeight + 16;
     };
 
     const scrollToCategory = (category) => {
@@ -424,8 +363,7 @@
 
       headings.forEach((heading) => {
         const rect = heading.getBoundingClientRect();
-
-        if (rect.top <= offset + 28) {
+        if (rect.top <= offset + 32) {
           activeCategory = heading.dataset.categoryHeading;
         } else if (!activeCategory && rect.top < viewportHeight * 0.45) {
           activeCategory = heading.dataset.categoryHeading;
@@ -434,7 +372,6 @@
 
       for (const item of items) {
         const rect = item.getBoundingClientRect();
-
         if (rect.bottom > offset + 8 && rect.top < viewportHeight * 0.62) {
           activeItem = item;
           break;
@@ -458,7 +395,6 @@
 
     const requestMobileActiveUpdate = () => {
       if (!mobileMenuQuery.matches || searchQuery || scrollTicking) return;
-
       scrollTicking = true;
       window.requestAnimationFrame(() => {
         updateActiveCategoryFromScroll();
@@ -468,7 +404,6 @@
 
     const applyFilter = (selectedBtn) => {
       const filter = selectedBtn?.getAttribute("data-filter") || "all";
-
       setActiveButton(selectedBtn);
       resetCategoryHeadings();
 
@@ -477,7 +412,7 @@
         const match = filter === "all" || item.dataset.category === filter;
         if (match) {
           showItem(item, delay);
-          delay += 40; // 40ms stagger increment
+          delay += 30;
         } else {
           hideItem(item);
         }
@@ -496,7 +431,7 @@
       menuSection?.classList.toggle("is-searching", hasQuery);
 
       if (!hasQuery) {
-        searchEmpty.hidden = true;
+        if (searchEmpty) searchEmpty.hidden = true;
         resetCategoryHeadings();
         syncMenuMode();
         return;
@@ -510,7 +445,7 @@
           const category = item.dataset.category || "";
           matchCounts.set(category, (matchCounts.get(category) || 0) + 1);
           showItem(item, delay);
-          delay += 32;
+          delay += 25;
           visibleCount += 1;
         } else {
           hideItem(item);
@@ -518,22 +453,15 @@
       });
 
       updateCategoryHeadingsForSearch(matchCounts);
-      searchEmpty.hidden = visibleCount > 0;
+      if (searchEmpty) searchEmpty.hidden = visibleCount > 0;
     };
 
-    const clearSearch = ({ keepOpen = true } = {}) => {
+    const clearSearch = () => {
       if (searchInput) searchInput.value = "";
       searchQuery = "";
       menuSection?.classList.remove("is-searching");
-      searchEmpty.hidden = true;
+      if (searchEmpty) searchEmpty.hidden = true;
       resetCategoryHeadings();
-
-      if (!keepOpen) {
-        searchBar?.classList.remove("is-open");
-        searchToggle?.classList.remove("is-active");
-        searchToggle?.setAttribute("aria-expanded", "false");
-      }
-
       syncMenuMode();
     };
 
@@ -559,22 +487,19 @@
       btn.addEventListener("click", () => {
         if (mobileMenuQuery.matches) {
           if (searchQuery) {
-            clearSearch({ keepOpen: false });
+            clearSearch();
           }
-
           setActiveButton(btn);
           centerActiveButton(btn);
           scrollToCategory(btn.getAttribute("data-filter"));
           return;
         }
-
         applyFilter(btn);
       });
     });
 
     searchBar?.addEventListener("submit", (event) => {
       event.preventDefault();
-
       const firstVisible = items.find((item) => !item.classList.contains("d-none"));
       if (!firstVisible) return;
 
@@ -590,17 +515,10 @@
     });
 
     searchToggle?.addEventListener("click", () => {
-      const isOpen = searchBar?.classList.toggle("is-open");
-
-      searchToggle.classList.toggle("is-active", Boolean(isOpen));
-      searchToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
-      if (isOpen) {
-        window.setTimeout(() => searchInput?.focus(), 80);
-        return;
+      if (searchInput) {
+        searchInput.focus();
+        scrollToCategory(buttons[0]?.getAttribute("data-filter") || "musttry");
       }
-
-      clearSearch({ keepOpen: false });
     });
 
     searchInput?.addEventListener("input", () => {
@@ -627,8 +545,7 @@
   })();
 
   // -----------------------------
-  // 7) Drag scroll horizontal rows
-  //    - Prevent click after drag
+  // 6) Drag scroll for horizontal rows
   // -----------------------------
   (() => {
     const scrollers = $$("[data-drag-scroll]");
@@ -656,7 +573,7 @@
       const onPointerMove = (e) => {
         if (!isDown) return;
         const dx = e.clientX - startX;
-        if (Math.abs(dx) > 8) {
+        if (Math.abs(dx) > 6) {
           moved = true;
         }
         scroller.scrollLeft = scrollLeft - dx;
@@ -672,7 +589,6 @@
 
       scroller.addEventListener("pointerdown", onPointerDown);
 
-      // Prevent click after dragging, but allow regular clicking
       scroller.addEventListener(
         "click",
         (e) => {
@@ -687,19 +603,15 @@
   })();
 
   // -----------------------------
-  // 8) Service worker + orientation refresh
+  // 7) Service worker registration
   // -----------------------------
   (() => {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
           .register("/sw.js")
-          .catch((err) => console.error("SW gagal:", err));
+          .catch((err) => console.error("ServiceWorker registration failed:", err));
       });
     }
-
-    window.addEventListener("orientationchange", () => {
-      window.setTimeout(() => window.dispatchEvent(new Event("resize")), 200);
-    });
   })();
 })();
