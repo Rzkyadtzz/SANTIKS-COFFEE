@@ -73,58 +73,184 @@
 
     const highlightBadges = new Map([
       // Signature Coffee
-      ["Berry Latte", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Cappuccino", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["Americano", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Berry Latte",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Cappuccino",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
+      [
+        "Americano",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Coffee Milk
-      ["Butterscotch", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Palm Sugar (Aren)", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["Caramelo", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Butterscotch",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Palm Sugar (Aren)",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
+      [
+        "Caramelo",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Milkbased
-      ["Red Velvet", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
-      ["Matcha", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Red Velvet",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
+      [
+        "Matcha",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Mocktail
-      ["Lolita", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Cranberry", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["Coco Peach", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Lolita",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Cranberry",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
+      [
+        "Coco Peach",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Sparkling Series
-      ["Ocean Blue", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Pineberry Fizz", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      [
+        "Ocean Blue",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Pineberry Fizz",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
 
       // Other
-      ["Mineral Water", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Mineral Water",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Tea Series
-      ["Lychee Tea", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Lemon Tea", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["Peach Tea", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Lychee Tea",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Lemon Tea",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
+      [
+        "Peach Tea",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Manual Brew
-      ["V60", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      [
+        "V60",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
 
       // Snacks
-      ["Tahu Bakso", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Mix Platter", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["French Fries", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Tahu Bakso",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Mix Platter",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
+      [
+        "French Fries",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Main Course
-      ["Balinese Chicken Spicy", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Chicken Curry Katsu", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["Chicken Katsu Sambal Matah", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Balinese Chicken Spicy",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Chicken Curry Katsu",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
+      [
+        "Chicken Katsu Sambal Matah",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Pastry
-      ["Churros", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Cheese Toast", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["Chocolate Toast", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Churros",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Cheese Toast",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
+      [
+        "Chocolate Toast",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
 
       // Pasta
-      ["Spaghetti Carbonara", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Spaghetti Bolognese", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["Mac & Cheese", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      [
+        "Spaghetti Carbonara",
+        { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" },
+      ],
+      [
+        "Spaghetti Bolognese",
+        {
+          icon: "bi-hand-thumbs-up-fill",
+          label: "Top Ordered",
+          type: "top-ordered",
+        },
+      ],
+      [
+        "Mac & Cheese",
+        { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" },
+      ],
     ]);
 
     items.forEach((item, index) => {
@@ -168,10 +294,14 @@
     const sortMenuItemsByCategory = () => {
       if (!menuGrid) return;
       items.sort((a, b) => {
-        const orderA = categoryOrder.get(a.dataset.category) ?? Number.MAX_SAFE_INTEGER;
-        const orderB = categoryOrder.get(b.dataset.category) ?? Number.MAX_SAFE_INTEGER;
+        const orderA =
+          categoryOrder.get(a.dataset.category) ?? Number.MAX_SAFE_INTEGER;
+        const orderB =
+          categoryOrder.get(b.dataset.category) ?? Number.MAX_SAFE_INTEGER;
         if (orderA !== orderB) return orderA - orderB;
-        return Number(a.dataset.originalOrder) - Number(b.dataset.originalOrder);
+        return (
+          Number(a.dataset.originalOrder) - Number(b.dataset.originalOrder)
+        );
       });
       items.forEach((item) => menuGrid.appendChild(item));
     };
@@ -182,7 +312,9 @@
         const category = btn.getAttribute("data-filter");
         if (!category || category === "all") return;
 
-        const categoryItems = items.filter((item) => item.dataset.category === category);
+        const categoryItems = items.filter(
+          (item) => item.dataset.category === category,
+        );
         const firstItem = categoryItems[0];
         if (!firstItem) return;
 
@@ -313,11 +445,14 @@
 
     const scrollToCategory = (category) => {
       const heading = $(`[data-category-heading="${category}"]`);
-      const target = heading || items.find((item) => item.dataset.category === category);
+      const target =
+        heading || items.find((item) => item.dataset.category === category);
       if (!target) return;
 
       const targetTop =
-        target.getBoundingClientRect().top + window.scrollY - getMobileStickyOffset();
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        getMobileStickyOffset();
 
       window.scrollTo({
         top: Math.max(0, targetTop),
@@ -329,7 +464,8 @@
       if (!mobileMenuQuery.matches || searchQuery) return;
 
       const offset = getMobileStickyOffset();
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
       const headings = $$("[data-category-heading]", menuGrid);
       let activeCategory = "";
       let activeItem = null;
@@ -352,7 +488,9 @@
       }
 
       if (!activeItem) {
-        activeItem = items.find((item) => item.getBoundingClientRect().top > offset);
+        activeItem = items.find(
+          (item) => item.getBoundingClientRect().top > offset,
+        );
       }
 
       activeCategory = activeCategory || activeItem?.dataset.category;
@@ -474,7 +612,8 @@
     };
 
     const syncMenuMode = () => {
-      const activeBtn = buttons.find((btn) => btn.classList.contains("active")) || buttons[0];
+      const activeBtn =
+        buttons.find((btn) => btn.classList.contains("active")) || buttons[0];
 
       if (searchQuery) {
         applySearch(searchInput?.value || searchQuery);
@@ -508,7 +647,9 @@
 
     searchBar?.addEventListener("submit", (event) => {
       event.preventDefault();
-      const firstVisible = items.find((item) => !item.classList.contains("d-none"));
+      const firstVisible = items.find(
+        (item) => !item.classList.contains("d-none"),
+      );
       if (!firstVisible) return;
 
       const targetTop =
@@ -535,7 +676,9 @@
     sortMenuItemsByCategory();
     buildCategoryHeadings();
 
-    window.addEventListener("scroll", requestMobileActiveUpdate, { passive: true });
+    window.addEventListener("scroll", requestMobileActiveUpdate, {
+      passive: true,
+    });
     window.addEventListener("resize", syncMenuMode);
 
     if (mobileMenuQuery.addEventListener) {
@@ -587,7 +730,8 @@
       if (priceEl) priceEl.textContent = data.price || "";
 
       if (categoryEl) {
-        const catLabel = categoryNames[data.category] || data.category || "Santiks";
+        const catLabel =
+          categoryNames[data.category] || data.category || "Santiks";
         categoryEl.textContent = catLabel;
       }
 
@@ -613,7 +757,8 @@
           descEl.textContent = data.desc.trim();
           descEl.hidden = false;
         } else {
-          descEl.textContent = "Nikmati sajian spesial khas racikan Santiks Coffee & Calm.";
+          descEl.textContent =
+            "Nikmati sajian spesial khas racikan Santiks Coffee & Calm.";
           descEl.hidden = false;
         }
       }
@@ -641,11 +786,14 @@
       const triggerDetail = () => {
         const menuItem = card.closest(".menu-item");
         const title = $("h3", card)?.textContent.trim() || "";
-        const price = $(".menu-price, .promo-price", card)?.textContent.trim() || "";
-        const desc = $(".food-desc, .promo-text", card)?.textContent.trim() || "";
+        const price =
+          $(".menu-price, .promo-price", card)?.textContent.trim() || "";
+        const desc =
+          $(".food-desc, .promo-text", card)?.textContent.trim() || "";
         const imgSrc = $("img", card)?.src || "";
         const category = menuItem?.dataset.category || "musttry";
-        const badge = $(".scroll-menu-badge, .promo-tag", card)?.textContent.trim() || "";
+        const badge =
+          $(".scroll-menu-badge, .promo-tag", card)?.textContent.trim() || "";
 
         openModal({ title, price, desc, imgSrc, category, badge });
       };
@@ -737,7 +885,9 @@
       window.addEventListener("load", () => {
         navigator.serviceWorker
           .register("/sw.js")
-          .catch((err) => console.error("ServiceWorker registration failed:", err));
+          .catch((err) =>
+            console.error("ServiceWorker registration failed:", err),
+          );
       });
     }
   })();

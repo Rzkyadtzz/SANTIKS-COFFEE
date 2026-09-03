@@ -14,27 +14,27 @@
   --color-primary-hover: var(--color-brand-hover);
 
   /* Figma Reference Colors (Confirmed) */
-  --color-ui-blue: #0088FF;
-  --color-ui-purple: #6155F5;
+  --color-ui-blue: #0088ff;
+  --color-ui-purple: #6155f5;
   --color-blue-vibrant: var(--color-ui-blue);
   --color-purple-accent: var(--color-ui-purple);
 
   /* Signature Gradients */
-  --gradient-promo: linear-gradient(110deg, #0088FF 0%, #6155F5 100%);
-  --gradient-btn: linear-gradient(110deg, #0088FF 0%, #6155F5 100%);
+  --gradient-promo: linear-gradient(110deg, #0088ff 0%, #6155f5 100%);
+  --gradient-btn: linear-gradient(110deg, #0088ff 0%, #6155f5 100%);
 
   /* Neutrals & Surfaces */
-  --color-bg: #FFFFFF;
-  --color-surface: #FFFFFF;
-  --color-surface-white: #FFFFFF;
-  --color-surface-soft: #F5F4F4;
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-white: #ffffff;
+  --color-surface-soft: #f5f4f4;
   --color-surface-card: var(--color-surface-soft);
-  --color-border: #E8E8E8;
+  --color-border: #e8e8e8;
 
   /* Typography */
-  --color-text: #1A1E26;
-  --color-text-muted: #8E8E93;
-  --color-text-light: #B0B0B8;
+  --color-text: #1a1e26;
+  --color-text-muted: #8e8e93;
+  --color-text-light: #b0b0b8;
 
   /* Radius System */
   --radius-sm: 8px;
@@ -57,7 +57,9 @@
   --motion-normal: 200ms;
 
   /* Font */
-  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
 }
 
 /* --------------------------------------------------------------------------
@@ -181,7 +183,9 @@ a {
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
   padding: 0.65rem 1.25rem;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
   box-shadow: none;
 }
 
@@ -445,7 +449,9 @@ a {
   border: 1px solid transparent;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -549,13 +555,21 @@ a {
   color: #ffffff;
 }
 
-.scroll-menu-badge-best-seller { background-color: var(--badge-best-seller); }
-.scroll-menu-badge-top-ordered { background-color: var(--badge-top-ordered); }
-.scroll-menu-badge-most-popular { background-color: var(--badge-most-popular); }
+.scroll-menu-badge-best-seller {
+  background-color: var(--badge-best-seller);
+}
+.scroll-menu-badge-top-ordered {
+  background-color: var(--badge-top-ordered);
+}
+.scroll-menu-badge-most-popular {
+  background-color: var(--badge-most-popular);
+}
 
 /* Product Grid & Item Micro-interactions */
 #menuGrid {
-  transition: opacity 80ms ease-out, transform 80ms ease-out;
+  transition:
+    opacity 80ms ease-out,
+    transform 80ms ease-out;
 }
 
 #menuGrid.is-transitioning {
@@ -579,7 +593,9 @@ a {
 }
 
 .menu-item {
-  transition: opacity var(--motion-fast, 160ms) ease, transform var(--motion-fast, 160ms) ease;
+  transition:
+    opacity var(--motion-fast, 160ms) ease,
+    transform var(--motion-fast, 160ms) ease;
 }
 
 .menu-item.filtered-show {
@@ -599,7 +615,9 @@ a {
   justify-content: center;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.25s ease, opacity 0.25s ease;
+  transition:
+    visibility 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .product-detail-modal.is-open {
@@ -803,7 +821,9 @@ a {
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;

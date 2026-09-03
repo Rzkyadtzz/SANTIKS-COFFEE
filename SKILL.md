@@ -5,7 +5,7 @@ description: Developer implementation rules, DOM contracts, and architectural gu
 
 # Santiks Coffee & Calm &mdash; Developer & AI Agent Skill & Guardrails
 
-Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contract antara HTML dan JavaScript** untuk pengembang atau AI Agent yang bekerja pada project ini. Visual UI diadaptasikan dari screenshot referensi Figma (*Adapted from the provided Figma reference screenshot*).
+Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contract antara HTML dan JavaScript** untuk pengembang atau AI Agent yang bekerja pada project ini. Visual UI diadaptasikan dari screenshot referensi Figma (_Adapted from the provided Figma reference screenshot_).
 
 ---
 
@@ -19,8 +19,8 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
    - UI Purple: `#6155F5` (`--color-ui-purple`) untuk harga produk dan gradient promo.
    - Signature Gradient: `linear-gradient(110deg, #0088FF 0%, #6155F5 100%)` untuk promo card & top area Product Detail Sheet.
 2. **Minimal Header Layout**:
-   - **Desktop Header**: Menampilkan nama brand dan link navigasi *Menu Catalogue*. Dilarang menambahkan tombol CTA Order di header desktop.
-   - **Mobile Header**: Menampilkan nama brand di kiri (bold 700) dengan subtitle muted (400), dan lokasi (*Mlati Norowito Gg. 2*) di kanan dalam warna `#0088FF` (semibold 600).
+   - **Desktop Header**: Menampilkan nama brand dan link navigasi _Menu Catalogue_. Dilarang menambahkan tombol CTA Order di header desktop.
+   - **Mobile Header**: Menampilkan nama brand di kiri (bold 700) dengan subtitle muted (400), dan lokasi (_Mlati Norowito Gg. 2_) di kanan dalam warna `#0088FF` (semibold 600).
 3. **Category Image Tiles**: Navigasi kategori berupa tile gambar persegi rounded (`54px x 54px`, radius `12px`) dengan label di bawah.
    - State aktif: border `2px solid #0088FF`, label warna `#0088FF` (font-weight 600).
    - State non-aktif: border transparan, label abu-abu muted `#8E8E93` (font-weight 400).
@@ -31,42 +31,43 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 5. **Ringkasan Homepage & User Flow**:
    - User flow: `Menu Catalogue` $\to$ `Detail Menu` (Informational Detail).
    - Homepage Santiks harus tetap ringkas dan terpusat pada **katalog menu**.
-   - **DILARANG** menambahkan kembali section visual *Order Online* atau section *Lokasi Kedai* pada homepage.
+   - **DILARANG** menambahkan kembali section visual _Order Online_ atau section _Lokasi Kedai_ pada homepage.
 
 ---
 
 ## 📜 JavaScript DOM Contract (Wajib Dipelihara)
 
-| Element / Action | Required Selector / ID | Fungsi di JS |
-| :--- | :--- | :--- |
-| **Footer Year** | `#y` | Auto update tahun hak cipta |
-| **Header** | `.app-header` | Sticky offset scroll |
-| **Menu Grid Container** | `#menuGrid` | Container item card & category headings |
-| **Menu Item** | `#menuGrid .menu-item` | Selector filter & search menu |
-| **Item Category Tag** | `data-category="..."` | Data filter kategori pada item card |
-| **Filter Pills Container**| `#filterPills` | Group category tiles |
-| **Category Tile Button** | `#filterPills [data-filter]` | Trigger filter kategori menu |
-| **Search Form** | `#menuSearchBar` | Element form pencarian |
-| **Search Input** | `#menuSearchInput` | Input pencarian menu real-time |
-| **Search Clear Button** | `#menuSearchClear` | Tombol reset input pencarian |
-| **Search Empty Text** | `#menuSearchEmpty` | Pesan jika menu tidak ditemukan |
-| **Category Headings** | `[data-category-heading="..."]` | Dynamic category headings oleh JS (tampil di mobile; disembunyikan di desktop) |
-| **Drag Scroll Row** | `[data-drag-scroll]` | Inisialisasi drag scroll mouse/touch |
-| **Product Detail Modal**| `#productDetailModal` | Container Modal Sheet Product Detail |
-| **Open Detail Trigger** | `[data-open-detail-card]` | Trigger pembuka Detail Menu pada card |
-| **Close Detail Trigger**| `[data-close-detail]` | Tombol/backdrop penutup Detail Menu |
-| **Detail Image Target** | `#productDetailImg` | Target gambar produk di Detail Sheet |
-| **Detail Category** | `#productDetailCategory` | Target nama kategori di Detail Sheet |
-| **Detail Status Badge**| `#productDetailBadge` | Target badge status (e.g. Best Seller) |
-| **Detail Price** | `#productDetailPrice` | Target harga di Detail Sheet |
-| **Detail Title** | `#productDetailTitle` | Target nama produk di Detail Sheet |
-| **Detail Description** | `#productDetailDesc` | Target deskripsi produk di Detail Sheet |
+| Element / Action           | Required Selector / ID          | Fungsi di JS                                                                   |
+| :------------------------- | :------------------------------ | :----------------------------------------------------------------------------- |
+| **Footer Year**            | `#y`                            | Auto update tahun hak cipta                                                    |
+| **Header**                 | `.app-header`                   | Sticky offset scroll                                                           |
+| **Menu Grid Container**    | `#menuGrid`                     | Container item card & category headings                                        |
+| **Menu Item**              | `#menuGrid .menu-item`          | Selector filter & search menu                                                  |
+| **Item Category Tag**      | `data-category="..."`           | Data filter kategori pada item card                                            |
+| **Filter Pills Container** | `#filterPills`                  | Group category tiles                                                           |
+| **Category Tile Button**   | `#filterPills [data-filter]`    | Trigger filter kategori menu                                                   |
+| **Search Form**            | `#menuSearchBar`                | Element form pencarian                                                         |
+| **Search Input**           | `#menuSearchInput`              | Input pencarian menu real-time                                                 |
+| **Search Clear Button**    | `#menuSearchClear`              | Tombol reset input pencarian                                                   |
+| **Search Empty Text**      | `#menuSearchEmpty`              | Pesan jika menu tidak ditemukan                                                |
+| **Category Headings**      | `[data-category-heading="..."]` | Dynamic category headings oleh JS (tampil di mobile; disembunyikan di desktop) |
+| **Drag Scroll Row**        | `[data-drag-scroll]`            | Inisialisasi drag scroll mouse/touch                                           |
+| **Product Detail Modal**   | `#productDetailModal`           | Container Modal Sheet Product Detail                                           |
+| **Open Detail Trigger**    | `[data-open-detail-card]`       | Trigger pembuka Detail Menu pada card                                          |
+| **Close Detail Trigger**   | `[data-close-detail]`           | Tombol/backdrop penutup Detail Menu                                            |
+| **Detail Image Target**    | `#productDetailImg`             | Target gambar produk di Detail Sheet                                           |
+| **Detail Category**        | `#productDetailCategory`        | Target nama kategori di Detail Sheet                                           |
+| **Detail Status Badge**    | `#productDetailBadge`           | Target badge status (e.g. Best Seller)                                         |
+| **Detail Price**           | `#productDetailPrice`           | Target harga di Detail Sheet                                                   |
+| **Detail Title**           | `#productDetailTitle`           | Target nama produk di Detail Sheet                                             |
+| **Detail Description**     | `#productDetailDesc`            | Target deskripsi produk di Detail Sheet                                        |
 
 ---
 
 ## 🚫 Rules: DO & DON'T
 
 ### DO:
+
 - Keep search in normal document flow (`position: static`).
 - Open Product Detail directly from product card interaction (`[data-open-detail-card]` click & keyboard `Enter`/`Space`).
 - Keep cards minimal: Product Image $\to$ Product Name $\to$ Price tanpa tombol perantara.
@@ -89,6 +90,7 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 - Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v18`).
 
 ### DON'T:
+
 - Dilarang menambahkan library animasi eksternal (GSAP, Framer Motion, Anime.js).
 - Dilarang menggunakan stagger panjang atau delay besar antar kartu yang memperlambat transisi kategori.
 - Dilarang menganimasikan properti berat layout (width, height, top, left, blur, heavy box-shadow).
@@ -106,7 +108,7 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 - Jangan overuse `#003370` sebagai UI border/accent (gunakan khusus untuk Santiks brand anchor).
 - Dilarang membuat klaim "pixel-perfect Figma extraction" atau "exact Figma match" jika data node terstruktur tidak tersedia.
 - Dilarang menambahkan tombol direct order pada product card.
-- Jangan membuat kembali section *Order Online* atau *Lokasi Kedai* di homepage.
+- Jangan membuat kembali section _Order Online_ atau _Lokasi Kedai_ di homepage.
 - Jangan membuat dua sumber data terpisah untuk kartu katalog dan detail menu.
 - Jangan menambahkan rating bintang fiktif, quantity selector `[-] 1 [+]`, atau opsi ukuran palsu.
 - Jangan menambahkan framework SPA (React/Vue/Next.js) atau build system baru.
