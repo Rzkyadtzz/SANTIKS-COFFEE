@@ -50,7 +50,7 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 | **Search Input** | `#menuSearchInput` | Input pencarian menu real-time |
 | **Search Clear Button** | `#menuSearchClear` | Tombol reset input pencarian |
 | **Search Empty Text** | `#menuSearchEmpty` | Pesan jika menu tidak ditemukan |
-| **Category Headings** | `[data-category-heading="..."]` | Dynamic category headings oleh JS |
+| **Category Headings** | `[data-category-heading="..."]` | Dynamic category headings oleh JS (tampil di mobile; disembunyikan di desktop) |
 | **Drag Scroll Row** | `[data-drag-scroll]` | Inisialisasi drag scroll mouse/touch |
 | **Product Detail Modal**| `#productDetailModal` | Container Modal Sheet Product Detail |
 | **Open Detail Trigger** | `[data-open-detail-card]` | Trigger pembuka Detail Menu pada card |
@@ -78,7 +78,8 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 - Buka Detail Menu dari katalog sebagai tampilan informasi produk murni.
 - Tampilkan data produk Santiks asli (kategori, harga, deskripsi, foto, badge).
 - Jaga agar homepage tetap ringkas (Header $\to$ Sticky Search $\to$ Category Tiles $\to$ Featured $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v14`).
+- Sembunyikan category subsection headings dan item count di desktop (`min-width: 992px`) agar katalog compact.
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v15`).
 
 ### DON'T:
 - Dilarang menambahkan tombol "Detail Menu" / "Detail" kembali ke UI.

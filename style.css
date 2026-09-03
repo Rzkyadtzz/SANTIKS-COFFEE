@@ -419,6 +419,17 @@ a {
   border-radius: var(--radius-pill);
 }
 
+/* Hide category subsection headings & item counts on desktop for a compact catalogue */
+@media (min-width: 992px) {
+  .menu-category-heading {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
 /* --------------------------------------------------------------------------
    7. FOOD CARD COMPONENT (SOFT NEUTRAL GRAY SURFACES)
    -------------------------------------------------------------------------- */

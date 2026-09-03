@@ -112,4 +112,3 @@ _Catatan: Seluruh identitas brand, data menu, harga, deskripsi, dan metadata tet
 - [Product Requirements](./PRD.md)
 - [Design System](./DESIGN.md)
 - [Implementation Rules](./SKILL.md)
-

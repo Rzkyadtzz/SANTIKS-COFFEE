@@ -91,6 +91,9 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 - Container gambar produk representatif (`54px x 54px`, border radius `12px`), label kategori di bawah.
 - **State Aktif**: Border `2px solid #0088FF`, label warna `#0088FF` font-weight 600.
 - **State Non-Aktif**: Border transparan, label warna `#8E8E93` font-weight 400.
+- **Desktop vs Mobile Hierarchy**:
+  - **Desktop (≥ 992px)**: Category Image Tiles menjadi konteks navigasi kategori utama. Subsection heading kategori berulang beserta item count (`.menu-category-heading`) di dalam katalog disembunyikan (`display: none;`) demi katalog yang compact, bersih, dan fokus pada kartu produk.
+  - **Mobile (< 992px)**: Subsection heading kategori dan badge jumlah item dipertahankan dalam alur single-feed.
 
 ### 4. Featured Promo Banner (`.promo-card`)
 - Kartu promo *Must Try* berlatar belakang gradient vibrant `#0088FF → #6155F5`, typography putih bersih, tag badge semi-transparan yang proporsional, harga `Rp 20k`, dan foto produk rounded.
