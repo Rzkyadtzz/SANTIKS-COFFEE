@@ -1,6 +1,6 @@
 # Design System & Token Specification &mdash; Santiks Coffee & Calm
 
-Dokumen ini adalah **source of truth untuk Design System** website **Santiks Coffee & Calm** setelah penyederhanaan struktur halaman utama (penghapusan section Order Online & Lokasi dari homepage).
+Dokumen ini adalah **source of truth untuk Design System** website **Santiks Coffee & Calm** setelah refinement header (penghapusan tombol Order WhatsApp di desktop header, dan mempertahankan lokasi singkat di mobile header).
 
 ---
 
@@ -8,11 +8,14 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 
 1. **Clean & Minimal**: Latar belakang bersih (pure white / off-white `#ffffff` / `#f8fafc`), menghapuskan *glassmorphism* berlebihan, blur, dan shadow tebal.
 2. **Product-Focused & Ringkasan Menu**: Homepage terpusat pada penelusuran katalog menu tanpa distraksi section sekunder.
-3. **Santiks Navy & Vibrant Blue Accent**: Brand anchor menggunakan Santiks Navy `#003370` dipadukan dengan aksen biru elektrik `#2563eb`.
-4. **Signature Blue-Purple Gradient**: Gradient biru ke ungu (`linear-gradient(135deg, #003370 0%, #2563eb 55%, #6366f1 100%)`) digunakan pada kartu promo / featured *Must Try* dan bagian atas *Product Detail Sheet*.
-5. **Category Image Tiles**: Navigasi kategori berbentuk tile gambar persegi rounded (`48px x 48px`, radius `12px`) dengan label di bawahnya.
-6. **Soft Gray Product Cards**: Kartu produk menggunakan warna permukaan abu-abu netral lembut (`#f1f5f9`) dengan radius rounded besar (`20px`).
-7. **Product Detail Sheet (Flow 3)**: Modal / bottom sheet responsif dengan media top gradient, tombol kembali bulat, foto produk terpusat, dan lembaran putih rounded (`border-radius: 24px 24px 0 0`).
+3. **Minimal Header Layout**:
+   - **Desktop Header**: Menampilkan nama brand *Santiks Coffee* dan link navigasi *Menu Catalogue* secara minimalis tanpa tombol CTA sekunder.
+   - **Mobile Header**: Menampilkan nama brand *Santiks Coffee* di kiri dan informasi lokasi singkat sekunder (*Mlati Norowito Gg. 2*) di kanan sebagai teks kontekstual berukuran kecil dan muted.
+4. **Santiks Navy & Vibrant Blue Accent**: Brand anchor menggunakan Santiks Navy `#003370` dipadukan dengan aksen biru elektrik `#2563eb`.
+5. **Signature Blue-Purple Gradient**: Gradient biru ke ungu (`linear-gradient(135deg, #003370 0%, #2563eb 55%, #6366f1 100%)`) digunakan pada kartu promo / featured *Must Try* dan bagian atas *Product Detail Sheet*.
+6. **Category Image Tiles**: Navigasi kategori berbentuk tile gambar persegi rounded (`48px x 48px`, radius `12px`) dengan label di bawahnya.
+7. **Soft Gray Product Cards**: Kartu produk menggunakan warna permukaan abu-abu netral lembut (`#f1f5f9`) dengan radius rounded besar (`20px`).
+8. **Product Detail Sheet (Flow 3)**: Modal / bottom sheet responsif dengan media top gradient, tombol kembali bulat, foto produk terpusat, dan lembaran putih rounded (`border-radius: 24px 24px 0 0`).
 
 ---
 
@@ -51,8 +54,8 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 
 ### 1. App Header (`.app-header`)
 - Solid white header sederhana.
-- Desktop: Logo brand *Santiks Coffee*, link *Menu Catalogue*, dan tombol *Order WhatsApp*.
-- Mobile: Nama brand (*Santiks Coffee*) di kiri, info lokasi ringkas (*Mlati Norowito Gg. 2*) di kanan.
+- Desktop: Logo brand *Santiks Coffee* & link *Menu Catalogue*. Tanpa tombol CTA order redundant.
+- Mobile: Nama brand (*Santiks Coffee*) di kiri, info lokasi ringkas (*Mlati Norowito Gg. 2*) di kanan. Teks lokasi menggunakan ukuran lebih kecil (`0.785rem`) dan warna muted (`--color-text-muted`).
 
 ### 2. Search Pill Bar (`.app-search-pill`)
 - Soft gray pill background (`#f1f5f9`), rounded pill (`--radius-pill`), icon kaca pembesar di kiri, input placeholder *"Cari menu Santiks..."*.

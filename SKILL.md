@@ -16,13 +16,16 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
    - Kartu produk & permukaan: Abu-abu netral lembut (`#f1f5f9`).
    - Latar belakang Navy Santiks (`#003370`) dipadukan dengan aksen Biru Vibrant (`#2563eb`).
    - Gradient Biru $\to$ Ungu (`linear-gradient(135deg, #003370 0%, #2563eb 55%, #6366f1 100%)`) digunakan pada kartu promo & top area Product Detail Sheet.
-2. **Category Image Tiles**: Navigasi kategori berupa tile gambar persegi rounded (`48px x 48px`, radius `12px`) dengan label di bawah.
-3. **Product Detail Sheet (Flow 3)**:
+2. **Minimal Header Layout**:
+   - **Desktop Header**: Menampilkan nama brand dan link navigasi *Menu Catalogue*. Dilarang menambahkan tombol CTA Order di header desktop.
+   - **Mobile Header**: Menampilkan nama brand di kiri dan lokasi singkat (*Mlati Norowito Gg. 2*) di kanan sebagai teks kontekstual sekunder.
+3. **Category Image Tiles**: Navigasi kategori berupa tile gambar persegi rounded (`48px x 48px`, radius `12px`) dengan label di bawah.
+4. **Product Detail Sheet (Flow 3)**:
    - Mengetuk kartu produk pada katalog akan membuka **Product Detail Sheet / Modal**.
    - Menampilkan media top gradient, tombol kembali, foto produk, lembaran putih rounded, kategori, status badge, harga, deskripsi, dan tombol CTA utama *Pesan via WhatsApp*.
-4. **Ringkasan Homepage & Order Flow**:
+5. **Ringkasan Homepage & Order Flow**:
    - Homepage Santiks harus tetap ringkas dan terpusat pada **katalog menu**.
-   - **DILARANG** menambahkan kembali section visual *Order Online* (WhatsApp Direct/ShopeeFood/GrabFood cards) atau section *Lokasi Kedai* pada homepage.
+   - **DILARANG** menambahkan kembali section visual *Order Online* atau section *Lokasi Kedai* pada homepage.
    - Pemesanan produk dilakukan dari **Detail Menu** melalui WhatsApp Direct.
 
 ---
@@ -60,13 +63,16 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 ## 🚫 Rules: DO & DON'T
 
 ### DO:
+- Pertahankan lokasi singkat di mobile header (`Mlati Norowito Gg. 2`) sebagai teks kontekstual sekunder.
+- Jaga agar desktop header tetap bersih tanpa tombol CTA order redundant.
 - Gunakan data produk Santiks asli sebagai satu-satunya *source of truth*.
 - Jaga agar homepage tetap ringkas (Header $\to$ Search $\to$ Category Tiles $\to$ Featured $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
 - Gunakan token warna & radius dari CSS `:root`.
-- Pastikan foto produk Santiks menjadi focal point visual utama.
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v10`).
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v11`).
 
 ### DON'T:
+- Jangan menghapus teks lokasi singkat di mobile header.
+- Jangan menambahkan tombol order WhatsApp di desktop header.
 - Jangan membuat kembali section *Order Online* atau *Lokasi Kedai* di homepage.
 - Jangan membuat dua sumber data terpisah untuk kartu katalog dan detail menu.
 - Jangan menambahkan rating bintang fiktif, quantity selector `[-] 1 [+]`, atau opsi ukuran palsu.

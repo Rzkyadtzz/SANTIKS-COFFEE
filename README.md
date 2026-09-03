@@ -29,7 +29,7 @@ Website ini memberikan pengalaman browsing menu digital yang cepat, responsif, d
 * **HTML5**: Semantik HTML5, ARIA accessibility, JSON-LD Structured Data, OpenGraph metadata.
 * **CSS3**: Design Tokens (CSS Variables), Soft Neutral Card Surfaces, Blue-Purple Gradient Accent, Clean Modal Sheet.
 * **Vanilla JavaScript ES6+**: DOM interaction engine (Live search, Category filtering, Category headings, Product Detail Sheet engine).
-* **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v10) dengan strategi offline caching.
+* **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v11) dengan strategi offline caching.
 * **Hosting / Deployment**: Vercel Static Deployment (Zero-build process).
 
 ---
@@ -42,7 +42,7 @@ Landing Page Santiks/
 ├── style.css           # Styling kustom (Design Tokens, Product Detail Sheet, soft-gray cards)
 ├── script.js           # Engine interaksi (Search, Filter, Product Detail Modal Handler)
 ├── app.js              # Inisialisasi halaman & AOS animation fallback
-├── sw.js               # Service Worker (Cache static & runtime, offline support, v10)
+├── sw.js               # Service Worker (Cache static & runtime, offline support, v11)
 ├── site.webmanifest    # Metadata PWA
 ├── README.md           # Dokumentasi teknis & arsitektur project
 ├── DESIGN.md           # Source of truth Design System
@@ -52,10 +52,10 @@ Landing Page Santiks/
 
 ---
 
-## 📐 Arsitektur UI (Simplified Homepage)
+## 📐 Arsitektur UI (Header Refined)
 
 ```text
-[ Solid Clean Header (Desktop Brand & Menu Link / Mobile Location) ]
+[ Desktop Header: Brand & Menu Link | Mobile Header: Brand & Contextual Short Location ]
                                ↓
            [ Search Pill Bar (Real-Time Live Search) ]
                                ↓
