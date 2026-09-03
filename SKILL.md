@@ -20,13 +20,14 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
    - **Desktop Header**: Menampilkan nama brand dan link navigasi *Menu Catalogue*. Dilarang menambahkan tombol CTA Order di header desktop.
    - **Mobile Header**: Menampilkan nama brand di kiri dan lokasi singkat (*Mlati Norowito Gg. 2*) di kanan sebagai teks kontekstual sekunder.
 3. **Category Image Tiles**: Navigasi kategori berupa tile gambar persegi rounded (`48px x 48px`, radius `12px`) dengan label di bawah.
-4. **Product Detail Sheet (Flow 3)**:
+4. **Informational Product Detail Sheet (Flow 3)**:
    - Mengetuk kartu produk pada katalog akan membuka **Product Detail Sheet / Modal**.
-   - Menampilkan media top gradient, tombol kembali, foto produk, lembaran putih rounded, kategori, status badge, harga, deskripsi, dan tombol CTA utama *Pesan via WhatsApp*.
-5. **Ringkasan Homepage & Order Flow**:
+   - Menampilkan media top gradient, tombol kembali, foto produk, lembaran putih rounded, kategori, status badge, harga, judul, dan deskripsi produk.
+   - **Informational Only**: Dilarang menambahkan tombol ordering/Pesan via WhatsApp, Add to Cart, Buy Now, atau fitur pemesanan pengganti di Product Detail Sheet.
+5. **Ringkasan Homepage & User Flow**:
+   - User flow: `Menu Catalogue` $\to$ `Detail Menu` (Informational Detail).
    - Homepage Santiks harus tetap ringkas dan terpusat pada **katalog menu**.
    - **DILARANG** menambahkan kembali section visual *Order Online* atau section *Lokasi Kedai* pada homepage.
-   - Pemesanan produk dilakukan dari **Detail Menu** melalui WhatsApp Direct.
 
 ---
 
@@ -56,25 +57,24 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 | **Detail Price** | `#productDetailPrice` | Target harga di Detail Sheet |
 | **Detail Title** | `#productDetailTitle` | Target nama produk di Detail Sheet |
 | **Detail Description** | `#productDetailDesc` | Target deskripsi produk di Detail Sheet |
-| **Detail WhatsApp CTA** | `#productDetailWaBtn` | Target link WhatsApp order di Detail Sheet |
 
 ---
 
 ## 🚫 Rules: DO & DON'T
 
 ### DO:
-- Pertahankan lokasi singkat di mobile header (`Mlati Norowito Gg. 2`) sebagai teks kontekstual sekunder.
-- Jaga agar desktop header tetap bersih tanpa tombol CTA order redundant.
-- Gunakan data produk Santiks asli sebagai satu-satunya *source of truth*.
+- Buka Detail Menu dari katalog sebagai tampilan informasi produk murni.
+- Tampilkan data produk Santiks asli (kategori, harga, deskripsi, foto, badge).
 - Jaga agar homepage tetap ringkas (Header $\to$ Search $\to$ Category Tiles $\to$ Featured $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
 - Gunakan token warna & radius dari CSS `:root`.
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v11`).
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v12`).
 
 ### DON'T:
-- Jangan menghapus teks lokasi singkat di mobile header.
-- Jangan menambahkan tombol order WhatsApp di desktop header.
+- Dilarang menambahkan tombol WhatsApp ordering CTA di desktop maupun mobile.
+- Dilarang menambahkan tombol Add to Cart, Buy Now, Checkout, atau CTA pemesanan pengganti.
+- Dilarang menambahkan tombol direct order pada product card.
 - Jangan membuat kembali section *Order Online* atau *Lokasi Kedai* di homepage.
 - Jangan membuat dua sumber data terpisah untuk kartu katalog dan detail menu.
 - Jangan menambahkan rating bintang fiktif, quantity selector `[-] 1 [+]`, atau opsi ukuran palsu.
 - Jangan menambahkan framework SPA (React/Vue/Next.js) atau build system baru.
-- Jangan mengubah data produk, harga, deskripsi, atau link order Santiks asli.
+- Jangan mengubah data produk, harga, deskripsi, atau metadata bisnis Santiks asli.

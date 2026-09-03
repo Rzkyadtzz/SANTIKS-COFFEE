@@ -1,6 +1,6 @@
 # Design System & Token Specification &mdash; Santiks Coffee & Calm
 
-Dokumen ini adalah **source of truth untuk Design System** website **Santiks Coffee & Calm** setelah refinement header (penghapusan tombol Order WhatsApp di desktop header, dan mempertahankan lokasi singkat di mobile header).
+Dokumen ini adalah **source of truth untuk Design System** website **Santiks Coffee & Calm** setelah penyederhanaan alur Product Detail menjadi tampilan informasi murni (*Informational Product Detail*).
 
 ---
 
@@ -15,7 +15,7 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 5. **Signature Blue-Purple Gradient**: Gradient biru ke ungu (`linear-gradient(135deg, #003370 0%, #2563eb 55%, #6366f1 100%)`) digunakan pada kartu promo / featured *Must Try* dan bagian atas *Product Detail Sheet*.
 6. **Category Image Tiles**: Navigasi kategori berbentuk tile gambar persegi rounded (`48px x 48px`, radius `12px`) dengan label di bawahnya.
 7. **Soft Gray Product Cards**: Kartu produk menggunakan warna permukaan abu-abu netral lembut (`#f1f5f9`) dengan radius rounded besar (`20px`).
-8. **Product Detail Sheet (Flow 3)**: Modal / bottom sheet responsif dengan media top gradient, tombol kembali bulat, foto produk terpusat, dan lembaran putih rounded (`border-radius: 24px 24px 0 0`).
+8. **Informational Product Detail Sheet (Flow 3)**: Modal / bottom sheet responsif dengan media top gradient, tombol kembali bulat, foto produk terpusat, dan lembaran putih rounded (`border-radius: 24px 24px 0 0`) yang menampilkan kategori, status badge, harga, judul, dan deskripsi produk tanpa tombol/CTA pemesanan.
 
 ---
 
@@ -70,7 +70,7 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 ### 5. Food Card Component (`.food-card`)
 - Surface kartu abu-abu netral lembut (`#f1f5f9`), rounded corners `20px`, foto produk dominan (rasio `1:1`), nama produk, harga dalam biru vibrant (`#2563eb`), dan link bersih `Detail`. Mengetuk kartu membuka *Product Detail Sheet*.
 
-### 6. Product Detail Sheet (`.product-detail-modal`)
-- Adaptasi Flow 3 Figma:
+### 6. Informational Product Detail Sheet (`.product-detail-modal`)
+- Adaptasi Flow 3 Figma (Tampilan Informasi Produk Murni):
   - Top Media Area: Background gradient `var(--gradient-promo)`, tombol kembali `<button class="product-detail-back-btn">`, foto produk lingkaran terpusat.
-  - White Content Sheet: Surface putih rounded (`border-radius: 24px 24px 0 0`), meta row (kategori + status badge + harga), judul produk, deskripsi produk, dan tombol CTA utama *Pesan via WhatsApp*.
+  - White Content Sheet: Surface putih rounded (`border-radius: 24px 24px 0 0`), meta row (kategori + status badge + harga), judul produk, dan deskripsi produk. Tanpa tombol/CTA pemesanan.

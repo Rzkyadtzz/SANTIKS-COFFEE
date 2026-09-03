@@ -470,7 +470,6 @@
     const priceEl = document.getElementById("productDetailPrice");
     const titleEl = document.getElementById("productDetailTitle");
     const descEl = document.getElementById("productDetailDesc");
-    const waBtn = document.getElementById("productDetailWaBtn");
 
     const categoryNames = {
       musttry: "Must Try",
@@ -523,12 +522,6 @@
         }
       }
 
-      if (waBtn) {
-        const waText = encodeURIComponent(`Halo Santiks, saya ingin order ${data.title}`);
-        waBtn.href = `https://wa.me/6285182332802?text=${waText}`;
-        waBtn.setAttribute("aria-label", `Pesan ${data.title} melalui WhatsApp`);
-      }
-
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
@@ -542,10 +535,7 @@
 
     // Attach click handler on food cards
     $$("[data-open-detail-card]").forEach((card) => {
-      card.addEventListener("click", (e) => {
-        // Avoid double trigger if clicking WhatsApp direct link
-        if (e.target.closest("a[href^='https://wa.me']")) return;
-
+      card.addEventListener("click", () => {
         const menuItem = card.closest(".menu-item");
         const title = $("h3", card)?.textContent.trim() || "";
         const price = $(".menu-price, .promo-price", card)?.textContent.trim() || "";

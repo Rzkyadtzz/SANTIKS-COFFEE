@@ -672,29 +672,7 @@ a {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   line-height: 1.5;
-  margin-bottom: 1.25rem;
-}
-
-.btn-product-detail-wa {
-  background-color: var(--color-primary);
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-pill);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  transition: all 0.2s ease;
-  border: none;
-  text-decoration: none;
-}
-
-.btn-product-detail-wa:hover {
-  background-color: var(--color-primary-hover);
-  color: #ffffff;
-  transform: translateY(-1px);
+  margin-bottom: 0;
 }
 
 /* Desktop Adaptation for Modal Sheet */
