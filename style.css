@@ -303,6 +303,12 @@ a {
   overflow: hidden;
   box-shadow: var(--shadow-promo);
   color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-2px);
 }
 
 .promo-tag {
@@ -406,6 +412,7 @@ a {
   transition: transform 0.2s ease, background-color 0.2s ease;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .food-card:hover {
@@ -471,6 +478,7 @@ a {
   padding: 0.2rem 0.65rem;
   border-radius: var(--radius-pill);
   transition: all 0.2s ease;
+  border: none;
 }
 
 .food-card:hover .btn-order-link {
@@ -508,7 +516,214 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   8. ORDER CHANNELS & LOCATION
+   8. PRODUCT DETAIL MODAL SHEET (FLOW 3 FIGMA ADAPTATION)
+   -------------------------------------------------------------------------- */
+.product-detail-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.25s ease, opacity 0.25s ease;
+}
+
+.product-detail-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.product-detail-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.product-detail-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  background-color: #ffffff;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 0 auto;
+}
+
+.product-detail-modal.is-open .product-detail-container {
+  transform: translateY(0);
+}
+
+/* Media Top Header (Gradient + Back Button + Floating Product Image) */
+.product-detail-media {
+  background: var(--gradient-promo);
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 220px;
+}
+
+.product-detail-back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #ffffff;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 5;
+}
+
+.product-detail-back-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.product-detail-image-wrapper {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.product-detail-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* White Content Sheet */
+.product-detail-sheet {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  margin-top: -18px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.product-detail-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.product-detail-category-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: rgba(0, 51, 112, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+
+.product-detail-status-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #ef4444;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.product-detail-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-blue-vibrant);
+  margin-left: auto;
+}
+
+.product-detail-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.product-detail-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.btn-product-detail-wa {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-product-detail-wa:hover {
+  background-color: var(--color-primary-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Desktop Adaptation for Modal Sheet */
+@media (min-width: 768px) {
+  .product-detail-modal {
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  .product-detail-container {
+    border-radius: var(--radius-xl);
+    transform: scale(0.95);
+    transition: transform 0.25s ease;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+  }
+
+  .product-detail-modal.is-open .product-detail-container {
+    transform: scale(1);
+  }
+
+  .product-detail-sheet {
+    border-radius: var(--radius-xl);
+    margin-top: -24px;
+    padding: 1.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. ORDER CHANNELS & LOCATION
    -------------------------------------------------------------------------- */
 .channel-card {
   background-color: var(--color-surface-card);
@@ -564,7 +779,7 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   9. FOOTER
+   10. FOOTER
    -------------------------------------------------------------------------- */
 .app-footer {
   background-color: #ffffff;

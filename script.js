@@ -1,4 +1,4 @@
-// script.js (REFINED - Clean UI Engine)
+// script.js (REFINED - Clean UI Engine + Product Detail Sheet)
 (() => {
   "use strict";
 
@@ -458,7 +458,120 @@
   })();
 
   // -----------------------------
-  // 4) Drag scroll for category tiles row
+  // 4) Product Detail Sheet Engine (Flow 3)
+  // -----------------------------
+  (() => {
+    const modal = document.getElementById("productDetailModal");
+    if (!modal) return;
+
+    const imgEl = document.getElementById("productDetailImg");
+    const categoryEl = document.getElementById("productDetailCategory");
+    const badgeEl = document.getElementById("productDetailBadge");
+    const priceEl = document.getElementById("productDetailPrice");
+    const titleEl = document.getElementById("productDetailTitle");
+    const descEl = document.getElementById("productDetailDesc");
+    const waBtn = document.getElementById("productDetailWaBtn");
+
+    const categoryNames = {
+      musttry: "Must Try",
+      signature: "Signature Coffee",
+      coffeemilk: "Coffee Milk",
+      milkbased: "Milkbased",
+      mocktail: "Mocktail",
+      sparkling: "Sparkling Series",
+      tea: "Tea Series",
+      other: "Other Drinks",
+      manual: "Manual Brew",
+      snack: "Snacks",
+      maincourse: "Main Course",
+      pastry: "Pastry",
+      pasta: "Pasta",
+    };
+
+    const openModal = (data) => {
+      if (!data) return;
+
+      if (imgEl) {
+        imgEl.src = data.imgSrc || "assets/img/bg1.webp";
+        imgEl.alt = data.title || "Product";
+      }
+
+      if (titleEl) titleEl.textContent = data.title || "";
+      if (priceEl) priceEl.textContent = data.price || "";
+
+      if (categoryEl) {
+        const catLabel = categoryNames[data.category] || data.category || "Santiks";
+        categoryEl.textContent = catLabel;
+      }
+
+      if (badgeEl) {
+        if (data.badge) {
+          badgeEl.textContent = data.badge;
+          badgeEl.hidden = false;
+        } else {
+          badgeEl.hidden = true;
+        }
+      }
+
+      if (descEl) {
+        if (data.desc && data.desc.trim()) {
+          descEl.textContent = data.desc.trim();
+          descEl.hidden = false;
+        } else {
+          descEl.textContent = "Nikmati sajian spesial khas racikan Santiks Coffee & Calm.";
+          descEl.hidden = false;
+        }
+      }
+
+      if (waBtn) {
+        const waText = encodeURIComponent(`Halo Santiks, saya ingin order ${data.title}`);
+        waBtn.href = `https://wa.me/6285182332802?text=${waText}`;
+        waBtn.setAttribute("aria-label", `Pesan ${data.title} melalui WhatsApp`);
+      }
+
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeModal = () => {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    // Attach click handler on food cards
+    $$("[data-open-detail-card]").forEach((card) => {
+      card.addEventListener("click", (e) => {
+        // Avoid double trigger if clicking WhatsApp direct link
+        if (e.target.closest("a[href^='https://wa.me']")) return;
+
+        const menuItem = card.closest(".menu-item");
+        const title = $("h3", card)?.textContent.trim() || "";
+        const price = $(".menu-price, .promo-price", card)?.textContent.trim() || "";
+        const desc = $(".food-desc, .promo-text", card)?.textContent.trim() || "";
+        const imgSrc = $("img", card)?.src || "";
+        const category = menuItem?.dataset.category || "musttry";
+        const badge = $(".scroll-menu-badge, .promo-tag", card)?.textContent.trim() || "";
+
+        openModal({ title, price, desc, imgSrc, category, badge });
+      });
+    });
+
+    // Close listeners
+    $$("[data-close-detail]", modal).forEach((btn) => {
+      btn.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+  })();
+
+  // -----------------------------
+  // 5) Drag scroll for category tiles row
   // -----------------------------
   (() => {
     const scrollers = $$("[data-drag-scroll]");
@@ -516,7 +629,7 @@
   })();
 
   // -----------------------------
-  // 5) Service worker registration
+  // 6) Service worker registration
   // -----------------------------
   (() => {
     if ("serviceWorker" in navigator) {

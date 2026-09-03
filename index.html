@@ -333,7 +333,7 @@
             <span class="section-sub">Rekomendasi Favorit Santiks</span>
           </div>
 
-          <div class="card promo-card">
+          <div class="card promo-card" data-open-detail-card>
             <div class="row align-items-center g-0">
               <div class="col-7 col-md-8 p-3 p-md-4">
                 <span class="promo-tag">Best Seller #1</span>
@@ -341,14 +341,9 @@
                 <p class="promo-text d-none d-sm-block">Espresso dan susu dengan aroma butterscotch hangat khas racikan Santiks.</p>
                 <div class="d-flex align-items-center gap-3 mt-2 mt-md-3">
                   <span class="promo-price">Rp 20k</span>
-                  <a
-                    href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Butterscotch"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-promo-action"
-                  >
-                    Pesan via WhatsApp
-                  </a>
+                  <button type="button" class="btn btn-promo-action" data-open-detail-btn>
+                    Detail Menu
+                  </button>
                 </div>
               </div>
               <div class="col-5 col-md-4 text-center p-2 p-md-3">
@@ -360,7 +355,7 @@
           </div>
         </section>
 
-        <!-- MENU SECTION -->
+        <!-- MENU CATALOGUE SECTION -->
         <section id="menu" class="menu-catalogue-section mb-5">
           <div id="highlight" class="d-flex align-items-center justify-content-between mb-3">
             <h2 class="section-title mb-0">Popular Menu</h2>
@@ -374,12 +369,7 @@
               data-category="musttry"
               data-sales="390"
             >
-              <a
-                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Butterscotch"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card food-card h-100 text-decoration-none"
-              >
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img
                     class="menu-img"
@@ -391,12 +381,13 @@
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Butterscotch</h3>
+                  <p class="food-desc d-none">Espresso dan susu dengan aroma butterscotch yang hangat.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div
@@ -404,12 +395,7 @@
               data-category="musttry"
               data-sales="248"
             >
-              <a
-                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Mix%20Platter"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card food-card h-100 text-decoration-none"
-              >
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img
                     class="menu-img"
@@ -421,12 +407,13 @@
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Mix Platter</h3>
+                  <p class="food-desc d-none">Paket camilan goreng favorit Santiks untuk dinikmati bersama.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div
@@ -434,12 +421,7 @@
               data-category="musttry"
               data-sales="196"
             >
-              <a
-                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Caramelo"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card food-card h-100 text-decoration-none"
-              >
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img
                     class="menu-img"
@@ -451,12 +433,13 @@
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Caramelo</h3>
+                  <p class="food-desc d-none">Kopi susu lembut dengan manis karamel dan akhir rasa yang halus.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div
@@ -464,12 +447,7 @@
               data-category="musttry"
               data-sales="194"
             >
-              <a
-                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Red%20Velvet"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card food-card h-100 text-decoration-none"
-              >
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img
                     class="menu-img"
@@ -481,12 +459,13 @@
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Red Velvet</h3>
+                  <p class="food-desc d-none">Minuman berbasis susu yang lembut dengan manis khas red velvet.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div
@@ -494,12 +473,7 @@
               data-category="musttry"
               data-sales="173"
             >
-              <a
-                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Katsu%20Sambal%20Matah"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card food-card h-100 text-decoration-none"
-              >
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img
                     class="menu-img"
@@ -511,12 +485,13 @@
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chicken Katsu Sambal Matah</h3>
+                  <p class="food-desc d-none">Chicken katsu renyah dengan sambal matah segar dan wangi.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div
@@ -524,12 +499,7 @@
               data-category="musttry"
               data-sales="169"
             >
-              <a
-                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Matcha"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card food-card h-100 text-decoration-none"
-              >
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img
                     class="menu-img"
@@ -541,12 +511,13 @@
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Matcha</h3>
+                  <p class="food-desc d-none">Matcha khas dengan susu lembut untuk akhir rasa yang halus.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div
@@ -554,12 +525,7 @@
               data-category="musttry"
               data-sales="137"
             >
-              <a
-                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Palm%20Sugar%20Aren"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card food-card h-100 text-decoration-none"
-              >
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img
                     class="menu-img"
@@ -571,12 +537,13 @@
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Palm Sugar (Aren)</h3>
+                  <p class="food-desc d-none">Espresso, susu, dan gula aren dengan manis khas favorit lokal.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div
@@ -584,12 +551,7 @@
               data-category="musttry"
               data-sales="130"
             >
-              <a
-                href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Americano"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card food-card h-100 text-decoration-none"
-              >
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img
                     class="menu-img"
@@ -601,759 +563,809 @@
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Americano</h3>
+                  <p class="food-desc d-none">Espresso dengan tambahan air panas, ringan dan mudah dinikmati.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- SIGNATURE CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Espresso" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/signature/signature.webp" alt="Espresso" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Espresso</h3>
+                  <p class="food-desc d-none">Shot kopi kuat dengan aroma dalam dan akhir rasa yang bersih.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 18k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Americano" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/signature/signature.webp" alt="Americano" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Americano</h3>
+                  <p class="food-desc d-none">Espresso dengan tambahan air panas, ringan dan mudah dinikmati.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Cappuccino" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/signature/signature.webp" alt="Cappuccino" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Cappuccino</h3>
+                  <p class="food-desc d-none">Perpaduan espresso, susu hangat, dan busa lembut yang seimbang.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Caffe%20Latte" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/signature/signature.webp" alt="Caffè Latte" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Caffè Latte</h3>
+                  <p class="food-desc d-none">Espresso dan susu lembut dengan rasa ringan dan halus.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Moccachino" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/signature/moccachino.webp" alt="Moccachino" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Moccachino</h3>
+                  <p class="food-desc d-none">Espresso, cokelat, dan susu dalam racikan yang pekat dan nyaman.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="signature">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Berry%20Latte" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/signature/lattee.webp" alt="Berry Latte" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Berry Latte</h3>
+                  <p class="food-desc d-none">Latte lembut dengan sentuhan berry segar dan akhir rasa espresso halus.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- COFFEE MILK CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="coffeemilk">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Palm%20Sugar%20Aren" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/kopsu/butterscot.webp" alt="Palm Sugar (Aren)" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Palm Sugar (Aren)</h3>
+                  <p class="food-desc d-none">Espresso, susu, dan gula aren dengan manis khas favorit lokal.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="coffeemilk">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Caramelo" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/kopsu/butterscot.webp" alt="Caramelo" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Caramelo</h3>
+                  <p class="food-desc d-none">Kopi susu lembut dengan manis karamel dan akhir rasa yang halus.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="coffeemilk">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Butterscotch" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/kopsu/butterscot.webp" alt="Butterscotch" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Butterscotch</h3>
+                  <p class="food-desc d-none">Espresso dan susu dengan aroma butterscotch yang hangat.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="coffeemilk">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Pistachio" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/kopsu/pistachio.webp" alt="Pistachio" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Pistachio</h3>
+                  <p class="food-desc d-none">Kopi susu lembut dengan rasa pistachio yang gurih.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- MILKBASED CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Red%20Velvet" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/milkbase/redvelved.webp" alt="Red Velvet" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Red Velvet</h3>
+                  <p class="food-desc d-none">Minuman berbasis susu yang lembut dengan manis khas red velvet.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Choco%20Berry" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/milkbase/choco berry.webp" alt="Choco Berry" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Choco Berry</h3>
+                  <p class="food-desc d-none">Cokelat pekat dengan sentuhan berry yang cerah.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 27k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Taro" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/milkbase/taro.webp" alt="Taro" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Taro</h3>
+                  <p class="food-desc d-none">Taro lembut dengan manis ringan dan tekstur halus.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chocolate" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/milkbase/chocolate.webp" alt="Chocolate" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chocolate</h3>
+                  <p class="food-desc d-none">Kakao dan susu yang pekat untuk rasa cokelat klasik.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="milkbased">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Matcha" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/milkbase/matcha.webp" alt="Matcha" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Matcha</h3>
+                  <p class="food-desc d-none">Matcha khas dengan susu lembut untuk akhir rasa yang halus.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- MOCKTAIL CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="mocktail">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Lolita" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/mocktail/coco.webp" alt="Lolita" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Lolita</h3>
+                  <p class="food-desc d-none">Minuman segar beraroma bunga dengan strawberry, sakura, air kelapa, dan cold brew.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 20k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="mocktail">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Cranberry" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/mocktail/cranberry.webp" alt="Cranberry" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Cranberry</h3>
+                  <p class="food-desc d-none">Campuran segar rasa buah, mint, dan cold brew.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="mocktail">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Coco%20Peach" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/mocktail/lolita.webp" alt="Coco Peach" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Coco Peach</h3>
+                  <p class="food-desc d-none">Peach dan lemon segar dengan air kelapa dan sentuhan espresso.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- SPARKLING CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="sparkling">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Ocean%20Blue" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/sparkling/blue.webp" alt="Ocean Blue" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Ocean Blue</h3>
+                  <p class="food-desc d-none">Soda citrus berkarbonasi dengan sensasi segar dan dingin.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="sparkling">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Pineberry%20Fizz" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/sparkling/pine.webp" alt="Pineberry Fizz" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Pineberry Fizz</h3>
+                  <p class="food-desc d-none">Soda strawberry dan pineapple dengan rasa tropis yang ringan dan menyenangkan.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- OTHER CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="other">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Mineral%20Water" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/cleo.webp" alt="Mineral Water" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Mineral Water</h3>
+                  <p class="food-desc d-none">Air mineral praktis untuk menemani kopi, makanan, atau takeaway.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 5k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- TEA CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Lemon%20Tea" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/tea/lemon.webp" alt="Lemon Tea" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Lemon Tea</h3>
+                  <p class="food-desc d-none">Teh segar dengan sentuhan lemon yang cerah dan akhir rasa bersih.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 18k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Lychee%20Tea" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/tea/lyche.webp" alt="Lychee Tea" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Lychee Tea</h3>
+                  <p class="food-desc d-none">Teh ringan dengan aroma leci manis dan rasa menyegarkan.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 18k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Peach%20Tea" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/tea/classic.webp" alt="Peach Tea" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Peach Tea</h3>
+                  <p class="food-desc d-none">Teh lembut dengan rasa peach halus dan manis ringan.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 18k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Strawberry%20Tea" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/tea/strawberry.webp" alt="Strawberry Tea" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Strawberry Tea</h3>
+                  <p class="food-desc d-none">Teh dengan sentuhan strawberry cerah dan rasa buah yang ringan.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 18k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="tea">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Classic%20Tea" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/tea/classic.webp" alt="Classic Tea" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Classic Tea</h3>
+                  <p class="food-desc d-none">Teh seduh sederhana dengan aroma harum dan rasa bersih.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 15k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- MANUAL BREW CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="manual">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20tanya%20beans%20V60" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/v60.webp" alt="V60" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">V60</h3>
+                  <p class="food-desc d-none">Kopi seduh manual dengan karakter bersih dan aroma bunga yang cerah.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Tanya Kasir</span>
-                    <span class="btn-order-link">Tanya</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- SNACKS CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Seaweed%20Roll" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/snack/seawed.webp" alt="Chicken Seaweed Roll" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chicken Seaweed Roll</h3>
+                  <p class="food-desc d-none">Gulungan ayam renyah berbalut rumput laut, gurih di setiap gigitan.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 17k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Tahu%20Salto" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/snack/salto.webp" alt="Tahu Salto" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Tahu Salto</h3>
+                  <p class="food-desc d-none">Tahu goreng keemasan dengan tekstur ringan dan renyah.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 15k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Tahu%20Bakso" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/snack/bakso.webp" alt="Tahu Bakso" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Tahu Bakso</h3>
+                  <p class="food-desc d-none">Tahu isi bakso gurih, mengenyangkan dan mudah dinikmati.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 15k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20French%20Fries" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/snack/kentang.webp" alt="French Fries" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">French Fries</h3>
+                  <p class="food-desc d-none">Kentang goreng renyah dengan bumbu ringan, cocok untuk dinikmati bersama.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 15k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Onion%20Rings" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/snack/onion.webp" alt="Onion Rings" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Onion Rings</h3>
+                  <p class="food-desc d-none">Onion ring manis dengan balutan renyah keemasan.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 15k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Mix%20Platter" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/snack/mix.webp" alt="Mix Platter" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Mix Platter</h3>
+                  <p class="food-desc d-none">Paket camilan goreng favorit Santiks untuk dinikmati bersama.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="snack">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Wings" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/snack/wings.webp" alt="Chicken Wings" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chicken Wings</h3>
+                  <p class="food-desc d-none">Sayap ayam juicy dengan bagian luar renyah dan bumbu kuat.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 27k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- MAIN COURSE CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Balinese%20Chicken%20Spicy" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/course/bali.webp" alt="Balinese Chicken Spicy" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Balinese Chicken Spicy</h3>
+                  <p class="food-desc d-none">Ayam dengan bumbu Bali yang kuat, hangat, dan gurih.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 28k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Black%20Pepper" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/course/black.webp" alt="Chicken Black Pepper" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chicken Black Pepper</h3>
+                  <p class="food-desc d-none">Ayam lembut dengan saus lada hitam yang gurih.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Butter%20Sauce" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/course/butter.webp" alt="Chicken Butter Sauce" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chicken Butter Sauce</h3>
+                  <p class="food-desc d-none">Ayam dengan saus mentega lembut yang pekat dan hangat.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Curry%20Katsu" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/course/curry katsu.webp" alt="Chicken Curry Katsu" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chicken Curry Katsu</h3>
+                  <p class="food-desc d-none">Chicken katsu renyah dengan saus kari Jepang yang pekat.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 28k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chicken%20Katsu%20Sambal%20Matah" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/course/matah.webp" alt="Chicken Katsu Sambal Matah" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chicken Katsu Sambal Matah</h3>
+                  <p class="food-desc d-none">Chicken katsu renyah dengan sambal matah segar dan wangi.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 25k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Beef%20Teriyaki" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/course/teriyaki.webp" alt="Beef Teriyaki" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Beef Teriyaki</h3>
+                  <p class="food-desc d-none">Daging sapi dengan saus teriyaki manis-gurih khas Jepang.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 30k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Beef%20Yakiniku" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/course/yakiniku.webp" alt="Beef Yakiniku" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Beef Yakiniku</h3>
+                  <p class="food-desc d-none">Daging sapi gurih dengan saus yakiniku dan aroma panggang lembut.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 30k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="maincourse">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Beef%20Curry" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/course/beef curry.webp" alt="Beef Curry" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Beef Curry</h3>
+                  <p class="food-desc d-none">Daging sapi dengan saus kari pekat, aroma dalam, dan rempah yang hangat.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 33k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- PASTRY CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pastry">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Churros" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/pastry/churros.webp" alt="Churros" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Churros</h3>
+                  <p class="food-desc d-none">Churros keemasan dengan luar renyah dan bagian dalam lembut.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 22k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pastry">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Cheese%20Toast" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/pastry/cheese.webp" alt="Cheese Toast" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Cheese Toast</h3>
+                  <p class="food-desc d-none">Roti panggang gurih mentega dengan lelehan keju.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 15k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pastry">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Chocolate%20Toast" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/pastry/choklat.webp" alt="Chocolate Toast" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Chocolate Toast</h3>
+                  <p class="food-desc d-none">Roti panggang hangat dengan cokelat pekat untuk pilihan manis.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 15k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pastry">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Egg%20Toast" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/pastry/telur.webp" alt="Egg Toast" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Egg Toast</h3>
+                  <p class="food-desc d-none">Roti panggang lembut dengan topping telur, simpel dan hangat.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 15k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <!-- PASTA CATEGORY -->
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pasta">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Mac%20and%20Cheese" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/pasta/mac.webp" alt="Mac & Cheese" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Mac & Cheese</h3>
+                  <p class="food-desc d-none">Makaroni lembut dengan saus keju pekat di setiap suapan.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pasta">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Spaghetti%20Bolognese" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/pasta/bolog.webp" alt="Spaghetti Bolognese" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Spaghetti Bolognese</h3>
+                  <p class="food-desc d-none">Saus daging klasik dengan rasa tomat gurih yang seimbang.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
 
             <div class="col-6 col-md-4 col-lg-3 menu-item animate-item" data-category="pasta">
-              <a href="https://wa.me/6285182332802?text=Halo%20Santiks%2C%20saya%20mau%20order%20Spaghetti%20Carbonara" target="_blank" rel="noopener noreferrer" class="card food-card h-100 text-decoration-none">
+              <article class="card food-card h-100" data-open-detail-card>
                 <div class="food-card-media">
                   <img class="menu-img" src="assets/img/pasta/carbo.webp" alt="Spaghetti Carbonara" loading="lazy" decoding="async" />
                 </div>
                 <div class="food-card-body">
                   <h3 class="food-title">Spaghetti Carbonara</h3>
+                  <p class="food-desc d-none">Carbonara lembut dengan saus halus dan rasa gurih yang dalam.</p>
                   <div class="food-card-footer">
                     <span class="menu-price">Rp 23k</span>
-                    <span class="btn-order-link">Pesan</span>
+                    <button class="btn-order-link" type="button">Detail</button>
                   </div>
                 </div>
-              </a>
+              </article>
             </div>
           </div>
 
@@ -1450,6 +1462,46 @@
         </section>
       </div>
     </main>
+
+    <!-- DETAIL MENU / PRODUCT DETAIL MODAL SHEET -->
+    <div id="productDetailModal" class="product-detail-modal" aria-hidden="true" role="dialog" aria-labelledby="productDetailTitle">
+      <div class="product-detail-backdrop" data-close-detail></div>
+      <div class="product-detail-container">
+        <!-- TOP PRODUCT MEDIA AREA (GRADIENT + BACK BUTTON + FLOATING IMAGE) -->
+        <div class="product-detail-media">
+          <button class="product-detail-back-btn" type="button" data-close-detail aria-label="Kembali ke daftar menu">
+            <i class="bi bi-arrow-left"></i>
+          </button>
+          <div class="product-detail-image-wrapper">
+            <img id="productDetailImg" src="" alt="" decoding="async" />
+          </div>
+        </div>
+
+        <!-- WHITE CONTENT SHEET -->
+        <div class="product-detail-sheet">
+          <div class="product-detail-meta-row">
+            <span id="productDetailCategory" class="product-detail-category-badge"></span>
+            <span id="productDetailBadge" class="product-detail-status-badge" hidden></span>
+            <span id="productDetailPrice" class="product-detail-price"></span>
+          </div>
+
+          <h2 id="productDetailTitle" class="product-detail-title"></h2>
+          <p id="productDetailDesc" class="product-detail-desc"></p>
+
+          <div class="product-detail-actions mt-auto pt-3">
+            <a
+              id="productDetailWaBtn"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-product-detail-wa"
+            >
+              <i class="bi bi-whatsapp me-2"></i>Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- CLEAN FOOTER -->
     <footer class="app-footer py-4 border-top">

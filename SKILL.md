@@ -15,13 +15,16 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
    - Latar belakang utama: Putih / Off-white (`#ffffff` / `#f8fafc`).
    - Kartu produk & permukaan: Abu-abu netral lembut (`#f1f5f9`).
    - Latar belakang Navy Santiks (`#003370`) dipadukan dengan aksen Biru Vibrant (`#2563eb`).
-   - Gradient Biru $\to$ Ungu (`linear-gradient(135deg, #003370 0%, #2563eb 55%, #6366f1 100%)`) hanya digunakan pada kartu promo / featured.
+   - Gradient Biru $\to$ Ungu (`linear-gradient(135deg, #003370 0%, #2563eb 55%, #6366f1 100%)`) digunakan pada kartu promo & top area Product Detail Sheet.
 2. **Category Image Tiles**: Navigasi kategori berupa tile gambar persegi rounded (`48px x 48px`, radius `12px`) dengan label di bawah.
-3. **No Decorative Bloat**:
+3. **Product Detail Sheet (Flow 3)**:
+   - Mengetuk kartu produk pada katalog akan membuka **Product Detail Sheet / Modal**.
+   - Menampilkan media top gradient, tombol kembali, foto produk, lembaran putih rounded, kategori, status badge, harga, deskripsi, dan tombol CTA utama *Pesan via WhatsApp*.
+4. **No Decorative Bloat**:
    - **HAPUS** glassmorphism berlebihan, blur, shadow tebal, dan floating glass card.
    - **HAPUS** mobile bottom navigation yang tidak diperlukan.
    - **HAPUS** hero landing page raksasa / onboarding splash screen.
-   - **HAPUS** tombol `+` (Add to Cart fiktif). Gunakan tombol / link `Pesan` langsung ke WhatsApp.
+   - **DILARANG** menambahkan quantity selector palsu `[-] 1 [+]`, opsi ukuran palsu (S/M/L), atau rating bintang fiktif (4.8, 4.9).
 
 ---
 
@@ -42,17 +45,29 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 | **Search Empty Text** | `#menuSearchEmpty` | Pesan jika menu tidak ditemukan |
 | **Category Headings** | `[data-category-heading="..."]` | Dynamic category headings oleh JS |
 | **Drag Scroll Row** | `[data-drag-scroll]` | Inisialisasi drag scroll mouse/touch |
+| **Product Detail Modal**| `#productDetailModal` | Container Modal Sheet Product Detail |
+| **Open Detail Trigger** | `[data-open-detail-card]` | Trigger pembuka Detail Menu pada card |
+| **Close Detail Trigger**| `[data-close-detail]` | Tombol/backdrop penutup Detail Menu |
+| **Detail Image Target** | `#productDetailImg` | Target gambar produk di Detail Sheet |
+| **Detail Category** | `#productDetailCategory` | Target nama kategori di Detail Sheet |
+| **Detail Status Badge**| `#productDetailBadge` | Target badge status (e.g. Best Seller) |
+| **Detail Price** | `#productDetailPrice` | Target harga di Detail Sheet |
+| **Detail Title** | `#productDetailTitle` | Target nama produk di Detail Sheet |
+| **Detail Description** | `#productDetailDesc` | Target deskripsi produk di Detail Sheet |
+| **Detail WhatsApp CTA** | `#productDetailWaBtn` | Target link WhatsApp order di Detail Sheet |
 
 ---
 
 ## 🚫 Rules: DO & DON'T
 
 ### DO:
+- Gunakan data produk Santiks asli sebagai satu-satunya *source of truth*.
 - Gunakan token warna & radius dari CSS `:root`.
 - Pastikan foto produk Santiks menjadi focal point visual utama.
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v8`).
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v9`).
 
 ### DON'T:
+- Jangan membuat dua sumber data terpisah untuk kartu katalog dan detail menu.
+- Jangan menambahkan rating bintang fiktif, quantity selector `[-] 1 [+]`, atau opsi ukuran palsu.
 - Jangan menambahkan framework SPA (React/Vue/Next.js) atau build system baru.
-- Jangan menambahkan fitur fiktif (Cart, Account, Favorite, Review, Rating bintang fiktif).
 - Jangan mengubah data produk, harga, deskripsi, atau link order Santiks asli.
