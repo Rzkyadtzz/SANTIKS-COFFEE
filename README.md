@@ -6,9 +6,9 @@ Halaman landing page dan menu digital untuk **Santiks Coffee & Calm** (Kedai Kop
 
 ## 📌 Ringkasan Project
 
-Website ini memberikan pengalaman browsing menu digital yang cepat, responsif, dan intuitif. Pengunjung dapat mencari produk secara real-time, menelusuri kategori menu via tile gambar, melihat rekomendasi *Must Try*, serta membuka **Detail Menu (Flow 3)** untuk melihat informasi detail produk (deskripsi, kategori, harga, dan badge).
+Website ini memberikan pengalaman browsing menu digital yang cepat, responsif, dan intuitif. Pengunjung dapat mencari produk secara real-time melalui **Sticky Search Bar** yang tetap terlihat dan mudah diakses saat scroll, menelusuri kategori menu via tile gambar, melihat rekomendasi *Must Try*, serta membuka **Detail Menu (Flow 3)** langsung melalui interaksi klik/tap pada kartu produk (informational detail: deskripsi, kategori, harga, dan status badge tanpa tombol perantara redundant).
 
-Desain visual disempurnakan berdasarkan screenshot referensi Figma (*Adapted from the provided Figma reference screenshot*) dengan sistem warna yang terkonfirmasi.
+Desain visual disempurnakan berdasarkan screenshot referensi Figma (*Adapted from the provided Figma reference screenshot*) dengan keselarasan warna terkonfirmasi.
 
 ---
 
@@ -27,7 +27,7 @@ Desain visual disempurnakan berdasarkan screenshot referensi Figma (*Adapted fro
 ```text
 [ Menu Catalogue ]
         ↓
- [ Pilih Produk ]
+  [ Tap Card ]    <-- Interaksi kartu produk langsung membuka Detail Menu (tanpa tombol tambahan)
         ↓
  [ Detail Menu ]  <-- Informational Product Detail (Flow 3)
 ```
@@ -36,10 +36,10 @@ Desain visual disempurnakan berdasarkan screenshot referensi Figma (*Adapted fro
 
 ## 🛠️ Tech Stack Utama
 
-* **HTML5**: Semantik HTML5, ARIA accessibility, JSON-LD Structured Data, OpenGraph metadata.
-* **CSS3**: Design Tokens (CSS Variables), Soft Neutral Card Surfaces (`#F5F4F4`), Vibrant Blue-Purple Gradient (`#0088FF → #6155F5`), Clean Modal Sheet.
-* **Vanilla JavaScript ES6+**: DOM interaction engine (Live search, Category filtering, Category headings, Product Detail Sheet engine).
-* **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v13) dengan strategi offline caching.
+* **HTML5**: Semantik HTML5, ARIA accessibility, keyboard navigation card trigger (`Enter` / `Space`), JSON-LD Structured Data, OpenGraph metadata.
+* **CSS3**: Design Tokens (CSS Variables), Sticky Search Bar (`position: sticky`), Soft Neutral Card Surfaces (`#F5F4F4`), Vibrant Blue-Purple Gradient (`#0088FF → #6155F5`), Clean Modal Sheet.
+* **Vanilla JavaScript ES6+**: DOM interaction engine (Sticky header height sync, Live search, Category filtering, Category headings, Product Detail Sheet engine).
+* **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v14) dengan strategi offline caching.
 * **Hosting / Deployment**: Vercel Static Deployment (Zero-build process).
 
 ---
@@ -52,7 +52,7 @@ Landing Page Santiks/
 ├── style.css           # Styling kustom (Design Tokens, Product Detail Sheet, soft-gray cards)
 ├── script.js           # Engine interaksi (Search, Filter, Product Detail Modal Handler)
 ├── app.js              # Inisialisasi halaman & AOS animation fallback
-├── sw.js               # Service Worker (Cache static & runtime, offline support, v13)
+├── sw.js               # Service Worker (Cache static & runtime, offline support, v14)
 ├── site.webmanifest    # Metadata PWA
 ├── README.md           # Dokumentasi teknis & arsitektur project
 ├── DESIGN.md           # Source of truth Design System
@@ -67,9 +67,9 @@ Landing Page Santiks/
 ```text
 [ Desktop Header: Brand & Menu Link | Mobile Header: Brand & Contextual Short Location ]
                                ↓
-           [ Search Pill Bar (Real-Time Live Search) ]
+         [ Sticky Search Pill Bar (Real-Time Live Search - Fixed on Scroll) ]
                                ↓
-          [ Category Navigation Tiles (Image + Label) ]
+          [ Category Navigation Tiles (Image + Label - Document Flow) ]
                                ↓
         [ Featured Must Try Card (Vibrant Blue-Purple Gradient) ]
                                ↓

@@ -82,8 +82,10 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 - Desktop: Logo brand *Santiks* & link *Menu Catalogue*. Tanpa tombol CTA order redundant.
 - Mobile: Nama brand (*Santiks*, bold 700) di kiri dengan subtitle *Coffee & Calm* (muted 400), dan info lokasi ringkas (*Mlati Norowito Gg. 2*) di kanan dalam warna `--color-ui-blue` (`#0088FF`, semibold 600).
 
-### 2. Search Pill Bar (`.app-search-pill`)
+### 2. Search Pill Bar (`.app-search-pill`) & Sticky Container (`.search-section`)
 - Soft neutral gray pill background (`#F5F4F4`), rounded pill (`--radius-pill`), icon search abu-abu muted di kiri, input placeholder *"Cari menu Santiks..."*, no shadow.
+- **Sticky Behavior**: Sticky during scroll (`position: sticky`, `top: var(--header-height)`), tetap terlihat (*remains visible for fast menu discovery*), berlatar belakang putih solid `#FFFFFF` dengan subtle separator border (`1px solid var(--color-border)`).
+- Category navigation tiles tetap mengikuti normal document flow.
 
 ### 3. Category Image Tiles (`.category-tile`)
 - Container gambar produk representatif (`54px x 54px`, border radius `12px`), label kategori di bawah.
@@ -91,10 +93,17 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 - **State Non-Aktif**: Border transparan, label warna `#8E8E93` font-weight 400.
 
 ### 4. Featured Promo Banner (`.promo-card`)
-- Kartu promo *Must Try* berlatar belakang gradient vibrant `#0088FF → #6155F5`, typography putih bersih, tag badge semi-transparan yang proporsional, harga `Rp 20k`, tombol white pill *"Detail Menu"*, dan foto produk rounded.
+- Kartu promo *Must Try* berlatar belakang gradient vibrant `#0088FF → #6155F5`, typography putih bersih, tag badge semi-transparan yang proporsional, harga `Rp 20k`, dan foto produk rounded.
+- Card itself membuka Product Detail Sheet saat diklik/ditap tanpa tombol perantara (*no detail CTA button*).
 
 ### 5. Food Card Component (`.food-card`)
-- Surface kartu abu-abu netral lembut (`#F5F4F4`), flat tanpa box-shadow berat, rounded corners `20px`, foto produk dominan (rasio `1:1`), nama produk (font-weight 600), harga dalam warna ungu khas Figma (`#6155F5`), dan tombol link bersih `Detail`. Mengetuk kartu membuka *Product Detail Sheet*.
+- Surface kartu abu-abu netral lembut (`#F5F4F4`), flat tanpa box-shadow berat, rounded corners `20px`.
+- Hierarchy minimalis murni:
+  - Product Image (rasio `1:1`)
+  - Product Name (font-weight 600)
+  - Price (warna ungu khas Figma `#6155F5`)
+- **Card Interaction**: Card itself opens Product Detail Sheet saat diklik/ditap (lengkap dengan keyboard accessibility `Enter`/`Space` dan `focus-visible` outline).
+- Tanpa tombol perantara (*no detail CTA button*, no Pesan/WhatsApp, no Add to Cart).
 
 ### 6. Informational Product Detail Sheet (`.product-detail-modal`)
 - Adaptasi Flow 3 Figma (Tampilan Informasi Produk Murni):

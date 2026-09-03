@@ -20,11 +20,28 @@
   })();
 
   // -----------------------------
-  // 2) Smooth scroll for internal anchors
+  // 2) Header height sync for sticky search & smooth scroll
   // -----------------------------
   (() => {
     const header = document.querySelector(".app-header");
-    const getOffset = () => (header ? header.offsetHeight : 0);
+    const searchSection = document.querySelector(".search-section");
+
+    const updateHeaderHeight = () => {
+      if (header) {
+        document.documentElement.style.setProperty(
+          "--header-height",
+          `${header.offsetHeight}px`,
+        );
+      }
+    };
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight, { passive: true });
+
+    const getOffset = () => {
+      const headerH = header ? header.offsetHeight : 0;
+      const searchH = searchSection ? searchSection.offsetHeight : 0;
+      return headerH + searchH;
+    };
 
     $$('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
@@ -533,9 +550,16 @@
       document.body.style.overflow = "";
     };
 
-    // Attach click handler on food cards
+    // Attach click & keyboard handlers on food cards
     $$("[data-open-detail-card]").forEach((card) => {
-      card.addEventListener("click", () => {
+      if (!card.hasAttribute("role")) card.setAttribute("role", "button");
+      if (!card.hasAttribute("tabindex")) card.setAttribute("tabindex", "0");
+      const cardTitle = $("h3", card)?.textContent.trim() || "";
+      if (!card.hasAttribute("aria-label") && cardTitle) {
+        card.setAttribute("aria-label", `Lihat detail ${cardTitle}`);
+      }
+
+      const triggerDetail = () => {
         const menuItem = card.closest(".menu-item");
         const title = $("h3", card)?.textContent.trim() || "";
         const price = $(".menu-price, .promo-price", card)?.textContent.trim() || "";
@@ -545,6 +569,14 @@
         const badge = $(".scroll-menu-badge, .promo-tag", card)?.textContent.trim() || "";
 
         openModal({ title, price, desc, imgSrc, category, badge });
+      };
+
+      card.addEventListener("click", triggerDetail);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          triggerDetail();
+        }
       });
     });
 

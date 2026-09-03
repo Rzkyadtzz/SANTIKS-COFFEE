@@ -67,6 +67,9 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 ## 🚫 Rules: DO & DON'T
 
 ### DO:
+- Keep search sticky and accessible during scrolling (`position: sticky`, `top: var(--header-height)`).
+- Open Product Detail directly from product card interaction (`[data-open-detail-card]` click & keyboard `Enter`/`Space`).
+- Keep cards minimal: Product Image $\to$ Product Name $\to$ Price tanpa tombol perantara.
 - Gunakan `#0088FF` untuk primary Figma-style UI blue (active category, active label, mobile location, interactive hover).
 - Gunakan `#6155F5` untuk purple accent & harga produk (`.menu-price`, `.product-detail-price`).
 - Gunakan permukaan netral abu-abu lembut `#F5F4F4` (`--color-surface-soft`) untuk card dan search bar.
@@ -74,16 +77,17 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 - Gunakan dan gunakan ulang token CSS resmi dari `:root`.
 - Buka Detail Menu dari katalog sebagai tampilan informasi produk murni.
 - Tampilkan data produk Santiks asli (kategori, harga, deskripsi, foto, badge).
-- Jaga agar homepage tetap ringkas (Header $\to$ Search $\to$ Category Tiles $\to$ Featured $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v13`).
+- Jaga agar homepage tetap ringkas (Header $\to$ Sticky Search $\to$ Category Tiles $\to$ Featured $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v14`).
 
 ### DON'T:
+- Dilarang menambahkan tombol "Detail Menu" / "Detail" kembali ke UI.
+- Dilarang menambahkan tombol ordering CTA (WhatsApp, Pesan, Add to Cart, Buy Now, Checkout).
+- Dilarang menambahkan category bar/tiles ke dalam sticky stack kecuali diminta secara eksplisit.
 - Jangan menggunakan varian biru arbitrer atau mengembalikan `#2563EB` sebagai primary reference blue.
 - Jangan menggunakan berbagai warna ungu acak (gunakan `#6155F5`).
 - Jangan overuse `#003370` sebagai UI border/accent (gunakan khusus untuk Santiks brand anchor).
 - Dilarang membuat klaim "pixel-perfect Figma extraction" atau "exact Figma match" jika data node terstruktur tidak tersedia.
-- Dilarang menambahkan tombol WhatsApp ordering CTA di desktop maupun mobile.
-- Dilarang menambahkan tombol Add to Cart, Buy Now, Checkout, atau CTA pemesanan pengganti.
 - Dilarang menambahkan tombol direct order pada product card.
 - Jangan membuat kembali section *Order Online* atau *Lokasi Kedai* di homepage.
 - Jangan membuat dua sumber data terpisah untuk kartu katalog dan detail menu.
