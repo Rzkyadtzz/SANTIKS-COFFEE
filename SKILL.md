@@ -5,24 +5,28 @@ description: Developer implementation rules, DOM contracts, and architectural gu
 
 # Santiks Coffee & Calm &mdash; Developer & AI Agent Skill & Guardrails
 
-Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contract antara HTML dan JavaScript** untuk pengembang atau AI Agent yang bekerja pada project ini.
+Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contract antara HTML dan JavaScript** untuk pengembang atau AI Agent yang bekerja pada project ini. Visual UI diadaptasikan dari screenshot referensi Figma (*Adapted from the provided Figma reference screenshot*).
 
 ---
 
 ## 🎯 Aturan Visual Utama (Refined Guidelines)
 
-1. **Clean, Simple & Soft**:
-   - Latar belakang utama: Putih / Off-white (`#ffffff` / `#f8fafc`).
-   - Kartu produk & permukaan: Abu-abu netral lembut (`#f1f5f9`).
-   - Latar belakang Navy Santiks (`#003370`) dipadukan dengan aksen Biru Vibrant (`#2563eb`).
-   - Gradient Biru $\to$ Ungu (`linear-gradient(135deg, #003370 0%, #2563eb 55%, #6366f1 100%)`) digunakan pada kartu promo & top area Product Detail Sheet.
+1. **Clean, Simple & Soft Surfaces**:
+   - Latar belakang utama: Putih murni (`#FFFFFF`).
+   - Kartu produk & search bar: Abu-abu netral lembut (`#F5F4F4` / `--color-surface-soft`).
+   - Brand Anchor: Navy Santiks (`#003370` / `--color-brand`) digunakan untuk branding & identitas dasar.
+   - Primary UI Blue: `#0088FF` (`--color-ui-blue`) untuk active category, link aksen, dan lokasi mobile header.
+   - UI Purple: `#6155F5` (`--color-ui-purple`) untuk harga produk dan gradient promo.
+   - Signature Gradient: `linear-gradient(110deg, #0088FF 0%, #6155F5 100%)` untuk promo card & top area Product Detail Sheet.
 2. **Minimal Header Layout**:
    - **Desktop Header**: Menampilkan nama brand dan link navigasi *Menu Catalogue*. Dilarang menambahkan tombol CTA Order di header desktop.
-   - **Mobile Header**: Menampilkan nama brand di kiri dan lokasi singkat (*Mlati Norowito Gg. 2*) di kanan sebagai teks kontekstual sekunder.
-3. **Category Image Tiles**: Navigasi kategori berupa tile gambar persegi rounded (`48px x 48px`, radius `12px`) dengan label di bawah.
+   - **Mobile Header**: Menampilkan nama brand di kiri (bold 700) dengan subtitle muted (400), dan lokasi (*Mlati Norowito Gg. 2*) di kanan dalam warna `#0088FF` (semibold 600).
+3. **Category Image Tiles**: Navigasi kategori berupa tile gambar persegi rounded (`54px x 54px`, radius `12px`) dengan label di bawah.
+   - State aktif: border `2px solid #0088FF`, label warna `#0088FF` (font-weight 600).
+   - State non-aktif: border transparan, label abu-abu muted `#8E8E93` (font-weight 400).
 4. **Informational Product Detail Sheet (Flow 3)**:
    - Mengetuk kartu produk pada katalog akan membuka **Product Detail Sheet / Modal**.
-   - Menampilkan media top gradient, tombol kembali, foto produk, lembaran putih rounded, kategori, status badge, harga, judul, dan deskripsi produk.
+   - Menampilkan media top gradient (`#0088FF → #6155F5`), tombol kembali, foto produk, lembaran putih rounded, kategori (pill biru), status badge, harga (`#6155F5`), judul, dan deskripsi produk.
    - **Informational Only**: Dilarang menambahkan tombol ordering/Pesan via WhatsApp, Add to Cart, Buy Now, atau fitur pemesanan pengganti di Product Detail Sheet.
 5. **Ringkasan Homepage & User Flow**:
    - User flow: `Menu Catalogue` $\to$ `Detail Menu` (Informational Detail).
@@ -63,13 +67,21 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 ## 🚫 Rules: DO & DON'T
 
 ### DO:
+- Gunakan `#0088FF` untuk primary Figma-style UI blue (active category, active label, mobile location, interactive hover).
+- Gunakan `#6155F5` untuk purple accent & harga produk (`.menu-price`, `.product-detail-price`).
+- Gunakan permukaan netral abu-abu lembut `#F5F4F4` (`--color-surface-soft`) untuk card dan search bar.
+- Jaga typography tetap proporsional (Brand: 700, Section: 600–700, Product: 600, Price: 600, Body: 400).
+- Gunakan dan gunakan ulang token CSS resmi dari `:root`.
 - Buka Detail Menu dari katalog sebagai tampilan informasi produk murni.
 - Tampilkan data produk Santiks asli (kategori, harga, deskripsi, foto, badge).
 - Jaga agar homepage tetap ringkas (Header $\to$ Search $\to$ Category Tiles $\to$ Featured $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
-- Gunakan token warna & radius dari CSS `:root`.
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v12`).
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v13`).
 
 ### DON'T:
+- Jangan menggunakan varian biru arbitrer atau mengembalikan `#2563EB` sebagai primary reference blue.
+- Jangan menggunakan berbagai warna ungu acak (gunakan `#6155F5`).
+- Jangan overuse `#003370` sebagai UI border/accent (gunakan khusus untuk Santiks brand anchor).
+- Dilarang membuat klaim "pixel-perfect Figma extraction" atau "exact Figma match" jika data node terstruktur tidak tersedia.
 - Dilarang menambahkan tombol WhatsApp ordering CTA di desktop maupun mobile.
 - Dilarang menambahkan tombol Add to Cart, Buy Now, Checkout, atau CTA pemesanan pengganti.
 - Dilarang menambahkan tombol direct order pada product card.
