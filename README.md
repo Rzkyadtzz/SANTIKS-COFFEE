@@ -6,7 +6,7 @@ Halaman landing page dan menu digital untuk **Santiks Coffee & Calm** (Kedai Kop
 
 ## 📌 Ringkasan Project
 
-Website ini memberikan pengalaman browsing menu digital yang cepat, responsif, dan intuitif. Pengunjung dapat mencari produk secara real-time, menelusuri kategori menu via tile gambar, melihat rekomendasi *Must Try*, membuka **Detail Menu (Flow 3)** untuk informasi lengkap tiap produk, serta melakukan pemesanan via WhatsApp Direct, ShopeeFood, GrabFood, dan petunjuk arah Google Maps.
+Website ini memberikan pengalaman browsing menu digital yang cepat, responsif, dan intuitif. Pengunjung dapat mencari produk secara real-time, menelusuri kategori menu via tile gambar, melihat rekomendasi *Must Try*, serta membuka **Detail Menu (Flow 3)** untuk informasi lengkap tiap produk dan melakukan pemesanan via WhatsApp Direct.
 
 ---
 
@@ -29,7 +29,7 @@ Website ini memberikan pengalaman browsing menu digital yang cepat, responsif, d
 * **HTML5**: Semantik HTML5, ARIA accessibility, JSON-LD Structured Data, OpenGraph metadata.
 * **CSS3**: Design Tokens (CSS Variables), Soft Neutral Card Surfaces, Blue-Purple Gradient Accent, Clean Modal Sheet.
 * **Vanilla JavaScript ES6+**: DOM interaction engine (Live search, Category filtering, Category headings, Product Detail Sheet engine).
-* **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v9) dengan strategi offline caching.
+* **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v10) dengan strategi offline caching.
 * **Hosting / Deployment**: Vercel Static Deployment (Zero-build process).
 
 ---
@@ -42,7 +42,7 @@ Landing Page Santiks/
 ├── style.css           # Styling kustom (Design Tokens, Product Detail Sheet, soft-gray cards)
 ├── script.js           # Engine interaksi (Search, Filter, Product Detail Modal Handler)
 ├── app.js              # Inisialisasi halaman & AOS animation fallback
-├── sw.js               # Service Worker (Cache static & runtime, offline support, v9)
+├── sw.js               # Service Worker (Cache static & runtime, offline support, v10)
 ├── site.webmanifest    # Metadata PWA
 ├── README.md           # Dokumentasi teknis & arsitektur project
 ├── DESIGN.md           # Source of truth Design System
@@ -52,26 +52,22 @@ Landing Page Santiks/
 
 ---
 
-## 📐 Arsitektur UI
+## 📐 Arsitektur UI (Simplified Homepage)
 
 ```text
-[ Solid Clean Header (Desktop / Mobile Location) ]
-                       ↓
-   [ Search Pill Bar (Real-Time Live Search) ]
-                       ↓
-  [ Category Navigation Tiles (Image + Label) ]
-                       ↓
-[ Featured Must Try Card (Blue-Purple Gradient) ]
-                       ↓
- [ Popular Menu Catalogue (Soft Neutral Gray Cards) ]
-                       ↓
-  [ Product Detail Sheet (Top Gradient + White Sheet) ]
-                       ↓
-[ Order Online Channels (WhatsApp, Shopee, Grab) ]
-                       ↓
-  [ Store Location & Information (Google Maps) ]
-                       ↓
-                    [ Footer ]
+[ Solid Clean Header (Desktop Brand & Menu Link / Mobile Location) ]
+                               ↓
+           [ Search Pill Bar (Real-Time Live Search) ]
+                               ↓
+          [ Category Navigation Tiles (Image + Label) ]
+                               ↓
+        [ Featured Must Try Card (Blue-Purple Gradient) ]
+                               ↓
+         [ Popular Menu Catalogue (Soft Neutral Gray Cards) ]
+                               ↓
+          [ Product Detail Sheet (Top Gradient + White Sheet) ]
+                               ↓
+                            [ Footer ]
 ```
 
 ---

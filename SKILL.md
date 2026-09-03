@@ -20,11 +20,10 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 3. **Product Detail Sheet (Flow 3)**:
    - Mengetuk kartu produk pada katalog akan membuka **Product Detail Sheet / Modal**.
    - Menampilkan media top gradient, tombol kembali, foto produk, lembaran putih rounded, kategori, status badge, harga, deskripsi, dan tombol CTA utama *Pesan via WhatsApp*.
-4. **No Decorative Bloat**:
-   - **HAPUS** glassmorphism berlebihan, blur, shadow tebal, dan floating glass card.
-   - **HAPUS** mobile bottom navigation yang tidak diperlukan.
-   - **HAPUS** hero landing page raksasa / onboarding splash screen.
-   - **DILARANG** menambahkan quantity selector palsu `[-] 1 [+]`, opsi ukuran palsu (S/M/L), atau rating bintang fiktif (4.8, 4.9).
+4. **Ringkasan Homepage & Order Flow**:
+   - Homepage Santiks harus tetap ringkas dan terpusat pada **katalog menu**.
+   - **DILARANG** menambahkan kembali section visual *Order Online* (WhatsApp Direct/ShopeeFood/GrabFood cards) atau section *Lokasi Kedai* pada homepage.
+   - Pemesanan produk dilakukan dari **Detail Menu** melalui WhatsApp Direct.
 
 ---
 
@@ -62,11 +61,13 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 
 ### DO:
 - Gunakan data produk Santiks asli sebagai satu-satunya *source of truth*.
+- Jaga agar homepage tetap ringkas (Header $\to$ Search $\to$ Category Tiles $\to$ Featured $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
 - Gunakan token warna & radius dari CSS `:root`.
 - Pastikan foto produk Santiks menjadi focal point visual utama.
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v9`).
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v10`).
 
 ### DON'T:
+- Jangan membuat kembali section *Order Online* atau *Lokasi Kedai* di homepage.
 - Jangan membuat dua sumber data terpisah untuk kartu katalog dan detail menu.
 - Jangan menambahkan rating bintang fiktif, quantity selector `[-] 1 [+]`, atau opsi ukuran palsu.
 - Jangan menambahkan framework SPA (React/Vue/Next.js) atau build system baru.
