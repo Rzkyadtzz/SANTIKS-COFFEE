@@ -80,9 +80,18 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 - Jaga agar homepage tetap ringkas (Header $\to$ Search Bar $\to$ Category Tiles $\to$ [Mobile: Featured Promo] $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
 - Sembunyikan category subsection headings dan item count di desktop (`min-width: 992px`) agar katalog compact.
 - Sembunyikan Featured / Must Try promo section di desktop (`min-width: 992px`) dan pertahankan pada mobile/tablet.
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v16`).
+- Apply product badges globally across categories (`best-seller`, `top-ordered`, `most-popular`).
+- Keep badge data category-independent.
+- Keep badge text visible with semantic icon for readability and accessibility.
+- Use matching product image border (`border: 2px solid var(--badge-...)`) on `.food-card-media` for items with badges.
+- Reuse existing badge color tokens (`--badge-best-seller`, `--badge-top-ordered`, `--badge-most-popular`).
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v17`).
 
 ### DON'T:
+- Dilarang membatasi badge decorator hanya pada kategori Must Try.
+- Dilarang memberi styling product badge border pada category navigation tiles (`.category-tile`).
+- Dilarang menduplikasi data badge antara HTML hardcoded dan JavaScript mapping.
+- Dilarang menambahkan jenis badge baru di luar status resmi (Best Seller, Top Ordered, Most Popular).
 - Dilarang membuat search sticky/fixed kecuali diminta secara eksplisit.
 - Dilarang mengaktifkan kembali featured promo di desktop tanpa requirement baru.
 - Dilarang menambahkan tombol "Detail Menu" / "Detail" kembali ke UI.

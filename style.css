@@ -47,6 +47,11 @@
   --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-promo: 0 8px 24px rgba(97, 85, 245, 0.16);
 
+  /* Product Merchandising Badges */
+  --badge-best-seller: #ef4444;
+  --badge-top-ordered: #f59e0b;
+  --badge-most-popular: var(--color-brand);
+
   /* Font */
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -457,6 +462,27 @@ a {
   margin: 0.5rem 0.5rem 0 0.5rem;
   width: calc(100% - 1rem);
   background-color: #ebebeb;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+/* Product Photo Border based on Badge Status */
+.food-card[data-badge="best-seller"] .food-card-media,
+.food-card.has-best-seller .food-card-media,
+.food-card-media[data-badge="best-seller"] {
+  border-color: var(--badge-best-seller);
+}
+
+.food-card[data-badge="top-ordered"] .food-card-media,
+.food-card.has-top-ordered .food-card-media,
+.food-card-media[data-badge="top-ordered"] {
+  border-color: var(--badge-top-ordered);
+}
+
+.food-card[data-badge="most-popular"] .food-card-media,
+.food-card.has-most-popular .food-card-media,
+.food-card-media[data-badge="most-popular"] {
+  border-color: var(--badge-most-popular);
 }
 
 .food-card-media img.menu-img {
@@ -513,9 +539,9 @@ a {
   color: #ffffff;
 }
 
-.scroll-menu-badge-best-seller { background-color: #ef4444; }
-.scroll-menu-badge-top-ordered { background-color: #f59e0b; }
-.scroll-menu-badge-most-popular { background-color: var(--color-brand); }
+.scroll-menu-badge-best-seller { background-color: var(--badge-best-seller); }
+.scroll-menu-badge-top-ordered { background-color: var(--badge-top-ordered); }
+.scroll-menu-badge-most-popular { background-color: var(--badge-most-popular); }
 
 .menu-item {
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -659,9 +685,21 @@ a {
   font-size: 0.75rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #ef4444;
+  background-color: var(--badge-best-seller, #ef4444);
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-pill);
+}
+
+.product-detail-status-badge.status-best-seller {
+  background-color: var(--badge-best-seller);
+}
+
+.product-detail-status-badge.status-top-ordered {
+  background-color: var(--badge-top-ordered);
+}
+
+.product-detail-status-badge.status-most-popular {
+  background-color: var(--badge-most-popular);
 }
 
 .product-detail-price {

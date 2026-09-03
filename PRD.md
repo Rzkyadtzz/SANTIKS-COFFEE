@@ -8,7 +8,7 @@
 **Arsitektur:** Static Website / Progressive Web App (PWA) / Zero-Build Deployment  
 **Baseline Git Commit:** `6cce978`  
 **Baseline Commit Message:** `refactor: remove detail buttons and keep menu search sticky`  
-**Service Worker Cache Version:** `v16`  
+**Service Worker Cache Version:** `v17`  
 **Bahasa Antarmuka (UI):** Bahasa Indonesia  
 **Referensi Visual:** Food Ordering App — Community (Figma)  
 **Tautan Referensi:** [Food Ordering App - Community](https://www.figma.com/design/PZukqy9x6lu43iJFsZfW1O/Food-Ordering-App--Community-?node-id=0-1&t=A3J1V2ZK6QJsEhUL-1)  
@@ -281,6 +281,17 @@ Digunakan secara konsisten pada kartu rekomendasi _Must Try_ dan latar media ata
 - **Ketiadaan Tombol:** Bebas dari tombol _Detail_, _Pesan_, _Lihat_, _Add to Cart_, atau tautan WhatsApp.
 - **Interaksi:** Area kartu secara keseluruhan berfungsi sebagai trigger pembuka Product Detail (`[data-open-detail-card]`).
 - **Aksesibilitas:** Memiliki atribut `role="button"`, `tabindex="0"`, event listener `click`, dan listener keyboard `Enter` serta `Space` dengan indikator fokus `focus-visible`.
+- **Product Merchandising Status & Photo Border:**
+  - Produk dapat membawa salah satu status merchandising resmi:
+    - **Best Seller** (Token: `--badge-best-seller: #ef4444`, icon: `bi-award-fill`)
+    - **Top Ordered** (Token: `--badge-top-ordered: #f59e0b`, icon: `bi-hand-thumbs-up-fill`)
+    - **Most Popular** (Token: `--badge-most-popular: #003370`, icon: `bi-star-fill`)
+  - Status ini **category-independent** dan dapat muncul pada produk di seluruh kategori katalog (Must Try, Signature Coffee, Coffee Milk, Milkbased, Mocktail, Tea Series, Sparkling Series, Other, Manual Brew, Snacks, Main Course, Pastry, Pasta).
+  - Kartu produk yang memiliki status wajib menampilkan:
+    1. **Visible Text Badge** dengan ikon semantik pada sudut foto (`[ BEST SELLER ]`, `[ TOP ORDERED ]`, `[ MOST POPULAR ]`),
+    2. **Matching Colored Border** (`2px solid`) pada kontainer foto (`.food-card-media`).
+  - Produk tanpa status merchandising menggunakan tampilan foto normal tanpa colored border (`border: 2px solid transparent`).
+  - Category navigation tiles tidak menggunakan status border (tetap berpegang pada warna status aktif `#0088FF`).
 
 ### 10.6 Product Detail Modal Sheet
 
@@ -341,7 +352,7 @@ Meskipun bagian fisik lokasi dan jam buka disederhanakan dari tampilan homepage,
 
 - **Web App Manifest:** `site.webmanifest` mendefinisikan identitas PWA (nama aplikasi, icon berbagai resolusi, theme color `#003370`, background color `#FFFFFF`, dan mode display `standalone`).
 - **Service Worker (`sw.js`):** Mengelola pre-caching aset statis inti (HTML, CSS, JS, manifest, favicon) dan runtime caching untuk gambar produk guna mendukung akses cepat dan mode offline.
-- **Cache Version Baseline Saat Ini:** **`v16`**.
+- **Cache Version Baseline Saat Ini:** **`v17`**.
 - **Aturan Cache Bump:** Versi cache hanya dinaikkan ketika file statis runtime (`index.html`, `style.css`, `script.js`) mengalami perubahan fungsional. Perubahan pada file dokumentasi markdown **TIDAK MEMERLUKAN** kenaikan cache version.
 
 ---
@@ -452,6 +463,9 @@ Komponen-komponen berikut telah dihapus dari antarmuka dan **DILARANG DIKEMBALIK
 - [x] Mengetuk/mengklik kartu produk langsung membuka Product Detail Sheet.
 - [x] Kartu produk dapat difokuskan melalui keyboard (`Tab`) dan dibuka dengan `Enter` atau `Space`.
 - [x] Tampilan kartu bersih: Foto Produk (1:1) → Nama Produk → Harga.
+- [x] Produk berstatus merchandising (Best Seller, Top Ordered, Most Popular) menampilkan badge teks terlihat dan matching photo border (`2px solid`) di semua kategori.
+- [x] Produk tanpa status merchandising tidak memiliki colored border pada foto (`border: 2px solid transparent`).
+- [x] Category Image Tiles pada navigasi tidak terpengaruh oleh badge border.
 
 ### C. Detail Menu (Product Detail Sheet)
 
@@ -463,7 +477,7 @@ Komponen-komponen berikut telah dihapus dari antarmuka dan **DILARANG DIKEMBALIK
 ### D. Arsitektur & Dokumentasi
 
 - [x] Arsitektur static zero-build tanpa framework SPA eksternal.
-- [x] Service Worker terdaftar dengan cache baseline `v16`.
+- [x] Service Worker terdaftar dengan cache baseline `v17`.
 - [x] Metadata SEO dan structured data JSON-LD tetap utuh.
 - [x] Seluruh dokumentasi (`PRD.md`, `README.md`, `DESIGN.md`, `SKILL.md`) berada dalam status sinkron.
 

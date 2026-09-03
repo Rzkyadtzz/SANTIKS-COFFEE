@@ -19,17 +19,21 @@ Desain visual disempurnakan berdasarkan screenshot referensi Figma (_Adapted fro
 - **UI Purple**: `#6155F5` (`--color-ui-purple`) &mdash; Harga produk pada menu card & detail sheet, sisi ungu gradient promo.
 - **Promo Gradient**: `linear-gradient(110deg, #0088FF 0%, #6155F5 100%)` &mdash; Kartu promo _Must Try_ & media top detail sheet.
 - **Soft Neutral Surface**: `#F5F4F4` (`--color-surface-soft`) &mdash; Permukaan kartu produk & search bar yang lembut dan bersih.
+- **Product Status Badges & Borders**: Best Seller (`#ef4444`), Top Ordered (`#f59e0b`), Most Popular (`#003370`) &mdash; Status produk global dengan matching photo border pada kartu menu.
 
 ---
 
 ## 🔄 Alur Pengguna (User Flow)
 
 ```text
-[ Menu Catalogue ]
-        ↓
-  [ Tap Card ]    <-- Interaksi kartu produk langsung membuka Detail Menu (tanpa tombol tambahan)
-        ↓
- [ Detail Menu ]  <-- Informational Product Detail (Flow 3)
+Browse Menu / Live Search / Category Tiles
+                    ↓
+Tap Food Card (tanpa tombol Detail Menu perantara)
+                    ↓
+Informational Product Detail Sheet
+(Foto, Kategori, Status Badge, Harga #6155F5, Judul, Deskripsi)
+                    ↓
+Tutup Modal (Kembali ke Katalog Menu)
 ```
 
 ---
@@ -37,9 +41,9 @@ Desain visual disempurnakan berdasarkan screenshot referensi Figma (_Adapted fro
 ## 🛠️ Tech Stack Utama
 
 - **HTML5**: Semantik HTML5, ARIA accessibility, keyboard navigation card trigger (`Enter` / `Space`), JSON-LD Structured Data, OpenGraph metadata.
-- **CSS3**: Design Tokens (CSS Variables), Search Bar normal document flow (`position: static`), Soft Neutral Card Surfaces (`#F5F4F4`), Vibrant Blue-Purple Gradient (`#0088FF → #6155F5`), Clean Modal Sheet.
-- **Vanilla JavaScript ES6+**: DOM interaction engine (Live search, Category filtering, Mobile category headings, Product Detail Sheet engine).
-- **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v16) dengan strategi offline caching.
+- **CSS3**: Design Tokens (CSS Variables), Search Bar normal document flow (`position: static`), Soft Neutral Card Surfaces (`#F5F4F4`), Product photo border matching badge, Vibrant Blue-Purple Gradient (`#0088FF → #6155F5`), Clean Modal Sheet.
+- **Vanilla JavaScript ES6+**: DOM interaction engine (Live search, Category filtering, Mobile category headings, Global category-agnostic badge decorator, Product Detail Sheet engine).
+- **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v17) dengan strategi offline caching.
 - **Hosting / Deployment**: Vercel Static Deployment (Zero-build process).
 
 ---
@@ -49,10 +53,10 @@ Desain visual disempurnakan berdasarkan screenshot referensi Figma (_Adapted fro
 ```text
 Landing Page Santiks/
 ├── index.html          # Markup utama (Catalogue, Search, Category Tiles, Informational Product Detail Sheet)
-├── style.css           # Styling kustom (Design Tokens, Product Detail Sheet, soft-gray cards)
-├── script.js           # Engine interaksi (Search, Filter, Product Detail Modal Handler)
+├── style.css           # Styling kustom (Design Tokens, Product Detail Sheet, soft-gray cards, photo borders)
+├── script.js           # Engine interaksi (Search, Filter, Global Badge Decorator, Product Detail Modal Handler)
 ├── app.js              # Inisialisasi halaman & AOS animation fallback
-├── sw.js               # Service Worker (Cache static & runtime, offline support, v16)
+├── sw.js               # Service Worker (Cache static & runtime, offline support, v17)
 ├── site.webmanifest    # Metadata PWA
 ├── README.md           # Dokumentasi teknis & arsitektur project
 ├── DESIGN.md           # Source of truth Design System

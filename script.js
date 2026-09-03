@@ -72,14 +72,59 @@
     );
 
     const highlightBadges = new Map([
-      ["Butterscotch", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
-      ["Mix Platter", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
-      ["Caramelo", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
-      ["Red Velvet", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
-      ["Chicken Katsu Sambal Matah", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
-      ["Matcha", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
-      ["Palm Sugar (Aren)", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      // Signature Coffee
+      ["Berry Latte", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Cappuccino", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
       ["Americano", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Coffee Milk
+      ["Butterscotch", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Palm Sugar (Aren)", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      ["Caramelo", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Milkbased
+      ["Red Velvet", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+      ["Matcha", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Mocktail
+      ["Lolita", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Cranberry", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      ["Coco Peach", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Sparkling Series
+      ["Ocean Blue", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Pineberry Fizz", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+
+      // Other
+      ["Mineral Water", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Tea Series
+      ["Lychee Tea", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Lemon Tea", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      ["Peach Tea", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Manual Brew
+      ["V60", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+
+      // Snacks
+      ["Tahu Bakso", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Mix Platter", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      ["French Fries", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Main Course
+      ["Balinese Chicken Spicy", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Chicken Curry Katsu", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      ["Chicken Katsu Sambal Matah", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Pastry
+      ["Churros", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Cheese Toast", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      ["Chocolate Toast", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
+
+      // Pasta
+      ["Spaghetti Carbonara", { icon: "bi-award-fill", label: "Best Seller", type: "best-seller" }],
+      ["Spaghetti Bolognese", { icon: "bi-hand-thumbs-up-fill", label: "Top Ordered", type: "top-ordered" }],
+      ["Mac & Cheese", { icon: "bi-star-fill", label: "Most Popular", type: "most-popular" }],
     ]);
 
     items.forEach((item, index) => {
@@ -88,27 +133,35 @@
 
     const decorateHighlightBadges = () => {
       items.forEach((item) => {
-        if (item.dataset.category === "musttry") return;
-
+        const card = $(".food-card", item);
         const title = $("h3", item)?.textContent.replace(/\s+/g, " ").trim();
         const badge = title ? highlightBadges.get(title) : null;
-        if (!badge || $(".scroll-menu-badge", item)) return;
+        if (!badge) return;
+
+        if (card) {
+          card.dataset.badge = badge.type;
+          card.classList.add(`has-${badge.type}`);
+        }
 
         const mediaCol = $(".food-card-media", item);
         if (!mediaCol) return;
 
-        const badgeEl = document.createElement("span");
-        badgeEl.className = `scroll-menu-badge scroll-menu-badge-${badge.type}`;
+        mediaCol.dataset.badge = badge.type;
 
-        const iconEl = document.createElement("i");
-        iconEl.className = `bi ${badge.icon}`;
-        iconEl.setAttribute("aria-hidden", "true");
+        if (!$(".scroll-menu-badge", item)) {
+          const badgeEl = document.createElement("span");
+          badgeEl.className = `scroll-menu-badge scroll-menu-badge-${badge.type}`;
 
-        const textEl = document.createElement("span");
-        textEl.textContent = badge.label;
+          const iconEl = document.createElement("i");
+          iconEl.className = `bi ${badge.icon}`;
+          iconEl.setAttribute("aria-hidden", "true");
 
-        badgeEl.append(iconEl, textEl);
-        mediaCol.appendChild(badgeEl);
+          const textEl = document.createElement("span");
+          textEl.textContent = badge.label;
+
+          badgeEl.append(iconEl, textEl);
+          mediaCol.appendChild(badgeEl);
+        }
       });
     };
 
@@ -504,9 +557,17 @@
       }
 
       if (badgeEl) {
+        badgeEl.className = "product-detail-status-badge";
         if (data.badge) {
           badgeEl.textContent = data.badge;
           badgeEl.hidden = false;
+          if (data.badge.includes("Best Seller")) {
+            badgeEl.classList.add("status-best-seller");
+          } else if (data.badge.includes("Top Ordered")) {
+            badgeEl.classList.add("status-top-ordered");
+          } else if (data.badge.includes("Most Popular")) {
+            badgeEl.classList.add("status-most-popular");
+          }
         } else {
           badgeEl.hidden = true;
         }

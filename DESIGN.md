@@ -53,6 +53,11 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 --color-text: #1A1E26;           /* High Contrast Neutral Dark */
 --color-text-muted: #8E8E93;     /* Muted Gray */
 --color-text-light: #B0B0B8;
+
+/* Merchandising Badge Tokens */
+--badge-best-seller: #ef4444;    /* Coral Red */
+--badge-top-ordered: #f59e0b;    /* Warm Gold */
+--badge-most-popular: #003370;   /* Santiks Navy Brand */
 ```
 
 ### Radius Tokens
@@ -109,6 +114,18 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
   - Price (warna ungu khas Figma `#6155F5`)
 - **Card Interaction**: Card itself opens Product Detail Sheet saat diklik/ditap (lengkap dengan keyboard accessibility `Enter`/`Space` dan `focus-visible` outline).
 - Tanpa tombol perantara (*no detail CTA button*, no Pesan/WhatsApp, no Add to Cart).
+
+#### Product Status Badge & Photo Border
+- **Supported Badges**:
+  - `Best Seller`: Token `--badge-best-seller: #ef4444`, ikon `bi-award-fill`.
+  - `Top Ordered`: Token `--badge-top-ordered: #f59e0b`, ikon `bi-hand-thumbs-up-fill`.
+  - `Most Popular`: Token `--badge-most-popular: var(--color-brand)` (`#003370`), ikon `bi-star-fill`.
+- **Rules & Behavior**:
+  - **Category-Independent**: Status dapat muncul pada produk di kategori mana pun (Must Try, Signature Coffee, Coffee Milk, Milkbased, Mocktail, Tea Series, Sparkling Series, Other, Manual Brew, Snacks, Main Course, Pastry, Pasta).
+  - **Product Image Border**: Produk yang memiliki badge mendapatkan matching colored border (`2px solid`) pada container foto (`.food-card-media`), bukan pada seluruh kartu.
+  - **No Accent Border Without Badge**: Produk tanpa status badge menggunakan styling gambar normal (`border: 2px solid transparent`).
+  - **Visible Text**: Badge text tetap terlihat (`[ BEST SELLER ]`, `[ TOP ORDERED ]`, `[ MOST POPULAR ]`) untuk menjamin aksesibilitas dan readability.
+  - **Category Navigation Isolation**: Category Image Tiles pada navigation bar tidak terpengaruh oleh badge border dan tetap menggunakan state aktif `#0088FF`.
 
 ### 6. Informational Product Detail Sheet (`.product-detail-modal`)
 - Adaptasi Flow 3 Figma (Tampilan Informasi Produk Murni):
