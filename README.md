@@ -43,7 +43,7 @@ Tutup Modal (Kembali ke Katalog Menu)
 - **HTML5**: Semantik HTML5, ARIA accessibility, keyboard navigation card trigger (`Enter` / `Space`), JSON-LD Structured Data, OpenGraph metadata.
 - **CSS3**: Design Tokens (CSS Variables), Search Bar normal document flow (`position: static`), Soft Neutral Card Surfaces (`#F5F4F4`), Product photo border matching badge, Vibrant Blue-Purple Gradient (`#0088FF → #6155F5`), Clean Modal Sheet.
 - **Vanilla JavaScript ES6+**: DOM interaction engine (Live search, Category filtering, Mobile category headings, Global category-agnostic badge decorator, Product Detail Sheet engine).
-- **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v17) dengan strategi offline caching.
+- **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v18) dengan strategi offline caching.
 - **Hosting / Deployment**: Vercel Static Deployment (Zero-build process).
 
 ---
@@ -56,7 +56,7 @@ Landing Page Santiks/
 ├── style.css           # Styling kustom (Design Tokens, Product Detail Sheet, soft-gray cards, photo borders)
 ├── script.js           # Engine interaksi (Search, Filter, Global Badge Decorator, Product Detail Modal Handler)
 ├── app.js              # Inisialisasi halaman & AOS animation fallback
-├── sw.js               # Service Worker (Cache static & runtime, offline support, v17)
+├── sw.js               # Service Worker (Cache static & runtime, offline support, v18)
 ├── site.webmanifest    # Metadata PWA
 ├── README.md           # Dokumentasi teknis & arsitektur project
 ├── DESIGN.md           # Source of truth Design System

@@ -8,7 +8,7 @@
 **Arsitektur:** Static Website / Progressive Web App (PWA) / Zero-Build Deployment  
 **Baseline Git Commit:** `6cce978`  
 **Baseline Commit Message:** `refactor: remove detail buttons and keep menu search sticky`  
-**Service Worker Cache Version:** `v17`  
+**Service Worker Cache Version:** `v18`  
 **Bahasa Antarmuka (UI):** Bahasa Indonesia  
 **Referensi Visual:** Food Ordering App — Community (Figma)  
 **Tautan Referensi:** [Food Ordering App - Community](https://www.figma.com/design/PZukqy9x6lu43iJFsZfW1O/Food-Ordering-App--Community-?node-id=0-1&t=A3J1V2ZK6QJsEhUL-1)  
@@ -352,7 +352,7 @@ Meskipun bagian fisik lokasi dan jam buka disederhanakan dari tampilan homepage,
 
 - **Web App Manifest:** `site.webmanifest` mendefinisikan identitas PWA (nama aplikasi, icon berbagai resolusi, theme color `#003370`, background color `#FFFFFF`, dan mode display `standalone`).
 - **Service Worker (`sw.js`):** Mengelola pre-caching aset statis inti (HTML, CSS, JS, manifest, favicon) dan runtime caching untuk gambar produk guna mendukung akses cepat dan mode offline.
-- **Cache Version Baseline Saat Ini:** **`v17`**.
+- **Cache Version Baseline Saat Ini:** **`v18`**.
 - **Aturan Cache Bump:** Versi cache hanya dinaikkan ketika file statis runtime (`index.html`, `style.css`, `script.js`) mengalami perubahan fungsional. Perubahan pada file dokumentasi markdown **TIDAK MEMERLUKAN** kenaikan cache version.
 
 ---
@@ -477,7 +477,7 @@ Komponen-komponen berikut telah dihapus dari antarmuka dan **DILARANG DIKEMBALIK
 ### D. Arsitektur & Dokumentasi
 
 - [x] Arsitektur static zero-build tanpa framework SPA eksternal.
-- [x] Service Worker terdaftar dengan cache baseline `v17`.
+- [x] Service Worker terdaftar dengan cache baseline `v18`.
 - [x] Metadata SEO dan structured data JSON-LD tetap utuh.
 - [x] Seluruh dokumentasi (`PRD.md`, `README.md`, `DESIGN.md`, `SKILL.md`) berada dalam status sinkron.
 

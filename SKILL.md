@@ -85,9 +85,13 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 - Keep badge text visible with semantic icon for readability and accessibility.
 - Use matching product image border (`border: 2px solid var(--badge-...)`) on `.food-card-media` for items with badges.
 - Reuse existing badge color tokens (`--badge-best-seller`, `--badge-top-ordered`, `--badge-most-popular`).
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v17`).
+- Keep category motion subtle, fast, and lightweight (140–200ms duration, opacity + translateY).
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v18`).
 
 ### DON'T:
+- Dilarang menambahkan library animasi eksternal (GSAP, Framer Motion, Anime.js).
+- Dilarang menggunakan stagger panjang atau delay besar antar kartu yang memperlambat transisi kategori.
+- Dilarang menganimasikan properti berat layout (width, height, top, left, blur, heavy box-shadow).
 - Dilarang membatasi badge decorator hanya pada kategori Must Try.
 - Dilarang memberi styling product badge border pada category navigation tiles (`.category-tile`).
 - Dilarang menduplikasi data badge antara HTML hardcoded dan JavaScript mapping.

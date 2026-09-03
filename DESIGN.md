@@ -69,6 +69,12 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 --radius-pill: 9999px;
 ```
 
+### Motion Tokens
+```css
+--motion-fast: 160ms;            /* Micro-interactions, category switching, quick feedback */
+--motion-normal: 200ms;          /* Modal, drawer, and standard UI transitions */
+```
+
 ### Typography Hierarchy (Font Weights)
 - **Brand Name**: 700
 - **Section Heading**: 600–700
@@ -93,8 +99,12 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 
 ### 3. Category Image Tiles (`.category-tile`)
 - Container gambar produk representatif (`54px x 54px`, border radius `12px`), label kategori di bawah.
-- **State Aktif**: Border `2px solid #0088FF`, label warna `#0088FF` font-weight 600.
-- **State Non-Aktif**: Border transparan, label warna `#8E8E93` font-weight 400.
+- **Micro-interaction & Transition**:
+  - `transition: border-color var(--motion-fast) ease, background-color var(--motion-fast) ease, transform var(--motion-fast) ease;`
+  - **Hover**: Subtle `transform: translateY(-1px);`, border `rgba(0, 136, 255, 0.4)`.
+  - **State Aktif**: Border `2px solid #0088FF`, background `#FFFFFF`, subtle scale `transform: scale(1.02);`, label warna `#0088FF` font-weight 600.
+  - **State Non-Aktif**: Border transparan, background `--color-surface-soft`, label warna `#8E8E93` font-weight 400.
+- **Horizontal Row Auto-Centering**: Saat tile dipilih pada mobile, baris kategori bergeser secara halus (`filterPills.scrollTo`) agar tile aktif selalu terlihat di viewport tanpa mengganggu touch gesture drag-scroll.
 - **Desktop vs Mobile Hierarchy**:
   - **Desktop (≥ 992px)**: Category Image Tiles menjadi konteks navigasi kategori utama. Subsection heading kategori berulang beserta item count (`.menu-category-heading`) di dalam katalog disembunyikan (`display: none;`) demi katalog yang compact, bersih, dan fokus pada kartu produk.
   - **Mobile (< 992px)**: Subsection heading kategori dan badge jumlah item dipertahankan dalam alur single-feed.
@@ -131,3 +141,14 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 - Adaptasi Flow 3 Figma (Tampilan Informasi Produk Murni):
   - **Top Media Area**: Background gradient `var(--gradient-promo)` (`#0088FF → #6155F5`), tombol kembali lingkaran putih transparan `<button class="product-detail-back-btn">`, foto produk lingkaran terpusat.
   - **White Content Sheet**: Surface putih rounded (`border-radius: 20px 20px 0 0`), meta row (kategori pill biru + status badge + harga ungu `#6155F5`), judul produk, dan deskripsi produk. Tanpa tombol/CTA pemesanan.
+
+### 7. Category Switching & Motion System
+- **Duration**: 140–200ms (`--motion-fast: 160ms`, total feel pergantian ±220ms).
+- **Active Tile Transition**: Perpindahan status aktif yang halus pada border, background, dan scale (`scale(1.02)`) tanpa lonjakan visual.
+- **Product Grid Transition**:
+  - Grid fade-out singkat (`opacity: 0.35; transform: translateY(3px);` 60ms) saat kategori berganti.
+  - Kartu hasil kategori baru muncul bersamaan dengan fade-in & subtle translate (`opacity: 0 → 1; translateY(5px) → 0;` 160ms ease-out via `@keyframes categoryFadeIn`).
+  - Tanpa delay/stagger panjang, menjaga pergantian kategori tetap cepat, ringan, dan instan.
+- **Reduced Motion Support**:
+  - Penuh mendukung `@media (prefers-reduced-motion: reduce)`.
+  - Animasi transform dan transition dinonaktifkan, pergeseran scroll berlangsung seketika (`behavior: "auto"`).

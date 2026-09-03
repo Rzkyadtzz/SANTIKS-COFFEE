@@ -245,7 +245,7 @@
       const timer = window.setTimeout(() => {
         el.classList.add("d-none");
         hideTimers.delete(el);
-      }, 300);
+      }, 160);
       hideTimers.set(el, timer);
     };
 
@@ -375,23 +375,58 @@
       });
     };
 
+    let filterTransitionTimer = null;
+
     const applyFilter = (selectedBtn) => {
       const filter = selectedBtn?.getAttribute("data-filter") || "all";
       setActiveButton(selectedBtn);
-      resetCategoryHeadings();
+      centerActiveButton(selectedBtn);
 
-      let delay = 0;
+      if (filterTransitionTimer) {
+        window.clearTimeout(filterTransitionTimer);
+        filterTransitionTimer = null;
+      }
+
       items.forEach((item) => {
-        const match = filter === "all" || item.dataset.category === filter;
-        if (match) {
-          showItem(item, delay);
-          delay += 20;
-        } else {
-          hideItem(item);
+        const pending = hideTimers.get(item);
+        if (pending) {
+          window.clearTimeout(pending);
+          hideTimers.delete(item);
         }
       });
 
-      centerActiveButton(selectedBtn);
+      const updateCategoryCards = () => {
+        resetCategoryHeadings();
+        items.forEach((item) => {
+          const match = filter === "all" || item.dataset.category === filter;
+          item.classList.remove("category-transition-in");
+          if (match) {
+            item.classList.remove("d-none");
+            item.classList.add("filtered-show");
+            item.style.pointerEvents = "auto";
+            if (!prefersReduced) {
+              void item.offsetWidth;
+              item.classList.add("category-transition-in");
+            }
+          } else {
+            item.classList.add("d-none");
+            item.classList.remove("filtered-show");
+            item.style.pointerEvents = "none";
+          }
+        });
+        menuGrid?.classList.remove("is-transitioning");
+      };
+
+      if (prefersReduced || !menuGrid) {
+        updateCategoryCards();
+        return;
+      }
+
+      menuGrid.classList.add("is-transitioning");
+      filterTransitionTimer = window.setTimeout(() => {
+        updateCategoryCards();
+        filterTransitionTimer = null;
+      }, 60);
     };
 
     const applySearch = (value) => {
