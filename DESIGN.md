@@ -82,10 +82,9 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
 - Desktop: Logo brand *Santiks* & link *Menu Catalogue*. Tanpa tombol CTA order redundant.
 - Mobile: Nama brand (*Santiks*, bold 700) di kiri dengan subtitle *Coffee & Calm* (muted 400), dan info lokasi ringkas (*Mlati Norowito Gg. 2*) di kanan dalam warna `--color-ui-blue` (`#0088FF`, semibold 600).
 
-### 2. Search Pill Bar (`.app-search-pill`) & Sticky Container (`.search-section`)
+### 2. Search Pill Bar (`.app-search-pill`) & Container (`.search-section`)
 - Soft neutral gray pill background (`#F5F4F4`), rounded pill (`--radius-pill`), icon search abu-abu muted di kiri, input placeholder *"Cari menu Santiks..."*, no shadow.
-- **Sticky Behavior**: Sticky during scroll (`position: sticky`, `top: var(--header-height)`), tetap terlihat (*remains visible for fast menu discovery*), berlatar belakang putih solid `#FFFFFF` dengan subtle separator border (`1px solid var(--color-border)`).
-- Category navigation tiles tetap mengikuti normal document flow.
+- **Normal Document Flow**: Search berada dalam alur dokumen normal (`position: static`), tidak sticky dan tidak fixed. Search ikut tergulir saat pengguna menggulir halaman.
 
 ### 3. Category Image Tiles (`.category-tile`)
 - Container gambar produk representatif (`54px x 54px`, border radius `12px`), label kategori di bawah.
@@ -95,9 +94,12 @@ Dokumen ini adalah **source of truth untuk Design System** website **Santiks Cof
   - **Desktop (≥ 992px)**: Category Image Tiles menjadi konteks navigasi kategori utama. Subsection heading kategori berulang beserta item count (`.menu-category-heading`) di dalam katalog disembunyikan (`display: none;`) demi katalog yang compact, bersih, dan fokus pada kartu produk.
   - **Mobile (< 992px)**: Subsection heading kategori dan badge jumlah item dipertahankan dalam alur single-feed.
 
-### 4. Featured Promo Banner (`.promo-card`)
+### 4. Featured Promo Banner (`.featured-promo-section` & `.promo-card`)
 - Kartu promo *Must Try* berlatar belakang gradient vibrant `#0088FF → #6155F5`, typography putih bersih, tag badge semi-transparan yang proporsional, harga `Rp 20k`, dan foto produk rounded.
 - Card itself membuka Product Detail Sheet saat diklik/ditap tanpa tombol perantara (*no detail CTA button*).
+- **Responsive Display**:
+  - **Mobile & Tablet (< 992px)**: Ditampilkan di atas katalog menu sebagai rekomendasi cepat.
+  - **Desktop (≥ 992px)**: Disembunyikan (`display: none;`) demi pengalaman katalog yang langsung, rapi, dan compact.
 
 ### 5. Food Card Component (`.food-card`)
 - Surface kartu abu-abu netral lembut (`#F5F4F4`), flat tanpa box-shadow berat, rounded corners `20px`.

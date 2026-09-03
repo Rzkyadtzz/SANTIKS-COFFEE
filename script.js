@@ -20,28 +20,11 @@
   })();
 
   // -----------------------------
-  // 2) Header height sync for sticky search & smooth scroll
+  // 2) Smooth scroll navigation with sticky header offset
   // -----------------------------
   (() => {
     const header = document.querySelector(".app-header");
-    const searchSection = document.querySelector(".search-section");
-
-    const updateHeaderHeight = () => {
-      if (header) {
-        document.documentElement.style.setProperty(
-          "--header-height",
-          `${header.offsetHeight}px`,
-        );
-      }
-    };
-    updateHeaderHeight();
-    window.addEventListener("resize", updateHeaderHeight, { passive: true });
-
-    const getOffset = () => {
-      const headerH = header ? header.offsetHeight : 0;
-      const searchH = searchSection ? searchSection.offsetHeight : 0;
-      return headerH + searchH;
-    };
+    const getOffset = () => (header ? header.offsetHeight : 0);
 
     $$('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {

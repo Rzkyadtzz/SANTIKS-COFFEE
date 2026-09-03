@@ -6,7 +6,7 @@ Halaman landing page dan menu digital untuk **Santiks Coffee & Calm** (Kedai Kop
 
 ## 📌 Ringkasan Project
 
-Website ini memberikan pengalaman browsing menu digital yang cepat, responsif, dan intuitif. Pengunjung dapat mencari produk secara real-time melalui **Sticky Search Bar** yang tetap terlihat dan mudah diakses saat scroll, menelusuri kategori menu via tile gambar, melihat rekomendasi _Must Try_, serta membuka **Detail Menu (Flow 3)** langsung melalui interaksi klik/tap pada kartu produk (informational detail: deskripsi, kategori, harga, dan status badge tanpa tombol perantara redundant).
+Website ini memberikan pengalaman browsing menu digital yang cepat, responsif, dan intuitif. Pengunjung dapat mencari produk secara real-time melalui **Search Bar** yang bersih dan responsif di bagian atas katalog, menelusuri kategori menu via tile gambar, melihat rekomendasi _Must Try_ (pada mobile/tablet), serta membuka **Detail Menu (Flow 3)** langsung melalui interaksi klik/tap pada kartu produk (informational detail: deskripsi, kategori, harga, dan status badge tanpa tombol perantara redundant).
 
 Desain visual disempurnakan berdasarkan screenshot referensi Figma (_Adapted from the provided Figma reference screenshot_) dengan keselarasan warna terkonfirmasi.
 
@@ -37,9 +37,9 @@ Desain visual disempurnakan berdasarkan screenshot referensi Figma (_Adapted fro
 ## 🛠️ Tech Stack Utama
 
 - **HTML5**: Semantik HTML5, ARIA accessibility, keyboard navigation card trigger (`Enter` / `Space`), JSON-LD Structured Data, OpenGraph metadata.
-- **CSS3**: Design Tokens (CSS Variables), Sticky Search Bar (`position: sticky`), Soft Neutral Card Surfaces (`#F5F4F4`), Vibrant Blue-Purple Gradient (`#0088FF → #6155F5`), Clean Modal Sheet.
-- **Vanilla JavaScript ES6+**: DOM interaction engine (Sticky header height sync, Live search, Category filtering, Category headings, Product Detail Sheet engine).
-- **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v14) dengan strategi offline caching.
+- **CSS3**: Design Tokens (CSS Variables), Search Bar normal document flow (`position: static`), Soft Neutral Card Surfaces (`#F5F4F4`), Vibrant Blue-Purple Gradient (`#0088FF → #6155F5`), Clean Modal Sheet.
+- **Vanilla JavaScript ES6+**: DOM interaction engine (Live search, Category filtering, Mobile category headings, Product Detail Sheet engine).
+- **Progressive Web App (PWA)**: Web App Manifest (`site.webmanifest`) & Service Worker (`sw.js` v16) dengan strategi offline caching.
 - **Hosting / Deployment**: Vercel Static Deployment (Zero-build process).
 
 ---
@@ -52,7 +52,7 @@ Landing Page Santiks/
 ├── style.css           # Styling kustom (Design Tokens, Product Detail Sheet, soft-gray cards)
 ├── script.js           # Engine interaksi (Search, Filter, Product Detail Modal Handler)
 ├── app.js              # Inisialisasi halaman & AOS animation fallback
-├── sw.js               # Service Worker (Cache static & runtime, offline support, v14)
+├── sw.js               # Service Worker (Cache static & runtime, offline support, v16)
 ├── site.webmanifest    # Metadata PWA
 ├── README.md           # Dokumentasi teknis & arsitektur project
 ├── DESIGN.md           # Source of truth Design System
@@ -67,11 +67,11 @@ Landing Page Santiks/
 ```text
 [ Desktop Header: Brand & Menu Link | Mobile Header: Brand & Contextual Short Location ]
                                ↓
-         [ Sticky Search Pill Bar (Real-Time Live Search - Fixed on Scroll) ]
+      [ Search Pill Bar (Real-Time Live Search - Normal Document Flow) ]
                                ↓
           [ Category Navigation Tiles (Image + Label - Document Flow) ]
                                ↓
-        [ Featured Must Try Card (Vibrant Blue-Purple Gradient) ]
+   [ Mobile/Tablet: Featured Must Try Card | Desktop: Direct Compact Catalogue ]
                                ↓
          [ Popular Menu Catalogue (Soft Neutral Gray Cards) ]
                                ↓

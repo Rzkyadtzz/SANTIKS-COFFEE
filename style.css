@@ -47,9 +47,6 @@
   --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-promo: 0 8px 24px rgba(97, 85, 245, 0.16);
 
-  /* Layout Offsets */
-  --header-height: 62px;
-
   /* Font */
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -162,21 +159,10 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   4. SEARCH BAR (SOFT NEUTRAL GRAY PILL) & STICKY CONTAINER
+   4. SEARCH BAR (SOFT NEUTRAL GRAY PILL)
    -------------------------------------------------------------------------- */
 .search-section {
-  position: -webkit-sticky;
-  position: sticky;
-  top: var(--header-height, 62px);
-  z-index: 1020;
-  background-color: var(--color-bg);
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
-  margin-left: calc(-0.5 * var(--bs-gutter-x, 1.5rem));
-  margin-right: calc(-0.5 * var(--bs-gutter-x, 1.5rem));
-  padding-left: calc(0.5 * var(--bs-gutter-x, 1.5rem));
-  padding-right: calc(0.5 * var(--bs-gutter-x, 1.5rem));
-  border-bottom: 1px solid var(--color-border);
+  position: static;
 }
 
 .app-search-pill {
@@ -419,8 +405,14 @@ a {
   border-radius: var(--radius-pill);
 }
 
-/* Hide category subsection headings & item counts on desktop for a compact catalogue */
+/* Desktop Adaptations (≥ 992px) */
 @media (min-width: 992px) {
+  /* Hide Featured / Must Try promo section on desktop */
+  .featured-promo-section {
+    display: none !important;
+  }
+
+  /* Hide category subsection headings & item counts on desktop for a compact catalogue */
   .menu-category-heading {
     display: none !important;
     margin: 0 !important;

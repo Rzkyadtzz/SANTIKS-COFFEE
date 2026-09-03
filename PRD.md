@@ -8,7 +8,7 @@
 **Arsitektur:** Static Website / Progressive Web App (PWA) / Zero-Build Deployment  
 **Baseline Git Commit:** `6cce978`  
 **Baseline Commit Message:** `refactor: remove detail buttons and keep menu search sticky`  
-**Service Worker Cache Version:** `v15`  
+**Service Worker Cache Version:** `v16`  
 **Bahasa Antarmuka (UI):** Bahasa Indonesia  
 **Referensi Visual:** Food Ordering App — Community (Figma)  
 **Tautan Referensi:** [Food Ordering App - Community](https://www.figma.com/design/PZukqy9x6lu43iJFsZfW1O/Food-Ordering-App--Community-?node-id=0-1&t=A3J1V2ZK6QJsEhUL-1)  
@@ -23,7 +23,7 @@ Santiks Coffee & Calm Digital Menu adalah **mobile-first digital food & beverage
 Produk ini dirancang khusus sebagai **katalog digital informasional**, bukan aplikasi pemesanan transaksi (_e-commerce / food delivery app_). Seluruh interaksi berfokus pada:
 
 - Eksplorasi menu yang menyenangkan dan cepat,
-- Akses pencarian menu real-time yang selalu terjangkau saat menggulir halaman (_sticky search_),
+- Akses pencarian menu real-time yang cepat dan intuitif di bagian atas katalog dalam alur dokumen normal (_normal document flow_),
 - Penelusuran berbasis kategori melalui tile gambar visual (_Category Image Tiles_),
 - Focal point visual yang kuat pada fotografi produk asli Santiks,
 - Penyajian informasi detail produk yang jernih dan murni informasional melalui kartu produk.
@@ -40,14 +40,14 @@ Melalui proses evaluasi berkelanjutan, arsitektur UI disederhanakan secara radik
 2. Memusatkan seluruh halaman utama pada **katalog produk langsung** (_Homepage = Menu Catalogue_).
 3. Mengadaptasi pola visual dari referensi Figma yang dikonfirmasi oleh pengguna (Flow 3: Informational Product Detail Sheet).
 4. Menghilangkan seluruh tombol perantara tambahan (_Detail Menu button_ dan _Detail button_) pada kartu produk sehingga kartu produk itu sendiri menjadi pemicu utama interaksi.
-5. Menjadikan bilah pencarian tetap terlihat (_sticky_) di bawah header selama pengguna menggulir menu.
+5. Menempatkan bilah pencarian secara prominent di bagian atas katalog dalam alur dokumen normal (_normal document flow_) yang responsif.
 
 ---
 
 ## 3. Problem Statement
 
 1. **Efisiensi Pengunjung**: Pelanggan di meja kedai atau calon pembeli membutuhkan akses menu yang instan tanpa harus mengunduh file PDF besar atau membuka aplikasi marketplace yang berat.
-2. **Kemudahan Menemukan Menu**: Pengunjung sering kesulitan menemukan menu tertentu jika daftar menu panjang dan tidak dilengkapi pencarian yang selalu dapat dijangkau di layar ponsel.
+2. **Kemudahan Menemukan Menu**: Pengunjung sering kesulitan menemukan menu tertentu jika daftar menu panjang dan tidak dilengkapi pencarian yang mudah dijangkau.
 3. **Kejelasan Informasi Produk**: Pengunjung ingin membaca deskripsi racikan, harga pasti, dan rekomendasi (_Must Try / Best Seller_) tanpa terganggu oleh alur checkout fiktif atau tombol perantara yang tidak diperlukan.
 
 ---
@@ -55,7 +55,7 @@ Melalui proses evaluasi berkelanjutan, arsitektur UI disederhanakan secara radik
 ## 4. Product Goals
 
 1. **Menu Discovery yang Cepat**: Pengguna dapat menemukan menu yang dicari dalam hitungan detik melalui live search atau filter kategori visual.
-2. **Search Selalu Mudah Dijangkau**: Bilah pencarian (_Cari menu Santiks..._) tetap menempel (_sticky_) di bawah header saat pengguna melakukan scroll.
+2. **Search Mudah Diakses**: Bilah pencarian (_Cari menu Santiks..._) tampil prominent di bagian atas katalog dalam alur dokumen normal (_normal document flow_) yang ikut tergulir secara alami saat scroll.
 3. **Category Browsing Sederhana**: Kategori menu ditampilkan berupa tile gambar (_Image Tiles_) dengan interaksi geser horizontal (_drag scroll / touch swipe_) yang nyaman di mobile.
 4. **Product Photography First**: Foto produk asli Santiks menjadi pusat perhatian visual utama (_focal point_).
 5. **Detail Menu Murni Informasional**: Mengetuk/mengklik kartu produk langsung membuka sheet detail produk untuk membaca deskripsi, harga, dan status badge tanpa tombol perantara.
@@ -146,7 +146,7 @@ Tile terpilih mendapatkan status aktif (Border & Label: #0088FF)
          ↓
 Daftar katalog menampilkan heading dinamis dan item sesuai kategori
          ↓
-Bilah pencarian tetap sticky di atas daftar hasil filter
+Bilah pencarian tetap berada di atas daftar hasil filter dalam alur dokumen normal
 ```
 
 ### 7.4 Alur Buka Detail Produk (Product Detail Interaction Flow)
@@ -174,13 +174,13 @@ User menutup detail melalui tombol kembali (arrow-left), klik backdrop, atau tom
    ├── Desktop Nav: Menu Catalogue (Smooth Scroll Anchor)
    └── Mobile Location Info: Mlati Norowito Gg. 2 (Contextual Informational Text)
 
-2. Sticky Search Bar (.search-section) [Sticky: top var(--header-height), z-index 1020]
+2. Search Bar (.search-section) [Normal Document Flow, position: static]
    └── Search Pill: Search Icon + Input "Cari menu Santiks..." + Reset Clear Button (X)
 
 3. Category Image Tiles (.category-section) [Document Flow]
    └── Drag-scroll container dengan tile gambar persegi rounded (54x54px) & label kategori
 
-4. Featured Promo Banner (.featured-promo-section) [Document Flow]
+4. Featured Promo Banner (.featured-promo-section) [Mobile/Tablet Only (< 992px), Hidden on Desktop]
    └── Promo Card: Gradient Background (#0088FF → #6155F5) + Badge + Title + Price + Image
 
 5. Menu Catalogue (.menu-catalogue-section) [Document Flow]
@@ -244,13 +244,12 @@ Digunakan secara konsisten pada kartu rekomendasi _Must Try_ dan latar media ata
 - **Mobile:** Menampilkan nama brand _Santiks_ (bold 700) di kiri dengan subtitle _Coffee & Calm_ (muted 400), serta teks lokasi _Mlati Norowito Gg. 2_ di kanan dalam warna `#0088FF` (semibold 600) murni sebagai informasi kontekstual.
 - **Positioning:** Sticky di posisi `top: 0` dengan `z-index: 1030` dan pembatas bawah `1px solid var(--color-border)`.
 
-### 10.2 Sticky Search Bar
+### 10.2 Search Bar (Normal Document Flow)
 
 - **Placeholder:** _"Cari menu Santiks..."_
-- **Positioning:** `position: sticky; top: var(--header-height); z-index: 1020;`
-- **Background:** Solid `#FFFFFF` murni (tanpa blur besar atau glassmorphism berat) dengan separator tipis `border-bottom: 1px solid var(--color-border)` agar konten yang lewat di bawahnya tertutup rapi.
-- **Sinkronisasi Offset:** Ketinggian header disinkronkan secara dinamis oleh JavaScript ke CSS token `--header-height` melalui `header.offsetHeight` pada event inisialisasi dan resize.
-- **Batasan:** Category navigation tiles **TIDAK IKUT STICKY** dan tetap mengalir mengikuti alur dokumen normal.
+- **Positioning:** `position: static;` dalam alur dokumen normal (_normal document flow_) pada seluruh viewport. Tidak lagi sticky atau fixed; ikut tergulir secara alami saat pengguna menggulir halaman ke bawah.
+- **Visual:** Bentuk pill abu-abu netral lembut (`#F5F4F4`), ikon pencarian di kiri, tombol reset (X) saat ada kata kunci, tanpa shadow tebal.
+- **Fungsionalitas:** Real-time live filtering terhadap judul dan deskripsi katalog menu.
 
 ### 10.3 Category Navigation Tiles
 
@@ -265,6 +264,9 @@ Digunakan secara konsisten pada kartu rekomendasi _Must Try_ dan latar media ata
 
 - **Visual:** Latar belakang gradient vibrant `#0088FF → #6155F5`, typography putih bersih, status tag proporsional (`Best Seller #1`), harga (`Rp 20k`), dan foto produk rounded.
 - **Interaksi:** Tidak memiliki tombol _Detail Menu_. Kartu promo itu sendiri memiliki contract `[data-open-detail-card]` dan membuka Detail Menu saat diklik/ditap.
+- **Perilaku Responsif:**
+  - **Mobile & Tablet (< 992px):** Ditampilkan sebagai kartu promo unggulan di atas katalog.
+  - **Desktop (≥ 992px):** Disembunyikan (`display: none;`) secara menyeluruh beserta heading dan subtitlenya agar katalog desktop terasa ringkas, padat, dan langsung menuju Popular Menu.
 
 ### 10.5 Product Cards (Katalog Menu)
 
@@ -296,8 +298,8 @@ Digunakan secara konsisten pada kartu rekomendasi _Must Try_ dan latar media ata
 2. **Category Filtering Engine:** Menangani penyaringan menu berdasarkan atribut `data-category`, pengurutan item, dan pembuatan heading kategori dinamis.
 3. **Product Detail Engine:** Mengekstraksi data produk langsung dari DOM kartu terpilih dan menampilkannya ke modal sheet tanpa memuat data dari sumber luar yang terpisah.
 4. **Card Keyboard Interaction:** Menangani event keyboard `Enter` dan `Space` pada elemen ber-atribut `[data-open-detail-card]`.
-5. **Dynamic Sticky Offset Sync:** Menghitung `header.offsetHeight` dan menyetel CSS variable `--header-height` agar bilah pencarian menempel presisi di bawah header.
-6. **Drag Scroll Engine:** Menyediakan interaksi drag-and-swipe mouse pada baris tile kategori.
+5. **Drag Scroll Engine:** Menyediakan interaksi drag-and-swipe mouse pada baris tile kategori.
+6. **Smooth Scroll Navigation:** Menavigasikan anchor link dengan kompensasi tinggi sticky header.
 7. **Service Worker Registration:** Mendaftarkan file `sw.js` saat halaman selesai dimuat.
 
 ### 11.2 High-Level DOM Contract
@@ -339,7 +341,7 @@ Meskipun bagian fisik lokasi dan jam buka disederhanakan dari tampilan homepage,
 
 - **Web App Manifest:** `site.webmanifest` mendefinisikan identitas PWA (nama aplikasi, icon berbagai resolusi, theme color `#003370`, background color `#FFFFFF`, dan mode display `standalone`).
 - **Service Worker (`sw.js`):** Mengelola pre-caching aset statis inti (HTML, CSS, JS, manifest, favicon) dan runtime caching untuk gambar produk guna mendukung akses cepat dan mode offline.
-- **Cache Version Baseline Saat Ini:** **`v15`**.
+- **Cache Version Baseline Saat Ini:** **`v16`**.
 - **Aturan Cache Bump:** Versi cache hanya dinaikkan ketika file statis runtime (`index.html`, `style.css`, `script.js`) mengalami perubahan fungsional. Perubahan pada file dokumentasi markdown **TIDAK MEMERLUKAN** kenaikan cache version.
 
 ---
@@ -436,10 +438,11 @@ Komponen-komponen berikut telah dihapus dari antarmuka dan **DILARANG DIKEMBALIK
 
 - [x] Header minimalis tanpa tombol order WhatsApp.
 - [x] Header mobile menyertakan teks lokasi ringkas (_Mlati Norowito Gg. 2_) sebagai konteks.
-- [x] Bilah pencarian (_Cari menu Santiks..._) menempel (_sticky_) di bawah header saat scroll.
+- [x] Bilah pencarian (_Cari menu Santiks..._) berada dalam alur dokumen normal (tidak sticky/fixed).
+- [x] Kartu promo _Must Try_ tersembunyi pada desktop (≥ 992px) dan tetap tampil pada mobile (< 992px).
 - [x] Kategori menu **tidak ikut sticky** dan mengalir di normal document flow.
 - [x] Kategori aktif ditandai dengan border dan teks `#0088FF`.
-- [x] Kartu promo _Must Try_ menggunakan gradient `#0088FF → #6155F5`.
+- [x] Kartu promo _Must Try_ mobile menggunakan gradient `#0088FF → #6155F5`.
 - [x] Harga produk menggunakan warna aksen ungu `#6155F5`.
 - [x] Tidak ada tombol atau section pemesanan transaksional di homepage.
 
@@ -460,7 +463,7 @@ Komponen-komponen berikut telah dihapus dari antarmuka dan **DILARANG DIKEMBALIK
 ### D. Arsitektur & Dokumentasi
 
 - [x] Arsitektur static zero-build tanpa framework SPA eksternal.
-- [x] Service Worker terdaftar dengan cache baseline `v15`.
+- [x] Service Worker terdaftar dengan cache baseline `v16`.
 - [x] Metadata SEO dan structured data JSON-LD tetap utuh.
 - [x] Seluruh dokumentasi (`PRD.md`, `README.md`, `DESIGN.md`, `SKILL.md`) berada dalam status sinkron.
 

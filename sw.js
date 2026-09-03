@@ -1,5 +1,5 @@
 // sw.js (FINAL - Santiks Coffee)
-const CACHE_VERSION = "v15";
+const CACHE_VERSION = "v16";
 const STATIC_CACHE = `santiks-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `santiks-runtime-${CACHE_VERSION}`;
 

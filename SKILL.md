@@ -67,7 +67,7 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 ## 🚫 Rules: DO & DON'T
 
 ### DO:
-- Keep search sticky and accessible during scrolling (`position: sticky`, `top: var(--header-height)`).
+- Keep search in normal document flow (`position: static`).
 - Open Product Detail directly from product card interaction (`[data-open-detail-card]` click & keyboard `Enter`/`Space`).
 - Keep cards minimal: Product Image $\to$ Product Name $\to$ Price tanpa tombol perantara.
 - Gunakan `#0088FF` untuk primary Figma-style UI blue (active category, active label, mobile location, interactive hover).
@@ -77,11 +77,14 @@ Dokumen ini berisi panduan implementasi teknis, aturan desain, dan **DOM contrac
 - Gunakan dan gunakan ulang token CSS resmi dari `:root`.
 - Buka Detail Menu dari katalog sebagai tampilan informasi produk murni.
 - Tampilkan data produk Santiks asli (kategori, harga, deskripsi, foto, badge).
-- Jaga agar homepage tetap ringkas (Header $\to$ Sticky Search $\to$ Category Tiles $\to$ Featured $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
+- Jaga agar homepage tetap ringkas (Header $\to$ Search Bar $\to$ Category Tiles $\to$ [Mobile: Featured Promo] $\to$ Catalogue $\to$ Detail Sheet $\to$ Footer).
 - Sembunyikan category subsection headings dan item count di desktop (`min-width: 992px`) agar katalog compact.
-- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v15`).
+- Sembunyikan Featured / Must Try promo section di desktop (`min-width: 992px`) dan pertahankan pada mobile/tablet.
+- Setiap update asset CSS/JS kritis wajib memperbarui `CACHE_VERSION` di `sw.js` (saat ini versi `v16`).
 
 ### DON'T:
+- Dilarang membuat search sticky/fixed kecuali diminta secara eksplisit.
+- Dilarang mengaktifkan kembali featured promo di desktop tanpa requirement baru.
 - Dilarang menambahkan tombol "Detail Menu" / "Detail" kembali ke UI.
 - Dilarang menambahkan tombol ordering CTA (WhatsApp, Pesan, Add to Cart, Buy Now, Checkout).
 - Dilarang menambahkan category bar/tiles ke dalam sticky stack kecuali diminta secara eksplisit.
