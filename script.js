@@ -1,4 +1,4 @@
-// script.js (FINAL - Redesigned UI Engine)
+// script.js (REFINED - Clean UI Engine)
 (() => {
   "use strict";
 
@@ -23,17 +23,8 @@
   // 2) Smooth scroll for internal anchors
   // -----------------------------
   (() => {
-    const navbar = document.querySelector(".desktop-navbar") || document.querySelector(".navbar");
-    const navMain = document.getElementById("navMain");
-    const getOffset = () => (navbar ? navbar.offsetHeight : 0);
-    const closeMobileNav = () => {
-      if (!navMain || !navMain.classList.contains("show")) return;
-      if (window.bootstrap?.Collapse) {
-        window.bootstrap.Collapse.getOrCreateInstance(navMain).hide();
-        return;
-      }
-      navMain.classList.remove("show");
-    };
+    const header = document.querySelector(".app-header");
+    const getOffset = () => (header ? header.offsetHeight : 0);
 
     $$('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
@@ -50,80 +41,13 @@
           top: Math.max(0, top),
           behavior: prefersReduced ? "auto" : "smooth",
         });
-        closeMobileNav();
         history.pushState(null, "", href);
       });
     });
   })();
 
   // -----------------------------
-  // 3) Desktop Navbar scrolled state
-  // -----------------------------
-  (() => {
-    const nav = document.querySelector(".desktop-navbar") || document.querySelector(".navbar");
-    if (!nav) return;
-    let isScrolled = false;
-    let ticking = false;
-
-    const applyState = () => {
-      const nextScrolled = window.scrollY > 15;
-      if (nextScrolled !== isScrolled) {
-        nav.classList.toggle("scrolled", nextScrolled);
-        isScrolled = nextScrolled;
-      }
-      ticking = false;
-    };
-
-    const toggle = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(applyState);
-    };
-
-    applyState();
-    window.addEventListener("scroll", toggle, { passive: true });
-  })();
-
-  // -----------------------------
-  // 4) IntersectionObserver for animations & Bottom Nav Active State
-  // -----------------------------
-  (() => {
-    const els = $$(".animate-item");
-    if (els.length) {
-      els.forEach((el) => el.classList.add("filtered-show"));
-    }
-
-    // Mobile Bottom Nav Active Link Observer
-    const sections = $$("section[id]");
-    const bottomNavLinks = $$(".bottom-nav-item");
-    const desktopNavLinks = $$(".desktop-navbar .nav-link");
-
-    if (sections.length && (bottomNavLinks.length || desktopNavLinks.length)) {
-      const obs = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter((e) => e.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-          if (!visible) return;
-          const id = `#${visible.target.id}`;
-
-          bottomNavLinks.forEach((l) =>
-            l.classList.toggle("active", l.getAttribute("href") === id)
-          );
-          desktopNavLinks.forEach((l) =>
-            l.classList.toggle("active", l.getAttribute("href") === id)
-          );
-        },
-        { rootMargin: "-25% 0px -45% 0px", threshold: [0.1, 0.25, 0.5] }
-      );
-
-      sections.forEach((s) => obs.observe(s));
-    }
-  })();
-
-  // -----------------------------
-  // 5) Filter menu grid & live search engine
+  // 3) Filter menu grid & live search engine
   // -----------------------------
   (() => {
     const menuGrid = document.getElementById("menuGrid");
@@ -133,7 +57,6 @@
     const items = $$("#menuGrid .menu-item");
     if (!buttons.length || !items.length) return;
 
-    const searchToggle = document.getElementById("menuSearchToggle");
     const searchBar = document.getElementById("menuSearchBar");
     const searchInput = document.getElementById("menuSearchInput");
     const searchClear = document.getElementById("menuSearchClear");
@@ -269,7 +192,7 @@
       const timer = window.setTimeout(() => {
         el.classList.add("d-none");
         hideTimers.delete(el);
-      }, 350);
+      }, 300);
       hideTimers.set(el, timer);
     };
 
@@ -331,11 +254,8 @@
     };
 
     const getMobileStickyOffset = () => {
-      const topbar = $(".mobile-app-header") || $(".mobile-menu-topbar");
-      const pillsWrapper = $(".category-scroll-container") || $(".filter-pills-wrapper");
-      const topbarHeight = topbar?.offsetParent ? topbar.offsetHeight : 0;
-      const pillsHeight = pillsWrapper?.offsetParent ? pillsWrapper.offsetHeight : 0;
-      return topbarHeight + pillsHeight + 16;
+      const header = $(".app-header");
+      return (header?.offsetHeight || 60) + 20;
     };
 
     const scrollToCategory = (category) => {
@@ -412,7 +332,7 @@
         const match = filter === "all" || item.dataset.category === filter;
         if (match) {
           showItem(item, delay);
-          delay += 30;
+          delay += 20;
         } else {
           hideItem(item);
         }
@@ -445,7 +365,7 @@
           const category = item.dataset.category || "";
           matchCounts.set(category, (matchCounts.get(category) || 0) + 1);
           showItem(item, delay);
-          delay += 25;
+          delay += 20;
           visibleCount += 1;
         } else {
           hideItem(item);
@@ -514,13 +434,6 @@
       });
     });
 
-    searchToggle?.addEventListener("click", () => {
-      if (searchInput) {
-        searchInput.focus();
-        scrollToCategory(buttons[0]?.getAttribute("data-filter") || "musttry");
-      }
-    });
-
     searchInput?.addEventListener("input", () => {
       applySearch(searchInput.value);
     });
@@ -545,7 +458,7 @@
   })();
 
   // -----------------------------
-  // 6) Drag scroll for horizontal rows
+  // 4) Drag scroll for category tiles row
   // -----------------------------
   (() => {
     const scrollers = $$("[data-drag-scroll]");
@@ -603,7 +516,7 @@
   })();
 
   // -----------------------------
-  // 7) Service worker registration
+  // 5) Service worker registration
   // -----------------------------
   (() => {
     if ("serviceWorker" in navigator) {
